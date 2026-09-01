@@ -470,6 +470,34 @@ def check_return_eligibility(order_id: str, context: Optional[ToolContext] = Non
         return lookup
 
     order = lookup["order"]
+    delivery_date_str = order.get("delivery_date") or order.get("purchase_date")
+    is_eligible = True
+    days_since_delivery = 0
+
+    if delivery_date_str:
+        try:
+            clean_date_str = str(delivery_date_str).split()[0]
+            d_date = datetime.datetime.strptime(clean_date_str, "%Y-%m-%d")
+            today = datetime.datetime.now()
+            days_since_delivery = (today - d_date).days
+            if days_since_delivery > 30 or days_since_delivery < 0:
+                is_eligible = False
+        except Exception:
+            pass
+
+    if not is_eligible:
+        return {
+            "status": "success",
+            "order_id": order["order_id"],
+            "item_name": order["item_name"],
+            "delivery_date": delivery_date_str,
+            "days_since_delivery": days_since_delivery,
+            "return_window_days": 30,
+            "is_eligible_for_return": False,
+            "ineligibility_reason": f"Order was delivered on {delivery_date_str} ({days_since_delivery} days ago), which exceeds our 30-day return window policy.",
+            "policy_note": "According to store policy, returns can only be requested within 30 days of delivery."
+        }
+
     return {
         "status": "success",
         "order_id": order["order_id"],
