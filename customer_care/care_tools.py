@@ -204,9 +204,32 @@ def lookup_order(order_id: str, context: Optional[ToolContext] = None) -> Dict[s
         context.state["item_model"] = order["item_model"]
         context.state["serial_number"] = order.get("serial_number")
 
+    raw_size = len(str(order))
+    pruned_order = {
+        "order_id": order.get("order_id"),
+        "customer_name": order.get("customer_name"),
+        "item_name": order.get("item_name"),
+        "item_model": order.get("item_model"),
+        "delivery_status": order.get("delivery_status"),
+        "carrier": order.get("carrier"),
+        "tracking_number": order.get("tracking_number"),
+        "purchase_date": order.get("purchase_date"),
+        "delivery_date": order.get("delivery_date"),
+        "total_amount": order.get("total_amount"),
+        "serial_number": order.get("serial_number"),
+        "warranty_period_years": order.get("warranty_period_years", 1)
+    }
+    pruned_size = len(str(pruned_order))
+
     return {
         "status": "success",
-        "order": order
+        "order": pruned_order,
+        "payload_reduction": {
+            "raw_bytes": raw_size,
+            "pruned_bytes": pruned_size,
+            "bytes_saved": max(0, raw_size - pruned_size),
+            "reduction_ratio_pct": round((1.0 - (pruned_size / max(raw_size, 1))) * 100, 1)
+        }
     }
 
 
@@ -873,4 +896,35 @@ def close_support_ticket(
         "message": f"Ticket {ticket_id} has been marked as Closed.",
         "ticket": updated
     }
+
+
+def adapt_response_tone_and_language(
+    target_language: str = "English",
+    tone_style: str = "Empathetic Concierge",
+    context: Optional[ToolContext] = None
+) -> Dict[str, Any]:
+    """Configures customer care response language and communication persona tone.
+
+    Args:
+        target_language: Target language ('English', 'Spanish', 'French', 'German', 'Japanese', 'Hindi').
+        tone_style: Persona tone ('Empathetic Concierge', 'Technical Specialist', 'Executive VIP').
+        context: Optional ADK ToolContext.
+
+    Returns:
+        Dict confirming persona adaptation settings.
+    """
+    if context and hasattr(context, "state"):
+        context.state["preferred_language"] = target_language
+        context.state["preferred_tone"] = tone_style
+
+    return {
+        "status": "success",
+        "target_language": target_language,
+        "tone_style": tone_style,
+        "instructions": (
+            f"Please deliver all subsequent responses in **{target_language}** using a **{tone_style}** tone. "
+            f"Maintain standard markdown formatting, clear bullet points, and exact policy citations."
+        )
+    }
+
 

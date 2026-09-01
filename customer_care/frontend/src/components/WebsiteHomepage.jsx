@@ -15,10 +15,12 @@ import {
   LifeBuoy,
   ChevronRight,
   Shield,
-  Bot
+  Bot,
+  BookOpen,
+  Cpu
 } from 'lucide-react';
 
-export default function WebsiteHomepage({ onOpenChat, onSelectPrompt, onSwitchTab }) {
+export default function WebsiteHomepage({ onOpenChat, onSelectPrompt, onSwitchTab, onOpenFaqExplorer, onOpenSystemStats }) {
   const handleQuickAction = (promptText) => {
     onOpenChat();
     if (onSelectPrompt) {
@@ -70,11 +72,19 @@ export default function WebsiteHomepage({ onOpenChat, onSelectPrompt, onSwitchTa
               </button>
 
               <button
-                onClick={() => handleQuickAction('Track order ORD-10021')}
-                className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/90 px-5 py-3 text-sm font-medium text-zinc-200 hover:bg-zinc-800 hover:text-white transition-all"
+                onClick={() => onOpenFaqExplorer && onOpenFaqExplorer()}
+                className="flex items-center gap-2 rounded-xl border border-blue-500/40 bg-blue-600/10 px-5 py-3 text-sm font-medium text-blue-300 hover:bg-blue-600 hover:text-white transition-all shadow-md shadow-blue-600/10"
               >
-                <Package className="h-4 w-4 text-zinc-400" />
-                <span>Track Demo Order (ORD-10021)</span>
+                <BookOpen className="h-4 w-4 text-blue-400" />
+                <span>FAQ RAG Explorer</span>
+              </button>
+
+              <button
+                onClick={() => onOpenSystemStats && onOpenSystemStats()}
+                className="flex items-center gap-2 rounded-xl border border-purple-500/40 bg-purple-600/10 px-5 py-3 text-sm font-medium text-purple-300 hover:bg-purple-600 hover:text-white transition-all shadow-md shadow-purple-600/10"
+              >
+                <Cpu className="h-4 w-4 text-purple-400" />
+                <span>AI Stats Dashboard</span>
               </button>
             </div>
 

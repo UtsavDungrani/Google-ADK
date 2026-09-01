@@ -214,8 +214,24 @@ export default function MessageBubble({ message, onOpenTicket }) {
           </div>
         )}
 
-        <div className={`mt-1 text-[10px] ${isUser ? 'text-blue-200 text-right' : 'text-zinc-500'}`}>
-          {message.timestamp}
+        <div className={`mt-2 text-[10px] flex items-center justify-between gap-2 border-t border-zinc-800/80 pt-1.5 ${isUser ? 'text-blue-200' : 'text-zinc-400'}`}>
+          {message.token_metrics ? (
+            <span className={`font-mono text-[10px] flex items-center gap-1.5 px-2 py-0.5 rounded border ${
+              isUser 
+                ? 'bg-blue-700/50 border-blue-500/40 text-blue-100' 
+                : 'bg-zinc-950/80 border-zinc-800 text-amber-300'
+            }`}>
+              <span>⚡ {message.token_metrics.total_tokens} tokens</span>
+              {message.token_metrics.completion_tokens && (
+                <span className="text-zinc-400 font-normal hidden sm:inline">
+                  (Prompt: {message.token_metrics.prompt_tokens} | Res: {message.token_metrics.completion_tokens} | Saved: {message.token_metrics.tokens_saved})
+                </span>
+              )}
+            </span>
+          ) : (
+            <span />
+          )}
+          <span className="font-mono text-[10px] text-zinc-500">{message.timestamp}</span>
         </div>
       </div>
     </div>

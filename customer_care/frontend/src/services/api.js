@@ -107,3 +107,83 @@ export async function closeTicket(ticketId) {
 
   return await res.json();
 }
+
+// -------------------------------------------------------------
+// FAQ KNOWLEDGE RAG & SYSTEM ARCHITECTURE APIs
+// -------------------------------------------------------------
+
+export async function searchFaqApi(query, category = 'All', topK = 4) {
+  try {
+    const url = `${API_BASE}/faq/search?query=${encodeURIComponent(query)}&category=${encodeURIComponent(category)}&top_k=${topK}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Failed to search FAQ knowledge base');
+    return await res.json();
+  } catch (err) {
+    console.error('Error searching FAQ:', err);
+    return { status: 'error', faq_results: [] };
+  }
+}
+
+export async function addFaqApi(question, answer, category = 'General Support') {
+  const res = await fetch(`${API_BASE}/faq/add`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ question, answer, category }),
+  });
+  if (!res.ok) {
+    const errData = await res.json().catch(() => ({}));
+    throw new Error(errData.detail || 'Failed to add FAQ to RAG vector store');
+  }
+  return await res.json();
+}
+
+export async function fetchFaqCategoriesApi() {
+  try {
+    const res = await fetch(`${API_BASE}/faq/categories`);
+    if (!res.ok) throw new Error('Failed to fetch FAQ categories');
+    return await res.json();
+  } catch (err) {
+    return { indexed_categories: [], total_chunks: 0 };
+  }
+}
+
+export async function fetchSystemStatsApi() {
+  try {
+    const res = await fetch(`${API_BASE}/stats/system`);
+    if (!res.ok) throw new Error('Failed to fetch system stats');
+    return await res.json();
+  } catch (err) {
+    return { status: 'error' };
+  }
+}
+
+export async function listFaqsApi(category = 'All') {
+  try {
+    const url = `${API_BASE}/faq/list?category=${encodeURIComponent(category)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Failed to fetch MongoDB FAQs');
+    return await res.json();
+  } catch (err) {
+    return { status: 'error', faqs: [] };
+  }
+}
+
+export async function deleteFaqApi(faqId) {
+  const res = await fetch(`${API_BASE}/faq/${encodeURIComponent(faqId)}`, {
+    method: 'DELETE',
+  });
+  if (!res.ok) throw new Error('Failed to delete FAQ');
+  return await res.json();
+}
+
+export async function fetchContextMetricsApi() {
+  try {
+    const res = await fetch(`${API_BASE}/stats/context-metrics`);
+    if (!res.ok) throw new Error('Failed to fetch context metrics');
+    return await res.json();
+  } catch (err) {
+    return { status: 'error' };
+  }
+}
+
+

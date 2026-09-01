@@ -40,12 +40,15 @@ try:
         get_ticket_status,
         list_customer_tickets,
         vendor_reply_ticket,
-        close_support_ticket
+        close_support_ticket,
+        adapt_response_tone_and_language
     )
     from .rag_tools import (
         search_product_guides,
         troubleshoot_product_issue,
-        index_customer_care_docs
+        index_customer_care_docs,
+        search_faq_knowledge_base,
+        add_dynamic_faq
     )
     from .lstm_sentiment import run_lstm_sentiment_analysis
     from .finetune_adapter import apply_finetuned_care_adapter
@@ -66,12 +69,15 @@ except (ImportError, ValueError):
         get_ticket_status,
         list_customer_tickets,
         vendor_reply_ticket,
-        close_support_ticket
+        close_support_ticket,
+        adapt_response_tone_and_language
     )
     from rag_tools import (
         search_product_guides,
         troubleshoot_product_issue,
-        index_customer_care_docs
+        index_customer_care_docs,
+        search_faq_knowledge_base,
+        add_dynamic_faq
     )
     from lstm_sentiment import run_lstm_sentiment_analysis
     from finetune_adapter import apply_finetuned_care_adapter
@@ -166,17 +172,22 @@ Your Mission:
 product_support_agent = Agent(
     name="product_troubleshooting_specialist",
     model=MODEL_NAME,
-    description="Specialist in technical troubleshooting, device setup, error codes, and fine-tuned domain adaptation via RAG.",
+    description="Specialist in technical troubleshooting, FAQ knowledge retrieval, device setup, error codes, and fine-tuned domain adaptation via RAG.",
     instruction="""You are the Technical Support and Diagnostic Specialist.
 Your Mission:
 1. When a customer reports device malfunctions, error codes, Wi-Fi pairing issues, audio sync, or cleaning alerts, call `troubleshoot_product_issue` or `search_product_guides`.
-2. To provide strict schema-compliant resolution, apply `apply_finetuned_care_adapter`.
-3. Present clear, numbered troubleshooting steps matching the official product manuals.
-4. Always cite the documentation source at the end (e.g. `*Source: docs/smart_tv_manual.md (Section)*`).
-5. If remote troubleshooting fails or documentation does not cover the specific issue, offer to create an asynchronous vendor support ticket using `create_support_ticket` or advise warranty replacement.""",
+2. When a customer asks general policy, shipping, return, warranty, billing, or store FAQ questions, call `search_faq_knowledge_base`.
+3. To adapt target language or persona tone, call `adapt_response_tone_and_language`.
+4. To provide strict schema-compliant resolution, apply `apply_finetuned_care_adapter`.
+5. Present clear, numbered troubleshooting steps matching official documentation.
+6. Always cite the documentation source at the end (e.g. `*Source: MongoDB Database (Category)*`).
+7. If remote troubleshooting fails or documentation does not cover the specific issue, offer to create an asynchronous vendor support ticket using `create_support_ticket` or advise warranty replacement.""",
     tools=[
         troubleshoot_product_issue,
         search_product_guides,
+        search_faq_knowledge_base,
+        add_dynamic_faq,
+        adapt_response_tone_and_language,
         apply_finetuned_care_adapter,
         create_support_ticket
     ],
@@ -192,12 +203,14 @@ returns_warranty_agent = Agent(
 Your Mission:
 1. For return requests, check 30-day eligibility with `check_return_eligibility` and generate return labels using `create_rma_return`.
 2. For hardware defects, verify warranty coverage using `check_warranty_status` and dispatch replacement units with `file_warranty_claim`.
-3. Explain refund timelines (3-5 business days) and zero restocking fees clearly.""",
+3. For general return/warranty FAQ inquiries, search the store knowledge base with `search_faq_knowledge_base`.
+4. Explain refund timelines (3-5 business days) and zero restocking fees clearly.""",
     tools=[
         check_return_eligibility,
         create_rma_return,
         check_warranty_status,
-        file_warranty_claim
+        file_warranty_claim,
+        search_faq_knowledge_base
     ],
     before_tool_callback=tool_argument_guardrail,
     before_model_callback=input_safety_guardrail
@@ -257,12 +270,13 @@ You are the Lead Post-Purchase Customer Care Assistant for our store.
 You integrate cutting-edge ML and AI engineering capabilities:
 1. **Large-Scale 99,441 Order Knowledge**: Call `lookup_order`, `track_shipment`, `predict_delivery_delay_risk`, or `get_ecommerce_dataset_kpis`.
 2. **LSTM Neural Sequence Sentiment Analysis**: Call `run_lstm_sentiment_analysis` to evaluate customer sentiment trajectory and churn risk.
-3. **Hybrid RAG Knowledge Retrieval**: Call `troubleshoot_product_issue` or `search_product_guides` to retrieve exact manual instructions with citations (*Source: docs/filename.md*).
-4. **Fine-Tuned Domain Adapters**: Call `apply_finetuned_care_adapter` for structured post-purchase resolution templates.
-5. **Returns & RMA Automation**: Call `check_return_eligibility` and `create_rma_return`.
-6. **Warranty Claims & Replacements**: Call `check_warranty_status` and `file_warranty_claim`.
-7. **Courtesy Credits & Escalations**: Call `issue_courtesy_credit` ($25-$50) or `escalate_to_human_supervisor`.
-8. **Asynchronous Vendor Support Tickets**: When an inquiry cannot be answered by official manuals or automated tools, or when the customer asks to contact the vendor/open a ticket, call `create_support_ticket` and supply the user with their Ticket ID and vendor SLA. When the user asks generally for ticket status without supplying a Ticket ID or Order ID, simply ask them to provide their Ticket ID or Order ID. Only run `get_ticket_status` when a specific ID is provided.
+3. **Hybrid FAQ & Manual RAG Knowledge Retrieval**: Call `search_faq_knowledge_base`, `troubleshoot_product_issue`, or `search_product_guides` to retrieve exact store policies, shipping/return FAQs, and manual instructions with citations (*Source: MongoDB Database (Category)*).
+4. **Multilingual & Persona Adaptation**: Call `adapt_response_tone_and_language` to pivot across languages (English, Spanish, French, German, Japanese, Hindi) and persona styles.
+5. **Fine-Tuned Domain Adapters**: Call `apply_finetuned_care_adapter` for structured post-purchase resolution templates.
+6. **Returns & RMA Automation**: Call `check_return_eligibility` and `create_rma_return`.
+7. **Warranty Claims & Replacements**: Call `check_warranty_status` and `file_warranty_claim`.
+8. **Courtesy Credits & Escalations**: Call `issue_courtesy_credit` ($25-$50) or `escalate_to_human_supervisor`.
+9. **Asynchronous Vendor Support Tickets**: When an inquiry cannot be answered by official manuals or automated tools, or when the customer asks to contact the vendor/open a ticket, call `create_support_ticket` and supply the user with their Ticket ID and vendor SLA. When the user asks generally for ticket status without supplying a Ticket ID or Order ID, simply ask them to provide their Ticket ID or Order ID. Only run `get_ticket_status` when a specific ID is provided.
 
 ### Communication Tone:
 - Empathetic, polite, proactive, and concise.
@@ -272,7 +286,7 @@ You integrate cutting-edge ML and AI engineering capabilities:
 root_agent = Agent(
     name="customer_care_coordinator",
     model=MODEL_NAME,
-    description="Comprehensive Post-Purchase AI Customer Care Chatbot combining Multi-Agents, LSTM Sentiment, Fine-Tuning, Hybrid RAG, 99k+ Kaggle Orders, and Asynchronous Vendor Ticketing.",
+    description="Comprehensive Post-Purchase AI Customer Care Chatbot combining Multi-Agents, LSTM Sentiment, Fine-Tuning, Hybrid FAQ RAG, 99k+ Kaggle Orders, Multilingual Adaptation, and Asynchronous Vendor Ticketing.",
     instruction=CARE_COORDINATOR_INSTRUCTIONS,
     sub_agents=[
         order_logistics_agent,
@@ -286,6 +300,9 @@ root_agent = Agent(
         track_shipment,
         predict_delivery_delay_risk,
         get_ecommerce_dataset_kpis,
+        search_faq_knowledge_base,
+        add_dynamic_faq,
+        adapt_response_tone_and_language,
         troubleshoot_product_issue,
         search_product_guides,
         check_return_eligibility,

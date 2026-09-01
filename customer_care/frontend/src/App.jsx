@@ -8,6 +8,8 @@ import ChatHistorySidebar from './components/ChatHistorySidebar';
 import TicketModal from './components/TicketModal';
 import WebsiteHomepage from './components/WebsiteHomepage';
 import ChatWidget from './components/ChatWidget';
+import FaqKnowledgeExplorer from './components/FaqKnowledgeExplorer';
+import SystemArchitectureModal from './components/SystemArchitectureModal';
 import { 
   sendChatMessage, 
   checkHealth, 
@@ -23,6 +25,7 @@ const INITIAL_MESSAGE = {
 
 How can I help you today?
 * Track an order or shipment (\`ORD-10021\`, \`ORD-10023\`)
+* Search FAQ policy & store guidelines (30-day return, warranty, international shipping)
 * Troubleshoot error codes & device setup
 * Return an item & generate prepaid RMA labels
 * File warranty replacement claims
@@ -39,6 +42,10 @@ export default function App() {
   const [sessionId, setSessionId] = useState(null);
   const [sessionState, setSessionState] = useState({});
   const [isMongoOnline, setIsMongoOnline] = useState(true);
+
+  // FAQ & Stats Modal State
+  const [isFaqOpen, setIsFaqOpen] = useState(false);
+  const [isStatsOpen, setIsStatsOpen] = useState(false);
 
   // History state
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -107,14 +114,21 @@ export default function App() {
         setSessionState(data.session_state);
       }
 
-      const botMessage = {
+      const botMessage = data.bot_turn || {
         id: `bot-${Date.now()}`,
         role: 'assistant',
         text: data.response,
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        token_metrics: data.token_metrics
       };
 
-      setMessages((prev) => [...prev, botMessage]);
+      setMessages((prev) => {
+        const updated = [...prev];
+        if (data.user_turn && updated.length > 0 && updated[updated.length - 1].role === 'user') {
+          updated[updated.length - 1] = data.user_turn;
+        }
+        return [...updated, botMessage];
+      });
       await loadHistorySessions();
     } catch (err) {
       const errorMessage = {
@@ -190,6 +204,8 @@ export default function App() {
         messageCount={messages.length}
         sidebarOpen={sidebarOpen}
         onToggleSidebar={() => setSidebarOpen((prev) => !prev)}
+        onOpenFaqExplorer={() => setIsFaqOpen(true)}
+        onOpenSystemStats={() => setIsStatsOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -205,6 +221,8 @@ export default function App() {
                 handleSendMessage(promptText);
               }}
               onSwitchTab={(tab) => setActiveTab(tab)}
+              onOpenFaqExplorer={() => setIsFaqOpen(true)}
+              onOpenSystemStats={() => setIsStatsOpen(true)}
             />
 
             {/* Bottom-Right Floating Chatbot Widget Launcher & Popup */}
@@ -319,6 +337,22 @@ export default function App() {
           onClose={() => setModalTicketId(null)}
         />
       )}
+
+      {/* FAQ Knowledge Base Explorer Modal */}
+      <FaqKnowledgeExplorer
+        isOpen={isFaqOpen}
+        onClose={() => setIsFaqOpen(false)}
+        onSelectQuestionToChat={(faqQuestion) => {
+          setActiveTab('chat');
+          handleSendMessage(faqQuestion);
+        }}
+      />
+
+      {/* AI System Architecture Dashboard Modal */}
+      <SystemArchitectureModal
+        isOpen={isStatsOpen}
+        onClose={() => setIsStatsOpen(false)}
+      />
 
     </div>
   );

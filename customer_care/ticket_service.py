@@ -31,7 +31,7 @@ except (ImportError, ValueError):
 
 logger = logging.getLogger("customer_care.ticket_service")
 
-TICKETS_FILE_PATH = os.path.join(os.path.dirname(__file__), "docs", "tickets.json")
+TICKETS_FILE_PATH = os.path.join(os.path.dirname(__file__), ".adk", "tickets.json")
 
 # In-memory / Fallback seed dictionary
 _FALLBACK_SEED_TICKETS: Dict[str, Dict[str, Any]] = {

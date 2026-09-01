@@ -5,7 +5,9 @@ import {
   Ticket, 
   Home,
   PanelLeftClose,
-  PanelLeft
+  PanelLeft,
+  BookOpen,
+  Cpu
 } from 'lucide-react';
 
 export default function ChatHeader({ 
@@ -16,7 +18,9 @@ export default function ChatHeader({
   isMongoOnline,
   messageCount,
   sidebarOpen,
-  onToggleSidebar
+  onToggleSidebar,
+  onOpenFaqExplorer,
+  onOpenSystemStats
 }) {
   const activeOrder = sessionState?.current_order_id;
   const activeTicket = sessionState?.active_ticket_id;
@@ -91,6 +95,24 @@ export default function ChatHeader({
 
         {/* Right: Actions */}
         <div className="flex items-center gap-2">
+          <button
+            onClick={onOpenFaqExplorer}
+            className="flex items-center gap-1 rounded-md border border-blue-500/30 bg-blue-600/20 px-2.5 py-1 text-xs text-blue-300 hover:bg-blue-600 hover:text-white transition-colors"
+            title="Search FAQ RAG Knowledge Base"
+          >
+            <BookOpen className="h-3.5 w-3.5 text-blue-400" />
+            <span className="hidden sm:inline font-medium">FAQ RAG</span>
+          </button>
+
+          <button
+            onClick={onOpenSystemStats}
+            className="flex items-center gap-1 rounded-md border border-purple-500/30 bg-purple-600/20 px-2.5 py-1 text-xs text-purple-300 hover:bg-purple-600 hover:text-white transition-colors"
+            title="View AI System Architecture Dashboard"
+          >
+            <Cpu className="h-3.5 w-3.5 text-purple-400" />
+            <span className="hidden sm:inline font-medium">AI Stats</span>
+          </button>
+
           {activeTab === 'chat' && (
             <button
               onClick={onResetChat}

@@ -133,6 +133,16 @@ def get_chat_sessions_collection() -> Optional[Any]:
     return db["chat_sessions"] if db is not None else None
 
 
+def get_faqs_collection() -> Optional[Any]:
+    db = get_db()
+    return db["faqs"] if db is not None else None
+
+
+def get_knowledge_docs_collection() -> Optional[Any]:
+    db = get_db()
+    return db["knowledge_docs"] if db is not None else None
+
+
 # -------------------------------------------------------------
 # Seed Data Definitions
 # -------------------------------------------------------------
@@ -246,6 +256,239 @@ SEED_TICKETS = [
 ]
 
 
+SEED_KNOWLEDGE_DOCS = [
+    # Smart TV Manual
+    {
+        "doc_id": "KNOW-TV-001",
+        "category": "Smart TV",
+        "doc_title": "Smart TV User Manual & Diagnostics Guide",
+        "heading": "Issue: Error Code TV-NET-502 (Cannot Connect to Wi-Fi)",
+        "content": "Symptoms: Network setup failure, flashing red Wi-Fi indicator.\nTroubleshooting Steps:\n1. Power cycle the TV by unplugging power for 60 seconds.\n2. Hold down Remote Home + Back buttons for 5 seconds to initiate Bluetooth re-pairing.\n3. Navigate to Settings > Network > Forget Network and reconnect to your 2.4GHz/5GHz Wi-Fi network.\n4. If error persists, assign static DNS 8.8.8.8.",
+        "tags": ["tv", "wifi", "network", "TV-NET-502", "error"],
+        "status": "active"
+    },
+    {
+        "doc_id": "KNOW-TV-002",
+        "category": "Smart TV",
+        "doc_title": "Smart TV User Manual & Diagnostics Guide",
+        "heading": "Issue: No Sound or Delayed Audio via Soundbar / AV Receiver",
+        "content": "Troubleshooting Steps:\n1. Ensure HDMI eARC / ARC cable is connected to HDMI Port 2 (eARC enabled).\n2. Navigate to Settings > Sound > Digital Audio Output and change setting from PCM to Auto / Pass-Through.\n3. Turn off TV and Soundbar, wait 30 seconds, then power on soundbar first.",
+        "tags": ["tv", "audio", "soundbar", "earc", "delay"],
+        "status": "active"
+    },
+    {
+        "doc_id": "KNOW-TV-003",
+        "category": "Smart TV",
+        "doc_title": "Smart TV User Manual & Diagnostics Guide",
+        "heading": "Display Flickering & Black Screen Calibration",
+        "content": "Troubleshooting Steps:\n1. Disable Ambient Light Sensor and Eco Energy Saver under Picture Settings.\n2. Perform a Picture Test under Settings > Support > Self Diagnosis.\n3. If vertical/horizontal lines remain visible, request a hardware warranty panel replacement.",
+        "tags": ["tv", "display", "flicker", "screen", "picture"],
+        "status": "active"
+    },
+    {
+        "doc_id": "KNOW-TV-004",
+        "category": "Smart TV",
+        "doc_title": "Smart TV User Manual & Diagnostics Guide",
+        "heading": "Factory Reset Procedure",
+        "content": "To restore TV to factory default settings:\n1. Navigate to Settings > General > Reset to Initial Settings.\n2. Enter default PIN (0000).\n3. Allow 3 minutes for system reboot.",
+        "tags": ["tv", "reset", "factory", "pin"],
+        "status": "active"
+    },
+
+    # Espresso Machine Manual
+    {
+        "doc_id": "KNOW-ESP-001",
+        "category": "Espresso Machine",
+        "doc_title": "BaristaPro Espresso Machine Manual",
+        "heading": "First-Time Setup & Water Circuit Priming",
+        "content": "Steps:\n1. Fill water reservoir with filtered water.\n2. Turn dial to Hot Water position for 20 seconds to purge air pockets from boiler.\n3. Attach portafilter without coffee grounds and run 2 single-shot flush cycles.",
+        "tags": ["espresso", "setup", "priming", "water"],
+        "status": "active"
+    },
+    {
+        "doc_id": "KNOW-ESP-002",
+        "category": "Espresso Machine",
+        "doc_title": "BaristaPro Espresso Machine Manual",
+        "heading": "Automatic Alert: Orange Scale Buildup Icon",
+        "content": "Descaling Instructions:\n1. Mix 50% white vinegar or official descaling solution with 50% water in reservoir.\n2. Hold Brew + Steam buttons for 3 seconds to initiate Descaling Mode.\n3. Dispense full reservoir through steam wand and group head, then rinse with fresh water twice.",
+        "tags": ["espresso", "descaling", "cleaning", "orange light", "scale"],
+        "status": "active"
+    },
+    {
+        "doc_id": "KNOW-ESP-003",
+        "category": "Espresso Machine",
+        "doc_title": "BaristaPro Espresso Machine Manual",
+        "heading": "Low Extraction Pressure / Weak Crema Troubleshooting",
+        "content": "Fixes:\n1. Ensure coffee grind size is set to Fine (Setting 2-4).\n2. Apply 30 lbs of firm tamping pressure.\n3. Ensure portafilter basket is not overfilled (18g for double shot).",
+        "tags": ["espresso", "pressure", "crema", "grind"],
+        "status": "active"
+    },
+    {
+        "doc_id": "KNOW-ESP-004",
+        "category": "Espresso Machine",
+        "doc_title": "BaristaPro Espresso Machine Manual",
+        "heading": "Grinder Jam & Bean Hopper Clearance",
+        "content": "Fixes:\n1. Turn off power switch and remove bean hopper.\n2. Vacuum out residual unground beans from burr chamber.\n3. Rotate upper burr counterclockwise to unblock hard beans.",
+        "tags": ["espresso", "grinder", "jam", "beans"],
+        "status": "active"
+    },
+
+    # Headphones Manual
+    {
+        "doc_id": "KNOW-HP-001",
+        "category": "Headphones",
+        "doc_title": "ProSound ANC Headphones Manual",
+        "heading": "Bluetooth Pairing & Dual Device Multipoint",
+        "content": "Pairing Steps:\n1. Press and hold Power button for 5 seconds until LED blinks blue/red.\n2. Select PS-ANC-900 in your smartphone's Bluetooth settings.\n3. Multipoint: Pair Device 1, disconnect Bluetooth, pair Device 2, then reconnect Device 1.",
+        "tags": ["headphones", "bluetooth", "pairing", "multipoint"],
+        "status": "active"
+    },
+    {
+        "doc_id": "KNOW-HP-002",
+        "category": "Headphones",
+        "doc_title": "ProSound ANC Headphones Manual",
+        "heading": "Active Noise Cancellation (ANC) & Ambient Transparency Mode",
+        "content": "Instructions:\n1. Tap left earcup ANC button to cycle: ANC High -> Transparency -> ANC Off.\n2. Transparency mode uses exterior microphones to pass ambient conversation.",
+        "tags": ["headphones", "anc", "noise cancellation", "ambient"],
+        "status": "active"
+    },
+    {
+        "doc_id": "KNOW-HP-003",
+        "category": "Headphones",
+        "doc_title": "ProSound ANC Headphones Manual",
+        "heading": "Audio Lag / Video Sync & Static Noise Fix",
+        "content": "Fixes:\n1. Enable Low Latency Gaming/Media Mode in ProSound App.\n2. Disconnect and re-pair Bluetooth connection.\n3. Keep distance within 30 feet of source device.",
+        "tags": ["headphones", "latency", "lag", "static"],
+        "status": "active"
+    },
+
+    # Return & Warranty Policy
+    {
+        "doc_id": "KNOW-POL-001",
+        "category": "Returns",
+        "doc_title": "Official Return & Warranty Policy",
+        "heading": "30-Day Hassle-Free Return Policy",
+        "content": "Return Rules:\n- Customers may return eligible products within 30 days of delivery.\n- Items must be in original condition with included accessories and packaging.\n- We issue 100% full refunds with zero restocking fees.\n- Prepaid return shipping labels (FedEx/UPS) are provided instantly via chat.",
+        "tags": ["returns", "policy", "30-day", "refund", "rma"],
+        "status": "active"
+    },
+    {
+        "doc_id": "KNOW-POL-002",
+        "category": "Warranty",
+        "doc_title": "Official Return & Warranty Policy",
+        "heading": "1-Year Limited Manufacturer Warranty",
+        "content": "Warranty Coverage:\n- Covers internal motherboard defects, heating element failures, power supply faults, and screen panel issues.\n- Excludes liquid damage, physical drops, and unauthorized disassembly.\n- Replacements are dispatched with free return shipping for defective hardware.",
+        "tags": ["warranty", "coverage", "claims", "hardware"],
+        "status": "active"
+    },
+
+    # Shipping & Health FAQs
+    {
+        "doc_id": "KNOW-FAQ-001",
+        "category": "Shipping",
+        "doc_title": "Store FAQ & Policy Guide",
+        "heading": "Standard Shipping Options & Delivery Timelines",
+        "content": "Shipping Tiers:\n- Standard Ground: 3-5 business days (Free over $50).\n- Expedited Express: 2 business days ($12.99).\n- Overnight Priority: 1 business day ($24.99).\nOrders before 2:00 PM EST ship same day.",
+        "tags": ["shipping", "options", "timelines", "ground", "express"],
+        "status": "active"
+    },
+    {
+        "doc_id": "KNOW-FAQ-002",
+        "category": "Health & Safety",
+        "doc_title": "Store FAQ & Policy Guide",
+        "heading": "Health Issues or Skin Irritation from Product Usage",
+        "content": "Safety Protocol:\nDiscontinue use immediately and rinse affected area with water. Contact Customer Support with your Order ID for an immediate health report, prepaid return authorization, or courtesy credit.",
+        "tags": ["health", "safety", "rashes", "skin", "allergy", "irritation"],
+        "status": "active"
+    }
+]
+
+
+def list_knowledge_chunks(category: Optional[str] = None) -> List[Dict[str, Any]]:
+    """Fetches knowledge docs and FAQs stored in MongoDB."""
+    col = get_knowledge_docs_collection()
+    if col is None:
+        return []
+    query = {"status": "active"}
+    if category and category.lower() != "all":
+        query["category"] = {"$regex": f"^{category}$", "$options": "i"}
+    docs = list(col.find(query))
+    return serialize_docs(docs)
+
+
+def insert_knowledge_chunk(heading: str, content: str, category: str = "General Support", doc_title: str = "Store FAQ Guide", tags: Optional[List[str]] = None) -> Dict[str, Any]:
+    """Inserts a new knowledge chunk/FAQ into MongoDB knowledge_docs collection."""
+    col = get_knowledge_docs_collection()
+    import datetime, uuid
+    doc_id = f"KNOW-DB-{uuid.uuid4().hex[:6].upper()}"
+    new_doc = {
+        "doc_id": doc_id,
+        "category": category,
+        "doc_title": doc_title,
+        "heading": heading,
+        "content": content,
+        "tags": tags or [],
+        "status": "active",
+        "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+    if col is not None:
+        col.insert_one(new_doc)
+    return serialize_doc(new_doc)
+
+
+def delete_knowledge_chunk(doc_id: str) -> bool:
+    """Deletes a knowledge chunk from MongoDB by doc_id."""
+    col = get_knowledge_docs_collection()
+    if col is None:
+        return False
+    res = col.delete_one({"doc_id": doc_id})
+    return res.deleted_count > 0
+
+
+def list_faq_docs(category: Optional[str] = None) -> List[Dict[str, Any]]:
+    """Fetches FAQ documents stored in MongoDB."""
+    col = get_faqs_collection()
+    if col is None:
+        return []
+    query = {"status": "active"}
+    if category and category.lower() != "all":
+        query["category"] = {"$regex": f"^{category}$", "$options": "i"}
+    docs = list(col.find(query))
+    return serialize_docs(docs)
+
+
+def insert_faq_doc(question: str, answer: str, category: str = "General Support", tags: Optional[List[str]] = None) -> Dict[str, Any]:
+    """Inserts a new FAQ document into MongoDB."""
+    # Also insert into knowledge_docs for unified search
+    insert_knowledge_chunk(heading=question, content=answer, category=category, doc_title="Store FAQ Guide", tags=tags)
+    
+    col = get_faqs_collection()
+    import datetime, uuid
+    faq_id = f"FAQ-DB-{uuid.uuid4().hex[:6].upper()}"
+    new_doc = {
+        "faq_id": faq_id,
+        "category": category,
+        "question": question,
+        "answer": answer,
+        "tags": tags or [],
+        "status": "active",
+        "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+    if col is not None:
+        col.insert_one(new_doc)
+    return serialize_doc(new_doc)
+
+
+def delete_faq_doc(faq_id: str) -> bool:
+    """Deletes an FAQ document from MongoDB by faq_id."""
+    col = get_faqs_collection()
+    if col is None:
+        return False
+    res = col.delete_one({"faq_id": faq_id})
+    delete_knowledge_chunk(faq_id)
+    return res.deleted_count > 0
+
+
 def init_db(force_reseed: bool = False) -> Dict[str, Any]:
     """Initializes collections, creates unique indexes, and seeds initial data."""
     if not is_mongo_connected():
@@ -295,6 +538,38 @@ def init_db(force_reseed: bool = False) -> Dict[str, Any]:
     credits_col.create_index([("voucher_code", ASCENDING)], unique=True)
     credits_col.create_index([("order_id", ASCENDING)])
 
+    # 6. FAQs Collection
+    faqs_col = db["faqs"]
+    faqs_col.create_index([("faq_id", ASCENDING)], unique=True)
+    faqs_col.create_index([("category", ASCENDING)])
+
+    if force_reseed or faqs_col.count_documents({}) == 0:
+        for f in SEED_KNOWLEDGE_DOCS:
+            faq_item = {
+                "faq_id": f["doc_id"],
+                "category": f["category"],
+                "question": f["heading"],
+                "answer": f["content"],
+                "tags": f.get("tags", []),
+                "status": f.get("status", "active")
+            }
+            faqs_col.update_one({"faq_id": f["doc_id"]}, {"$set": faq_item}, upsert=True)
+        results["faqs_seeded"] = len(SEED_KNOWLEDGE_DOCS)
+    else:
+        results["faqs_count"] = faqs_col.count_documents({})
+
+    # 7. Knowledge Docs Collection (100% Pure MongoDB Knowledge Base)
+    know_col = db["knowledge_docs"]
+    know_col.create_index([("doc_id", ASCENDING)], unique=True)
+    know_col.create_index([("category", ASCENDING)])
+
+    if force_reseed or know_col.count_documents({}) == 0:
+        for k in SEED_KNOWLEDGE_DOCS:
+            know_col.update_one({"doc_id": k["doc_id"]}, {"$set": k}, upsert=True)
+        results["knowledge_docs_seeded"] = len(SEED_KNOWLEDGE_DOCS)
+    else:
+        results["knowledge_docs_count"] = know_col.count_documents({})
+
     results["status"] = "success"
     results["database"] = MONGODB_DB_NAME
     return results
@@ -308,3 +583,5 @@ if __name__ == "__main__":
         print("Initialization Results:", init_res)
     else:
         print(f"❌ Failed to connect to MongoDB at {MONGODB_URI}")
+
+
