@@ -1,0 +1,34 @@
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*.class
+.pytest_cache/
+
+# ADK & local database files
+.adk/
+*.db
+*.sqlite
+*.sqlite3
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Node.js dependencies & builds
+node_modules/
+dist/
+build/

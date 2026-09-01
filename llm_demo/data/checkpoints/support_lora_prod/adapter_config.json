@@ -1,0 +1,30 @@
+{
+  "job_name": "support_lora_prod",
+  "base_model": "llama-3-8b",
+  "dataset_name": "cloud_support_sft",
+  "epochs": 3,
+  "batch_size": 4,
+  "learning_rate": 0.0002,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "final_loss": 0.8471,
+  "final_perplexity": 2.33,
+  "completed_at": "2026-08-22T14:27:13Z",
+  "peft_config": {
+    "rank_r": 16,
+    "alpha": 32,
+    "scaling_factor": 2.0,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "v_proj",
+      "k_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "bias": "none",
+    "task_type": "CAUSAL_LM"
+  }
+}

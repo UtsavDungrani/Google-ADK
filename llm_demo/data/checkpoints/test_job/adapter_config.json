@@ -1,0 +1,30 @@
+{
+  "job_name": "test_job",
+  "base_model": "llama-3-8b",
+  "dataset_name": "test_sft",
+  "epochs": 2,
+  "batch_size": 2,
+  "learning_rate": 0.0002,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "final_loss": 0.8671,
+  "final_perplexity": 2.38,
+  "completed_at": "2026-08-22T14:27:03Z",
+  "peft_config": {
+    "rank_r": 16,
+    "alpha": 32,
+    "scaling_factor": 2.0,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "v_proj",
+      "k_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "bias": "none",
+    "task_type": "CAUSAL_LM"
+  }
+}
