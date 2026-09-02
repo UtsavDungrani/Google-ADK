@@ -3,11 +3,11 @@ import {
   RotateCcw, 
   MessageSquare, 
   Ticket, 
-  Home,
-  PanelLeftClose,
-  PanelLeft,
-  BookOpen,
-  Cpu
+  Home, 
+  PanelLeftClose, 
+  PanelLeft, 
+  BookOpen, 
+  Server
 } from 'lucide-react';
 
 export default function ChatHeader({ 
@@ -15,18 +15,18 @@ export default function ChatHeader({
   setActiveTab, 
   onResetChat, 
   sessionState, 
-  isMongoOnline,
-  messageCount,
-  sidebarOpen,
-  onToggleSidebar,
-  onOpenFaqExplorer,
-  onOpenSystemStats
+  isMongoOnline, 
+  messageCount, 
+  sidebarOpen, 
+  onToggleSidebar, 
+  onOpenFaqExplorer, 
+  onOpenSystemStats 
 }) {
   const activeOrder = sessionState?.current_order_id;
   const activeTicket = sessionState?.active_ticket_id;
 
   return (
-    <header className="border-b border-zinc-800 bg-zinc-900 px-4 py-3 text-zinc-100">
+    <header className="border-b border-zinc-800 bg-zinc-900 px-4 py-2.5 text-zinc-100">
       <div className="flex items-center justify-between">
         
         {/* Left: History toggle & Title */}
@@ -46,10 +46,10 @@ export default function ChatHeader({
           )}
 
           <div className="flex items-center gap-2">
-            <h1 className="text-sm font-semibold text-zinc-100">Customer Care</h1>
+            <h1 className="text-sm font-semibold text-zinc-100">Customer Support</h1>
             <span className="flex items-center gap-1 text-[11px] text-zinc-400">
               <span className={`h-1.5 w-1.5 rounded-full ${isMongoOnline ? 'bg-emerald-500' : 'bg-amber-500'}`} />
-              {isMongoOnline ? 'Live' : 'Offline'}
+              {isMongoOnline ? 'Connected' : 'Offline'}
             </span>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function ChatHeader({
             }`}
           >
             <Home className="h-3.5 w-3.5" />
-            <span>Website Home</span>
+            <span>Home</span>
           </button>
 
           <button
@@ -77,7 +77,7 @@ export default function ChatHeader({
             }`}
           >
             <MessageSquare className="h-3.5 w-3.5" />
-            <span>Full Workspace</span>
+            <span>Chat Workspace</span>
           </button>
           
           <button
@@ -97,20 +97,20 @@ export default function ChatHeader({
         <div className="flex items-center gap-2">
           <button
             onClick={onOpenFaqExplorer}
-            className="flex items-center gap-1 rounded-md border border-blue-500/30 bg-blue-600/20 px-2.5 py-1 text-xs text-blue-300 hover:bg-blue-600 hover:text-white transition-colors"
-            title="Search FAQ RAG Knowledge Base"
+            className="flex items-center gap-1 rounded-md border border-zinc-800 bg-zinc-800/80 px-2.5 py-1 text-xs text-zinc-300 hover:bg-zinc-700 hover:text-white transition-colors"
+            title="Search Knowledge Base & Policies"
           >
-            <BookOpen className="h-3.5 w-3.5 text-blue-400" />
-            <span className="hidden sm:inline font-medium">FAQ RAG</span>
+            <BookOpen className="h-3.5 w-3.5 text-zinc-400" />
+            <span className="hidden sm:inline font-medium">Knowledge Base</span>
           </button>
 
           <button
             onClick={onOpenSystemStats}
-            className="flex items-center gap-1 rounded-md border border-purple-500/30 bg-purple-600/20 px-2.5 py-1 text-xs text-purple-300 hover:bg-purple-600 hover:text-white transition-colors"
-            title="View AI System Architecture Dashboard"
+            className="flex items-center gap-1 rounded-md border border-zinc-800 bg-zinc-800/80 px-2.5 py-1 text-xs text-zinc-300 hover:bg-zinc-700 hover:text-white transition-colors"
+            title="View System Architecture & Services"
           >
-            <Cpu className="h-3.5 w-3.5 text-purple-400" />
-            <span className="hidden sm:inline font-medium">AI Stats</span>
+            <Server className="h-3.5 w-3.5 text-zinc-400" />
+            <span className="hidden sm:inline font-medium">Architecture</span>
           </button>
 
           {activeTab === 'chat' && (
@@ -118,7 +118,7 @@ export default function ChatHeader({
               onClick={onResetChat}
               className="flex items-center gap-1 rounded-md border border-zinc-800 bg-zinc-800/80 px-2.5 py-1 text-xs text-zinc-300 hover:bg-zinc-700 hover:text-white transition-colors"
             >
-              <RotateCcw className="h-3 w-3" />
+              <RotateCcw className="h-3 w-3 text-zinc-400" />
               <span>New Chat</span>
             </button>
           )}
@@ -127,7 +127,7 @@ export default function ChatHeader({
 
       {/* Active Session Context (Order / Ticket) */}
       {activeTab === 'chat' && (activeOrder || activeTicket) && (
-        <div className="mt-2.5 flex items-center gap-2 border-t border-zinc-800/60 pt-2 text-[11px] text-zinc-400">
+        <div className="mt-2 flex items-center gap-2 border-t border-zinc-800/60 pt-2 text-[11px] text-zinc-400">
           <span>Active Context:</span>
           {activeOrder && (
             <span className="font-mono text-zinc-200 bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700">

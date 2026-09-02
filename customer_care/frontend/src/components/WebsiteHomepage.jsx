@@ -1,305 +1,312 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
-  MessageSquare, 
+  Search, 
   Package, 
   RotateCcw, 
   ShieldCheck, 
-  Headphones, 
-  ArrowRight, 
-  Search, 
-  Sparkles, 
-  CheckCircle2, 
-  Truck, 
+  Wrench, 
   Ticket, 
-  Clock, 
-  LifeBuoy,
-  ChevronRight,
+  BookOpen, 
+  ArrowRight, 
+  ExternalLink,
+  HelpCircle,
+  Clock,
   Shield,
-  Bot,
-  BookOpen,
-  Cpu
+  MessageSquare,
+  FileText,
+  ChevronRight
 } from 'lucide-react';
 
-export default function WebsiteHomepage({ onOpenChat, onSelectPrompt, onSwitchTab, onOpenFaqExplorer, onOpenSystemStats }) {
-  const handleQuickAction = (promptText) => {
-    onOpenChat();
+export default function WebsiteHomepage({ 
+  onOpenChat, 
+  onSelectPrompt, 
+  onSwitchTab, 
+  onOpenFaqExplorer, 
+  onOpenSystemStats 
+}) {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const query = searchQuery.trim();
+    if (!query) return;
     if (onSelectPrompt) {
-      onSelectPrompt(promptText);
+      onSelectPrompt(query);
+    } else {
+      onOpenChat();
     }
   };
 
+  const handleQuickPrompt = (prompt) => {
+    if (onSelectPrompt) {
+      onSelectPrompt(prompt);
+    } else {
+      onOpenChat();
+    }
+  };
+
+  const quickCategories = [
+    {
+      title: 'Order & Shipping Tracking',
+      description: 'Check real-time package delivery status, courier details, and estimated delivery dates.',
+      prompt: 'Where is my order ORD-10021?',
+      sample: 'Try ORD-10021 or ORD-10023',
+      icon: Package,
+      actionText: 'Track an Order'
+    },
+    {
+      title: 'Returns & RMA Labels',
+      description: 'Submit return requests, check 30-day window eligibility, and generate prepaid return labels.',
+      prompt: 'I want to return an item from ORD-10021',
+      sample: 'Instant prepaid RMA labels',
+      icon: RotateCcw,
+      actionText: 'Start a Return'
+    },
+    {
+      title: 'Device Troubleshooting',
+      description: 'Find solutions for device error codes (e.g. E-404), setup instructions, and firmware resets.',
+      prompt: 'How do I fix error code E-404 on my smart hub?',
+      sample: 'Troubleshoot error codes',
+      icon: Wrench,
+      actionText: 'Troubleshoot Device'
+    },
+    {
+      title: 'Warranty & Replacement',
+      description: 'Review 1-year limited warranty coverage and submit replacement claims for defective hardware.',
+      prompt: 'Is my device covered under warranty for replacement?',
+      sample: '1-Year hardware coverage',
+      icon: ShieldCheck,
+      actionText: 'File Warranty Claim'
+    },
+    {
+      title: 'Vendor Support Desk',
+      description: 'Escalate complex hardware queries to manufacturer specialists and inspect support tickets.',
+      customAction: () => onSwitchTab('vendor'),
+      sample: 'Lookup TCK-10021-VND',
+      icon: Ticket,
+      actionText: 'Open Vendor Desk'
+    },
+    {
+      title: 'Policy & FAQ Knowledge Base',
+      description: 'Search official store policies including 30-day returns, international shipping, and payments.',
+      customAction: () => onOpenFaqExplorer && onOpenFaqExplorer(),
+      sample: 'Search full store policy',
+      icon: BookOpen,
+      actionText: 'Browse Knowledge Base'
+    }
+  ];
+
+  const popularArticles = [
+    {
+      question: 'What is the standard 30-day return policy?',
+      category: 'Returns',
+      prompt: 'What is your 30-day return policy and requirements?'
+    },
+    {
+      question: 'How do I resolve Error Code E-404 on Smart Hub?',
+      category: 'Troubleshooting',
+      prompt: 'How do I fix error code E-404 on my smart hub?'
+    },
+    {
+      question: 'What is covered under the 1-Year Limited Warranty?',
+      category: 'Warranty',
+      prompt: 'What is covered under the 1-Year Limited Warranty?'
+    },
+    {
+      question: 'Where do you ship and what are standard delivery times?',
+      category: 'Shipping',
+      prompt: 'What are the shipping destinations and delivery estimates?'
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-blue-600 selection:text-white">
+    <div className="min-h-full bg-zinc-950 text-zinc-100 font-sans">
       
-      {/* Hero Section */}
-      <section className="relative overflow-hidden border-b border-zinc-800/80 bg-gradient-to-b from-zinc-900 via-zinc-950 to-zinc-950 pt-12 pb-16 md:pt-20 md:pb-24">
-        
-        {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/15 blur-3xl rounded-full pointer-events-none" />
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-indigo-600/10 blur-3xl rounded-full pointer-events-none" />
+      {/* Top Support Search Hero */}
+      <section className="border-b border-zinc-800 bg-zinc-900/40 px-4 py-12 sm:px-6 md:py-16">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100">
+            Customer Support & Help Center
+          </h1>
+          <p className="mt-3 text-sm sm:text-base text-zinc-400 max-w-xl mx-auto">
+            Search policies, track shipments, generate return labels, or troubleshoot device issues.
+          </p>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-            
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1 text-xs font-medium text-blue-400 mb-6 backdrop-blur-sm">
-              <Sparkles className="h-3.5 w-3.5 animate-pulse text-blue-400" />
-              <span>Next-Gen AI Customer Care Suite</span>
-            </div>
-
-            {/* Headline */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Instant Support, Orders & Returns{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
-                Powered by AI
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="mt-5 text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed">
-              Track shipments, request prepaid return labels, troubleshoot device errors, and inspect vendor tickets in real-time — 24/7 without waiting.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          {/* Search Bar */}
+          <form onSubmit={handleSearchSubmit} className="mt-7 max-w-2xl mx-auto">
+            <div className="relative flex items-center shadow-sm">
+              <Search className="absolute left-4 h-4 w-4 text-zinc-400" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search by order ID (e.g. ORD-10021), ticket ID, or issue..."
+                className="w-full rounded-xl border border-zinc-800 bg-zinc-950 py-3.5 pl-11 pr-28 text-sm text-zinc-100 placeholder-zinc-500 focus:border-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-700"
+              />
               <button
-                onClick={() => onOpenChat()}
-                className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 hover:bg-blue-500 active:scale-95 transition-all"
+                type="submit"
+                className="absolute right-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 px-3.5 py-1.5 text-xs font-medium text-zinc-200 transition-colors"
               >
-                <MessageSquare className="h-4 w-4" />
-                <span>Launch Support Chat</span>
-                <ArrowRight className="h-4 w-4 opacity-70" />
-              </button>
-
-              <button
-                onClick={() => onOpenFaqExplorer && onOpenFaqExplorer()}
-                className="flex items-center gap-2 rounded-xl border border-blue-500/40 bg-blue-600/10 px-5 py-3 text-sm font-medium text-blue-300 hover:bg-blue-600 hover:text-white transition-all shadow-md shadow-blue-600/10"
-              >
-                <BookOpen className="h-4 w-4 text-blue-400" />
-                <span>FAQ RAG Explorer</span>
-              </button>
-
-              <button
-                onClick={() => onOpenSystemStats && onOpenSystemStats()}
-                className="flex items-center gap-2 rounded-xl border border-purple-500/40 bg-purple-600/10 px-5 py-3 text-sm font-medium text-purple-300 hover:bg-purple-600 hover:text-white transition-all shadow-md shadow-purple-600/10"
-              >
-                <Cpu className="h-4 w-4 text-purple-400" />
-                <span>AI Stats Dashboard</span>
+                Search
               </button>
             </div>
+          </form>
 
-            {/* Micro Stats */}
-            <div className="mt-12 grid grid-cols-3 gap-6 sm:gap-12 border-t border-zinc-800/80 pt-8 text-center max-w-xl w-full">
-              <div>
-                <p className="text-xl sm:text-2xl font-bold text-zinc-100">99.8%</p>
-                <p className="text-xs text-zinc-500 mt-0.5">Instant Resolution</p>
-              </div>
-              <div>
-                <p className="text-xl sm:text-2xl font-bold text-zinc-100">&lt; 2s</p>
-                <p className="text-xs text-zinc-500 mt-0.5">Response Time</p>
-              </div>
-              <div>
-                <p className="text-xl sm:text-2xl font-bold text-zinc-100">24 / 7</p>
-                <p className="text-xs text-zinc-500 mt-0.5">Automated Support</p>
-              </div>
-            </div>
-
+          {/* Quick Filter / Topic Chips */}
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs">
+            <span className="text-zinc-500">Suggested:</span>
+            <button
+              onClick={() => handleQuickPrompt('Where is my order ORD-10021?')}
+              className="rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors"
+            >
+              Track ORD-10021
+            </button>
+            <button
+              onClick={() => handleQuickPrompt('I want to return an item from ORD-10021')}
+              className="rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors"
+            >
+              Return Item
+            </button>
+            <button
+              onClick={() => handleQuickPrompt('How do I fix error code E-404 on my smart hub?')}
+              className="rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors"
+            >
+              Error Code E-404
+            </button>
+            <button
+              onClick={() => handleQuickPrompt('What is the 30-day return policy?')}
+              className="rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors"
+            >
+              30-Day Return Policy
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Quick Services Grid */}
-      <section className="py-14 bg-zinc-950 border-b border-zinc-800/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-xl mx-auto mb-10">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-blue-400">Self-Service Portal</h2>
-            <p className="text-2xl font-bold text-zinc-100 mt-1">What can we help you with today?</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            
-            {/* Card 1: Order Tracking */}
-            <div 
-              onClick={() => handleQuickAction('Where is my order ORD-10023?')}
-              className="group relative cursor-pointer rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-5 hover:border-blue-500/50 hover:bg-zinc-900 transition-all shadow-sm"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                  <Truck className="h-5 w-5" />
-                </div>
-                <ChevronRight className="h-4 w-4 text-zinc-600 group-hover:text-blue-400 group-hover:translate-x-0.5 transition-all" />
-              </div>
-              <h3 className="text-base font-semibold text-zinc-100 group-hover:text-blue-400 transition-colors">Order & Shipment Tracking</h3>
-              <p className="mt-1.5 text-xs text-zinc-400 leading-relaxed">
-                Check real-time shipping status, courier details, and estimated delivery dates for your purchases.
-              </p>
-              <div className="mt-4 flex items-center gap-1.5 text-[11px] font-medium text-blue-400">
-                <span>Try ORD-10021 or ORD-10023</span>
-              </div>
-            </div>
-
-            {/* Card 2: Easy Returns & RMA */}
-            <div 
-              onClick={() => handleQuickAction('I want to return item from ORD-10021')}
-              className="group relative cursor-pointer rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-5 hover:border-emerald-500/50 hover:bg-zinc-900 transition-all shadow-sm"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                  <RotateCcw className="h-5 w-5" />
-                </div>
-                <ChevronRight className="h-4 w-4 text-zinc-600 group-hover:text-emerald-400 group-hover:translate-x-0.5 transition-all" />
-              </div>
-              <h3 className="text-base font-semibold text-zinc-100 group-hover:text-emerald-400 transition-colors">Returns & RMA Labels</h3>
-              <p className="mt-1.5 text-xs text-zinc-400 leading-relaxed">
-                Instantly request returns, check return window eligibility, and download prepaid RMA shipping labels.
-              </p>
-              <div className="mt-4 flex items-center gap-1.5 text-[11px] font-medium text-emerald-400">
-                <span>Instant RMA Label Generation</span>
-              </div>
-            </div>
-
-            {/* Card 3: Troubleshooting */}
-            <div 
-              onClick={() => handleQuickAction('How do I fix error code E-404 on my smart hub?')}
-              className="group relative cursor-pointer rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-5 hover:border-purple-500/50 hover:bg-zinc-900 transition-all shadow-sm"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500/10 text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                  <ShieldCheck className="h-5 w-5" />
-                </div>
-                <ChevronRight className="h-4 w-4 text-zinc-600 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all" />
-              </div>
-              <h3 className="text-base font-semibold text-zinc-100 group-hover:text-purple-400 transition-colors">Device & Error Codes</h3>
-              <p className="mt-1.5 text-xs text-zinc-400 leading-relaxed">
-                Troubleshoot device setup, diagnostic error codes (e.g. E-404), firmware updates, and resetting devices.
-              </p>
-              <div className="mt-4 flex items-center gap-1.5 text-[11px] font-medium text-purple-400">
-                <span>Knowledgebase RAG Search</span>
-              </div>
-            </div>
-
-            {/* Card 4: Vendor Portal */}
-            <div 
-              onClick={() => onSwitchTab('vendor')}
-              className="group relative cursor-pointer rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-5 hover:border-amber-500/50 hover:bg-zinc-900 transition-all shadow-sm"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors">
-                  <Ticket className="h-5 w-5" />
-                </div>
-                <ChevronRight className="h-4 w-4 text-zinc-600 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" />
-              </div>
-              <h3 className="text-base font-semibold text-zinc-100 group-hover:text-amber-400 transition-colors">Vendor Support Desk</h3>
-              <p className="mt-1.5 text-xs text-zinc-400 leading-relaxed">
-                Escalate complex technical queries directly to product vendors and track support tickets (`TCK-...`).
-              </p>
-              <div className="mt-4 flex items-center gap-1.5 text-[11px] font-medium text-amber-400">
-                <span>Open Vendor Portal</span>
-              </div>
-            </div>
-
+      {/* Main Support Grid */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+        <div className="mb-6 flex items-center justify-between">
+          <div>
+            <h2 className="text-base font-semibold text-zinc-200">Support Categories</h2>
+            <p className="text-xs text-zinc-500 mt-0.5">Select a topic to start self-service support or look up information.</p>
           </div>
         </div>
-      </section>
 
-      {/* Interactive Demo Showcase / How it Works */}
-      <section className="py-16 bg-zinc-900/40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
-            <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 uppercase tracking-wider mb-2">
-                <Bot className="h-4 w-4" />
-                <span>Smart Conversational AI</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
-                Everything you need to manage your purchases in one floating widget.
-              </h2>
-              <p className="mt-4 text-sm text-zinc-400 leading-relaxed">
-                Our customer care assistant directly integrates with MongoDB databases and vendor ticket management. Click the floating widget in the bottom right corner anytime to interact.
-              </p>
-
-              <div className="mt-6 space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 text-xs">
-                    <CheckCircle2 className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-zinc-200">Real-Time Database Queries</p>
-                    <p className="text-xs text-zinc-500">Live order lookup for packages, courier tracking URLs, and return windows.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-400 text-xs">
-                    <CheckCircle2 className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-zinc-200">RMA Prepaid Label Generator</p>
-                    <p className="text-xs text-zinc-500">Automated approval and return shipping label creation for eligible orders.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-500/20 text-indigo-400 text-xs">
-                    <CheckCircle2 className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-zinc-200">Vendor Ticket Escalation</p>
-                    <p className="text-xs text-zinc-500">Seamlessly logs structured tickets to vendor systems for complex hardware issues.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <button
-                  onClick={() => onOpenChat()}
-                  className="inline-flex items-center gap-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 px-5 py-2.5 text-xs font-medium text-zinc-100 transition-colors"
-                >
-                  <MessageSquare className="h-4 w-4 text-blue-400" />
-                  <span>Try Floating Chatbot Widget Now</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Graphic / Preview Box */}
-            <div className="relative rounded-2xl border border-zinc-800 bg-zinc-950/90 p-5 shadow-2xl overflow-hidden">
-              <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-red-500/80" />
-                  <span className="h-3 w-3 rounded-full bg-amber-500/80" />
-                  <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
-                </div>
-                <span className="text-xs font-mono text-zinc-500">Live Support Preview</span>
-              </div>
-
-              <div className="space-y-3 text-xs">
-                {/* Mock user message */}
-                <div className="flex justify-end">
-                  <div className="rounded-xl bg-blue-600 px-3.5 py-2 text-white max-w-[80%] shadow">
-                    Where is my package for order ORD-10021?
-                  </div>
-                </div>
-
-                {/* Mock bot message */}
-                <div className="flex justify-start">
-                  <div className="rounded-xl bg-zinc-900 border border-zinc-800 px-3.5 py-2.5 text-zinc-200 max-w-[90%] space-y-2">
-                    <p>📦 Order **ORD-10021** is currently **In Transit** via FedEx.</p>
-                    <div className="rounded-lg bg-zinc-950 p-2 border border-zinc-800 text-[11px]">
-                      <div className="flex justify-between text-zinc-400">
-                        <span>Courier: FedEx Ground</span>
-                        <span className="text-emerald-400">On Schedule</span>
-                      </div>
-                      <div className="font-mono text-zinc-300 mt-1">Tracking: FX-992104-US</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {quickCategories.map((cat, idx) => {
+            const Icon = cat.icon;
+            return (
+              <div
+                key={idx}
+                onClick={() => {
+                  if (cat.customAction) {
+                    cat.customAction();
+                  } else if (cat.prompt) {
+                    handleQuickPrompt(cat.prompt);
+                  }
+                }}
+                className="group flex flex-col justify-between cursor-pointer rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 hover:bg-zinc-900 hover:border-zinc-700 transition-all"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800 text-zinc-300 group-hover:text-white group-hover:bg-zinc-700 transition-colors">
+                      <Icon className="h-4 w-4" />
                     </div>
+                    <span className="text-[11px] font-mono text-zinc-500">{cat.sample}</span>
                   </div>
+
+                  <h3 className="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors">
+                    {cat.title}
+                  </h3>
+                  <p className="mt-1.5 text-xs text-zinc-400 leading-relaxed">
+                    {cat.description}
+                  </p>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs font-medium text-zinc-300 group-hover:text-blue-400 transition-colors">
+                  <span>{cat.actionText}</span>
+                  <ChevronRight className="h-3.5 w-3.5 text-zinc-500 group-hover:text-blue-400 group-hover:translate-x-0.5 transition-all" />
                 </div>
               </div>
+            );
+          })}
+        </div>
+      </section>
 
-              {/* Bottom Floating Trigger Prompt */}
-              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-400">
-                <span>Click the button in the bottom right corner to test live</span>
-                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
+      {/* Two-Column Section: Frequently Asked Questions & Direct Access */}
+      <section className="border-t border-zinc-800 bg-zinc-900/20 py-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            {/* Left 2 Cols: Popular Questions List */}
+            <div className="lg:col-span-2 space-y-4">
+              <div>
+                <h3 className="text-sm font-semibold text-zinc-200">Frequently Asked Questions</h3>
+                <p className="text-xs text-zinc-500 mt-0.5">Commonly referenced store policies and troubleshooting answers.</p>
+              </div>
+
+              <div className="space-y-2.5">
+                {popularArticles.map((art, idx) => (
+                  <div
+                    key={idx}
+                    onClick={() => handleQuickPrompt(art.prompt)}
+                    className="flex items-center justify-between cursor-pointer rounded-lg border border-zinc-800 bg-zinc-900/40 px-4 py-3 hover:bg-zinc-900 hover:border-zinc-700 transition-all text-xs"
+                  >
+                    <div className="flex items-center gap-3">
+                      <FileText className="h-4 w-4 text-zinc-500 shrink-0" />
+                      <span className="font-medium text-zinc-200 hover:text-white">{art.question}</span>
+                    </div>
+                    <span className="rounded bg-zinc-800 px-2 py-0.5 text-[11px] text-zinc-400 shrink-0 ml-2">
+                      {art.category}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right 1 Col: Direct Support Options */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-sm font-semibold text-zinc-200">Support Resources</h3>
+                <p className="text-xs text-zinc-500 mt-0.5">Access direct tools and internal portals.</p>
+              </div>
+
+              <div className="space-y-3">
+                
+                {/* Card 1: Full Workspace */}
+                <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-4 text-xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-zinc-200">Support Chat Assistant</span>
+                    <MessageSquare className="h-4 w-4 text-zinc-400" />
+                  </div>
+                  <p className="text-zinc-400 leading-relaxed text-[11px]">
+                    Open the dedicated full-screen chat workspace to view conversation history.
+                  </p>
+                  <button
+                    onClick={() => onSwitchTab('chat')}
+                    className="mt-2 w-full rounded-md border border-zinc-700 bg-zinc-800 hover:bg-zinc-700 py-1.5 text-xs font-medium text-zinc-200 transition-colors"
+                  >
+                    Open Full Workspace
+                  </button>
+                </div>
+
+                {/* Card 2: Vendor Desk */}
+                <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-4 text-xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-zinc-200">Vendor Support Desk</span>
+                    <Ticket className="h-4 w-4 text-zinc-400" />
+                  </div>
+                  <p className="text-zinc-400 leading-relaxed text-[11px]">
+                    Internal dashboard for viewing, replying to, and resolving vendor escalated tickets.
+                  </p>
+                  <button
+                    onClick={() => onSwitchTab('vendor')}
+                    className="mt-2 w-full rounded-md border border-zinc-700 bg-zinc-800 hover:bg-zinc-700 py-1.5 text-xs font-medium text-zinc-200 transition-colors"
+                  >
+                    Open Vendor Portal
+                  </button>
+                </div>
+
               </div>
             </div>
 
@@ -307,17 +314,24 @@ export default function WebsiteHomepage({ onOpenChat, onSelectPrompt, onSwitchTa
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-zinc-800/80 bg-zinc-950 py-8 text-xs text-zinc-500">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-zinc-400 font-semibold">
-            <Bot className="h-4 w-4 text-blue-500" />
-            <span>Customer Care AI Portal</span>
+      {/* Clean, Simple Footer */}
+      <footer className="border-t border-zinc-800 py-6 text-xs text-zinc-500">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-zinc-400">
+            <Shield className="h-4 w-4 text-zinc-500" />
+            <span className="font-medium text-zinc-300">Customer Support Portal</span>
           </div>
-          <p>© 2026 Customer Care Support System. All rights reserved.</p>
-          <div className="flex items-center gap-4 text-zinc-400">
-            <button onClick={() => onSwitchTab('chat')} className="hover:text-white transition-colors">Full Workspace</button>
-            <button onClick={() => onSwitchTab('vendor')} className="hover:text-white transition-colors">Vendor Desk</button>
+          <p className="text-[11px]">Support Center & Self-Service Portal</p>
+          <div className="flex items-center gap-4 text-zinc-400 text-xs">
+            <button onClick={() => onSwitchTab('chat')} className="hover:text-zinc-200 transition-colors">
+              Chat Workspace
+            </button>
+            <button onClick={() => onSwitchTab('vendor')} className="hover:text-zinc-200 transition-colors">
+              Vendor Desk
+            </button>
+            <button onClick={() => onOpenFaqExplorer && onOpenFaqExplorer()} className="hover:text-zinc-200 transition-colors">
+              FAQ Database
+            </button>
           </div>
         </div>
       </footer>

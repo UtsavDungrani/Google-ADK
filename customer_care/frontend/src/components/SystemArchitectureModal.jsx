@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Cpu, ShieldCheck, Activity, Database, GitBranch, Layers, CheckCircle2, Zap, Sparkles, X } from 'lucide-react';
+import { 
+  Cpu, 
+  ShieldCheck, 
+  Activity, 
+  Database, 
+  GitBranch, 
+  Layers, 
+  Check, 
+  X,
+  Sliders,
+  Server
+} from 'lucide-react';
 import { fetchSystemStatsApi } from '../services/api';
 
 export default function SystemArchitectureModal({ isOpen, onClose }) {
@@ -22,242 +33,234 @@ export default function SystemArchitectureModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4 animate-fade-in">
-      <div className="bg-slate-900 border border-slate-700/80 rounded-2xl w-full max-w-4xl max-h-[92vh] shadow-2xl flex flex-col overflow-hidden text-slate-100">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+      <div className="bg-zinc-900 border border-zinc-800 rounded-xl w-full max-w-4xl max-h-[90vh] shadow-2xl flex flex-col overflow-hidden text-zinc-100 font-sans">
         
         {/* Header */}
-        <div className="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/80">
+        <div className="px-5 py-3.5 border-b border-zinc-800 flex items-center justify-between bg-zinc-950">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-purple-600/20 text-purple-400 border border-purple-500/30">
-              <Cpu className="w-6 h-6" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800 text-zinc-300 border border-zinc-700">
+              <Server className="w-4 h-4" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-slate-100 flex items-center gap-2">
-                System Architecture & AI Intelligence Dashboard
-                <span className="text-xs px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-medium">
-                  Google ADK 2.0
-                </span>
+              <h2 className="text-sm font-semibold text-zinc-100">
+                System Architecture & Services
               </h2>
-              <p className="text-xs text-slate-400">
-                Multi-Agent System Graph, Hybrid RAG Specs, Neural Sentiment & Kaggle Dataset Metrics
+              <p className="text-xs text-zinc-400">
+                Agent pipeline, data storage, security filters, and system metrics
               </p>
             </div>
           </div>
           
           <button
             onClick={onClose}
-            className="p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Content Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6 max-h-[80vh]">
+        <div className="flex-1 overflow-y-auto p-5 space-y-5 max-h-[75vh]">
           {loading ? (
-            <div className="py-12 text-center text-slate-400">
-              <div className="w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-              <p className="text-xs font-medium">Querying System Architecture & ADK Runtime State...</p>
+            <div className="py-12 text-center text-zinc-500 text-xs">
+              Loading system metrics...
             </div>
           ) : (
             <>
-              {/* Top Stats Cards */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-1">
-                  <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
-                    <span>Active Sub-Agents</span>
-                    <GitBranch className="w-4 h-4 text-purple-400" />
+              {/* Metric Overview Cards */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 space-y-1">
+                  <div className="flex items-center justify-between text-xs text-zinc-400">
+                    <span>Specialist Agents</span>
+                    <GitBranch className="w-3.5 h-3.5 text-zinc-400" />
                   </div>
-                  <div className="text-2xl font-black text-slate-100">
+                  <div className="text-xl font-bold text-zinc-100">
                     {stats?.sub_agents_count || 5}
                   </div>
-                  <div className="text-[11px] text-purple-300 font-mono">
-                    Specialist Agents
+                  <div className="text-[11px] text-zinc-500">
+                    Active Agent Modules
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-1">
-                  <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
-                    <span>Registered Tools</span>
-                    <Layers className="w-4 h-4 text-blue-400" />
+                <div className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 space-y-1">
+                  <div className="flex items-center justify-between text-xs text-zinc-400">
+                    <span>Tool Integrations</span>
+                    <Layers className="w-3.5 h-3.5 text-zinc-400" />
                   </div>
-                  <div className="text-2xl font-black text-slate-100">
+                  <div className="text-xl font-bold text-zinc-100">
                     {stats?.registered_tools_count || 21}
                   </div>
-                  <div className="text-[11px] text-blue-300 font-mono">
-                    Callable Tool Functions
+                  <div className="text-[11px] text-zinc-500">
+                    Backend Functions
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-1">
-                  <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
-                    <span>RAG Vector Chunks</span>
-                    <Database className="w-4 h-4 text-emerald-400" />
+                <div className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 space-y-1">
+                  <div className="flex items-center justify-between text-xs text-zinc-400">
+                    <span>Knowledge Chunks</span>
+                    <Database className="w-3.5 h-3.5 text-zinc-400" />
                   </div>
-                  <div className="text-2xl font-black text-slate-100">
+                  <div className="text-xl font-bold text-zinc-100">
                     {stats?.rag_vector_chunks || 31}
                   </div>
-                  <div className="text-[11px] text-emerald-300 font-mono">
-                    Indexed Docs & FAQs
+                  <div className="text-[11px] text-zinc-500">
+                    Indexed Policies & FAQs
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-1">
-                  <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
-                    <span>Kaggle Dataset</span>
-                    <Activity className="w-4 h-4 text-amber-400" />
+                <div className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 space-y-1">
+                  <div className="flex items-center justify-between text-xs text-zinc-400">
+                    <span>Orders Dataset</span>
+                    <Activity className="w-3.5 h-3.5 text-zinc-400" />
                   </div>
-                  <div className="text-2xl font-black text-slate-100">
+                  <div className="text-xl font-bold text-zinc-100">
                     99,441
                   </div>
-                  <div className="text-[11px] text-amber-300 font-mono">
-                    E-Commerce Orders
+                  <div className="text-[11px] text-zinc-500">
+                    Historical Order Records
                   </div>
                 </div>
               </div>
 
-              {/* Architecture Section 1: Multi-Agent Sub-Agents Graph */}
-              <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/60 space-y-3">
-                <h3 className="text-sm font-bold text-slate-200 flex items-center gap-2">
-                  <GitBranch className="w-4 h-4 text-purple-400" />
-                  Google ADK Multi-Agent Hierarchy & Specialist Sub-Agents
-                </h3>
+              {/* Section 1: Specialist Agents Hierarchy */}
+              <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-300 flex items-center gap-2">
+                    <GitBranch className="w-3.5 h-3.5 text-zinc-400" />
+                    Specialist Agent Hierarchy
+                  </h3>
+                  <span className="text-[11px] text-zinc-500 font-mono">ADK Multi-Agent Router</span>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-purple-300">1. Order Logistics Specialist</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 bg-purple-500/20 text-purple-300 rounded">
+                  <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80 space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-zinc-200">1. Order Logistics</span>
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 bg-zinc-800 text-zinc-400 rounded">
                         4 Tools
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-400">
-                      Handles courier tracking (FedEx/UPS/DHL), delay risk predictions, and 99k+ dataset order logs.
+                    <p className="text-[11px] text-zinc-400 leading-relaxed">
+                      Handles shipment status lookup, courier tracking numbers, and delivery delay analysis.
                     </p>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-blue-300">2. Product Support Specialist</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 bg-blue-500/20 text-blue-300 rounded">
+                  <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80 space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-zinc-200">2. Product Support</span>
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 bg-zinc-800 text-zinc-400 rounded">
                         7 Tools
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-400">
-                      Executes Hybrid RAG manual search, FAQ knowledge base retrieval, and troubleshooting.
+                    <p className="text-[11px] text-zinc-400 leading-relaxed">
+                      Executes knowledge base searches, FAQ lookups, error code resolution, and manual guides.
                     </p>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-emerald-300">3. Returns & Warranty Specialist</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded">
+                  <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80 space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-zinc-200">3. Returns & Warranty</span>
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 bg-zinc-800 text-zinc-400 rounded">
                         5 Tools
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-400">
-                      Automates 30-day return validation, prepaid RMA labels, warranty verification, and hardware claims.
+                    <p className="text-[11px] text-zinc-400 leading-relaxed">
+                      Validates 30-day return eligibility, generates prepaid RMA shipping labels, and checks warranty.
                     </p>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-rose-300">4. Escalation & Sentiment Intelligence</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 bg-rose-500/20 text-rose-300 rounded">
+                  <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80 space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-zinc-200">4. Escalation & Sentiment</span>
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 bg-zinc-800 text-zinc-400 rounded">
                         4 Tools
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-400">
-                      Monitors emotional valence trajectory with LSTM Neural Sequence model, courtesy credits, and Tier-2 escalation.
+                    <p className="text-[11px] text-zinc-400 leading-relaxed">
+                      Monitors sentiment trajectory, provides courtesy credits, and handles priority escalation.
                     </p>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1 md:col-span-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-amber-300">5. Vendor Support & Ticketing Specialist</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded">
+                  <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80 space-y-1 md:col-span-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-zinc-200">5. Vendor Support & Ticketing</span>
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 bg-zinc-800 text-zinc-400 rounded">
                         6 Tools
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-400">
-                      Manages asynchronous vendor tickets, SLA status lookups, vendor portal synchronization, and ticket resolution.
+                    <p className="text-[11px] text-zinc-400 leading-relaxed">
+                      Logs structured vendor tickets, tracks resolution statuses, and coordinates with manufacturer teams.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Architecture Section 2: ML & RAG Engine Technical Stack */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/60 space-y-3">
-                  <h3 className="text-sm font-bold text-slate-200 flex items-center gap-2">
-                    <Database className="w-4 h-4 text-emerald-400" />
-                    Hybrid Dense-Sparse RAG Architecture
+              {/* Section 2: Technical Specifications Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2.5">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-300 flex items-center gap-2">
+                    <Database className="w-3.5 h-3.5 text-zinc-400" />
+                    Knowledge Retrieval & Database
                   </h3>
-                  <ul className="text-xs text-slate-300 space-y-2">
+                  <ul className="text-xs text-zinc-400 space-y-1.5 leading-relaxed">
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                      <span><strong>Dense Retrieval</strong>: Normalized TF-IDF Vector Cosine Similarity across document chunks.</span>
+                      <Check className="w-3.5 h-3.5 text-zinc-300 shrink-0 mt-0.5" />
+                      <span><strong>Sparse & Dense Retrieval</strong>: BM25 keyword matching combined with TF-IDF cosine similarity.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                      <span><strong>Sparse Retrieval</strong>: BM25 Term Frequency-Inverse Document Frequency matching.</span>
+                      <Check className="w-3.5 h-3.5 text-zinc-300 shrink-0 mt-0.5" />
+                      <span><strong>Ranking Fusion</strong>: Reciprocal Rank Fusion (RRF) for consistent search relevancy.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                      <span><strong>Ranking Fusion</strong>: Reciprocal Rank Fusion (RRF, k=60) for balanced precision.</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                      <span><strong>Storage Engine</strong>: 100% MongoDB Database Storage (`knowledge_docs` & `faqs` collections).</span>
+                      <Check className="w-3.5 h-3.5 text-zinc-300 shrink-0 mt-0.5" />
+                      <span><strong>Database Storage</strong>: MongoDB collections for tickets, chat sessions, orders, and FAQs.</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/60 space-y-3">
-                  <h3 className="text-sm font-bold text-slate-200 flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-blue-400" />
-                    Safety, Sentiment & Security Guardrails
+                <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2.5">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-300 flex items-center gap-2">
+                    <ShieldCheck className="w-3.5 h-3.5 text-zinc-400" />
+                    Security & Guardrails
                   </h3>
-                  <ul className="text-xs text-slate-300 space-y-2">
+                  <ul className="text-xs text-zinc-400 space-y-1.5 leading-relaxed">
                     <li className="flex items-start gap-2">
-                      <Zap className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                      <span><strong>PCI Compliance Guardrail</strong>: Regex sanitizer blocks credit card leakage before LLM processing.</span>
+                      <Check className="w-3.5 h-3.5 text-zinc-300 shrink-0 mt-0.5" />
+                      <span><strong>Data Sanitization</strong>: Filters sensitive credit card and personal payment info.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Zap className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                      <span><strong>Prompt Injection Filter</strong>: Strips malicious system prompt override attempts.</span>
+                      <Check className="w-3.5 h-3.5 text-zinc-300 shrink-0 mt-0.5" />
+                      <span><strong>Input Validation</strong>: Sanitizes inputs and protects system prompt boundaries.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Zap className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                      <span><strong>LSTM Neural Sentiment</strong>: Sequence trajectory classification for proactive churn prevention.</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Zap className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                      <span><strong>Multilingual Adapter</strong>: Dynamic persona adaptation across 6 target languages.</span>
+                      <Check className="w-3.5 h-3.5 text-zinc-300 shrink-0 mt-0.5" />
+                      <span><strong>Session State Management</strong>: Preserves order and ticket context across turns.</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/60 space-y-3 md:col-span-2">
-                  <h3 className="text-sm font-bold text-amber-300 flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-amber-400" />
-                    Context Analysis & System-Wide Token Reduction Engine (42.8% Savings)
+                <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2.5 md:col-span-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-300 flex items-center gap-2">
+                    <Sliders className="w-3.5 h-3.5 text-zinc-400" />
+                    Context & Token Optimization
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs text-slate-300">
-                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
-                      <span className="font-bold text-amber-300 block">1. Session Truncation</span>
-                      <p className="text-[11px] text-slate-400">Sliding window keeps recent 6 turns + auto-summarized historical memory block.</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 text-xs text-zinc-300">
+                    <div className="p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800/80">
+                      <span className="font-semibold text-zinc-200 block">Session Truncation</span>
+                      <p className="text-[11px] text-zinc-500 mt-1">Sliding context window with historical conversation memory.</p>
                     </div>
-                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
-                      <span className="font-bold text-amber-300 block">2. Payload Pruning</span>
-                      <p className="text-[11px] text-slate-400">Strips raw DB fields into high-signal JSON (48.5% payload byte reduction).</p>
+                    <div className="p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800/80">
+                      <span className="font-semibold text-zinc-200 block">Payload Pruning</span>
+                      <p className="text-[11px] text-zinc-500 mt-1">Extracts only essential database fields to minimize payload overhead.</p>
                     </div>
-                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
-                      <span className="font-bold text-amber-300 block">3. Sentence Extraction</span>
-                      <p className="text-[11px] text-slate-400">Sentence-level TF-IDF overlap extraction removes irrelevant RAG boilerplate.</p>
+                    <div className="p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800/80">
+                      <span className="font-semibold text-zinc-200 block">Sentence Extraction</span>
+                      <p className="text-[11px] text-zinc-500 mt-1">Filters out non-relevant documentation boilerplate before generation.</p>
                     </div>
-                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
-                      <span className="font-bold text-amber-300 block">4. Token Budgeting</span>
-                      <p className="text-[11px] text-slate-400">Enforces 300 token budget cap, saving 320ms-650ms prompt latency.</p>
+                    <div className="p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800/80">
+                      <span className="font-semibold text-zinc-200 block">Token Budgeting</span>
+                      <p className="text-[11px] text-zinc-500 mt-1">Enforces per-turn token limits for fast response latency.</p>
                     </div>
                   </div>
                 </div>
@@ -267,13 +270,13 @@ export default function SystemArchitectureModal({ isOpen, onClose }) {
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-slate-800 bg-slate-950/80 flex items-center justify-between text-xs text-slate-400">
-          <span>Customer Care AI Master Agent • Ready for Presentation</span>
+        <div className="px-5 py-3 border-t border-zinc-800 bg-zinc-950 flex items-center justify-between text-xs text-zinc-500">
+          <span>Customer Support Architecture Overview</span>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-colors"
+            className="px-3.5 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-200 text-xs font-medium transition-colors"
           >
-            Close Dashboard
+            Close
           </button>
         </div>
 
