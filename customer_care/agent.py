@@ -41,7 +41,12 @@ try:
         list_customer_tickets,
         vendor_reply_ticket,
         close_support_ticket,
-        adapt_response_tone_and_language
+        adapt_response_tone_and_language,
+        detect_and_adapt_language,
+        recall_customer_memory,
+        save_customer_fact,
+        get_cross_session_timeline,
+        retrieve_gold_exemplars
     )
     from .rag_tools import (
         search_product_guides,
@@ -70,7 +75,12 @@ except (ImportError, ValueError):
         list_customer_tickets,
         vendor_reply_ticket,
         close_support_ticket,
-        adapt_response_tone_and_language
+        adapt_response_tone_and_language,
+        detect_and_adapt_language,
+        recall_customer_memory,
+        save_customer_fact,
+        get_cross_session_timeline,
+        retrieve_gold_exemplars
     )
     from rag_tools import (
         search_product_guides,
@@ -181,7 +191,7 @@ Your Mission:
 4. To provide strict schema-compliant resolution, apply `apply_finetuned_care_adapter`.
 5. Present clear, numbered troubleshooting steps matching official documentation.
 6. Always cite the documentation source at the end (e.g. `*Source: MongoDB Database (Category)*`).
-7. If remote troubleshooting fails or documentation does not cover the specific issue, offer to create an asynchronous vendor support ticket using `create_support_ticket` or advise warranty replacement.""",
+7. If troubleshooting steps have already been attempted by the customer and failed (e.g. descaling run twice but light is still flashing or pressure is stuck at 0 bar), DO NOT repeat troubleshooting lookups. Call `create_support_ticket` immediately to create a vendor support ticket and set clear SLA expectations.""",
     tools=[
         troubleshoot_product_issue,
         search_product_guides,
@@ -189,6 +199,7 @@ Your Mission:
         add_dynamic_faq,
         adapt_response_tone_and_language,
         apply_finetuned_care_adapter,
+        retrieve_gold_exemplars,
         create_support_ticket
     ],
     before_tool_callback=tool_argument_guardrail,
@@ -210,6 +221,7 @@ Your Mission:
         create_rma_return,
         check_warranty_status,
         file_warranty_claim,
+        retrieve_gold_exemplars,
         search_faq_knowledge_base
     ],
     before_tool_callback=tool_argument_guardrail,
@@ -219,15 +231,20 @@ Your Mission:
 escalation_sentiment_agent = Agent(
     name="escalation_sentiment_specialist",
     model=MODEL_NAME,
-    description="Specialist in customer sentiment sequence analysis using LSTM, courtesy credits, and Tier-2 supervisor escalation.",
+    description="Specialist in customer sentiment sequence analysis using LSTM, cross-session long-term memory recall, courtesy credits, and Tier-2 supervisor escalation.",
     instruction="""You are the Senior Customer Care Escalation & Sentiment Intelligence Specialist.
 Your Mission:
 1. Analyze customer emotional valence, churn risk, and frustration trajectory across conversation turns using `run_lstm_sentiment_analysis`.
-2. When frustration or shipping delays occur, apologize empathetically and offer courtesy credit with `issue_courtesy_credit`.
-3. If human intervention or executive review is needed, dispatch a priority callback ticket with `escalate_to_human_supervisor`.
-4. Use `get_customer_session_summary` to review past context and state.""",
+2. Access and synthesize customer long-term episodic and profile history using `recall_customer_memory` and `get_cross_session_timeline`.
+3. When customer expresses persistent personal preferences, communication constraints, or device setups, save them using `save_customer_fact`.
+4. When frustration or shipping delays occur, apologize empathetically and offer courtesy credit with `issue_courtesy_credit`.
+5. If human intervention or executive review is needed, dispatch a priority callback ticket with `escalate_to_human_supervisor`.
+6. Use `get_customer_session_summary` to review past context and state.""",
     tools=[
         run_lstm_sentiment_analysis,
+        recall_customer_memory,
+        save_customer_fact,
+        get_cross_session_timeline,
         issue_courtesy_credit,
         escalate_to_human_supervisor,
         get_customer_session_summary
@@ -244,7 +261,7 @@ vendor_ticket_agent = Agent(
 Your Mission:
 1. When a user asks a question that is unresolved by the AI system, out-of-scope, or explicitly requests to contact the vendor, call `create_support_ticket`. Provide the user their Ticket ID and clear SLA expectations.
 2. When a user asks for ticket status (e.g. 'What is my ticket status?' or 'I want to check my ticket'):
-   - If the user DID NOT specify a Ticket ID (e.g., TCK-XXXX) or Order ID (e.g., ORD-XXXX) in their message, and no active ticket ID exists in session memory, DO NOT list all tickets. Simply reply politely asking: "Could you please share your Ticket ID or Order ID so I can check the status for you?"
+   - If the user DID NOT specify a Ticket ID (e.g., TCK-XXXX) or Order ID (e.g., ORD-XXXX) in their message, and no active ticket ID exists in session memory, DO NOT call `list_customer_tickets` or `get_ticket_status`. DO NOT invoke any tools. Directly respond asking: "Could you please share your Ticket ID (e.g., TCK-XXXX) or Order ID so I can check the status for you?"
    - ONLY call `get_ticket_status` when a specific Ticket ID or Order ID is provided or active in session memory.
 3. If a vendor response is present (`has_vendor_response` is True) for the requested ticket, present the vendor's resolution clearly and politely.
 4. If the ticket is still pending vendor response, explain that it is in the vendor's queue and provide the expected SLA reassurance.""",
@@ -266,17 +283,22 @@ Your Mission:
 # -------------------------------------------------------------
 
 CARE_COORDINATOR_INSTRUCTIONS = """
-You are the Lead Post-Purchase Customer Care Assistant for our store.
-You integrate cutting-edge ML and AI engineering capabilities:
-1. **Large-Scale 99,441 Order Knowledge**: Call `lookup_order`, `track_shipment`, `predict_delivery_delay_risk`, or `get_ecommerce_dataset_kpis`.
-2. **LSTM Neural Sequence Sentiment Analysis**: Call `run_lstm_sentiment_analysis` to evaluate customer sentiment trajectory and churn risk.
-3. **Hybrid FAQ & Manual RAG Knowledge Retrieval**: Call `search_faq_knowledge_base`, `troubleshoot_product_issue`, or `search_product_guides` to retrieve exact store policies, shipping/return FAQs, and manual instructions with citations (*Source: MongoDB Database (Category)*).
-4. **Multilingual & Persona Adaptation**: Call `adapt_response_tone_and_language` to pivot across languages (English, Spanish, French, German, Japanese, Hindi) and persona styles.
-5. **Fine-Tuned Domain Adapters**: Call `apply_finetuned_care_adapter` for structured post-purchase resolution templates.
-6. **Returns & RMA Automation**: Call `check_return_eligibility` and `create_rma_return`.
-7. **Warranty Claims & Replacements**: Call `check_warranty_status` and `file_warranty_claim`.
-8. **Courtesy Credits & Escalations**: Call `issue_courtesy_credit` ($25-$50) or `escalate_to_human_supervisor`.
-9. **Asynchronous Vendor Support Tickets**: When an inquiry cannot be answered by official manuals or automated tools, or when the customer asks to contact the vendor/open a ticket, call `create_support_ticket` and supply the user with their Ticket ID and vendor SLA. When the user asks generally for ticket status without supplying a Ticket ID or Order ID, simply ask them to provide their Ticket ID or Order ID. Only run `get_ticket_status` when a specific ID is provided.
+You are the Lead Post-Purchase Customer Care Coordinator and Orchestrator for our store.
+You coordinate and route customer inquiries across specialized sub-agents:
+
+1. **Order Logistics & Tracking**: When a customer asks about order status, tracking, courier details, transit delay risk, or delivery KPIs, route to `order_logistics_specialist` using `transfer_to_agent`.
+2. **Returns & Warranty Verification**: When a customer asks to return an item, check return or refund eligibility, request prepaid RMA return labels, verify warranty coverage, or file warranty claims, route to `returns_warranty_specialist` using `transfer_to_agent`.
+3. **Escalations, Frustration & Courtesy Credits**: When a customer expresses frustration, reports repeated order delays, demands a supervisor, or requests compensation/credits, route to `escalation_sentiment_specialist` using `transfer_to_agent`.
+4. **Hardware Diagnostics & Technical Troubleshooting RAG**: When a customer reports initial device malfunctions, hardware error codes (such as TV-NET-502), Wi-Fi pairing issues, or manual lookups, call `troubleshoot_product_issue` or `search_product_guides`. Present clear numbered steps matching official documentation and cite the source (*Source: MongoDB Database (Category)*).
+5. **Asynchronous Vendor Support Tickets**: When troubleshooting steps have already been attempted by the customer and failed (e.g. running descaling cycle twice with persisting hardware errors or 0 bar pressure), or when an inquiry cannot be answered by official manuals, call `create_support_ticket` immediately to open a vendor support ticket and provide SLA expectations. When the user asks generally for ticket status without supplying a Ticket ID or Order ID (e.g., "What is the status of my support ticket?"), DO NOT call `list_customer_tickets` or `get_ticket_status`. DO NOT invoke any tools. Directly respond asking: "Could you please share your Ticket ID (e.g., TCK-XXXX) or Order ID so I can check the status for you?"
+6. **Multilingual NLP & Cultural Pragmatics**: When the customer communicates in non-English (Spanish, French, German, Hindi, Japanese) or code-mixed language (Hinglish/Spanglish), call `detect_and_adapt_language` or `adapt_response_tone_and_language`. Respond fluently in the customer's language using respectful cultural honorifics (Spanish: Usted, German: Sie, Hindi: Aap, Japanese: Keigo). Keep Order IDs (ORD-XXXX), serial numbers, and error codes (TV-NET-502) in exact alphanumeric format.
+7. **Cross-Session Long-Term Memory Continuity**: Access customer profile and episodic history via `recall_customer_memory` or pre-loaded memory in session context. When interacting with returning customers (e.g. Alex Mercer, Sarah Connor, David Kim):
+    - Warmly acknowledge their return by name.
+    - Proactively reference their registered devices or past tickets (e.g. asking Alex if the Wi-Fi OTA firmware update resolved error TV-NET-502, or checking on David's espresso customs hold).
+    - Align with their preferred communication tone (e.g. technical, concise, empathetic).
+    - If the customer reveals a new persistent personal fact, hardware setup, or communication preference, call `save_customer_fact` to persist it across future sessions.
+8. **Dynamic Few-Shot RAG & Gold-Standard Precedents**: When resolving complex diagnostic symptoms, policy exceptions, return grace periods, or high-friction escalations, consult gold-standard human resolution precedents via dynamic few-shot retrieval or by calling `retrieve_gold_exemplars`. Model the agent's tone, empathy, exact step numbers, and official policy citations after these verified supervisor cases.
+9. **Fine-Tuned Domain Adapters & Store FAQ**: Call `apply_finetuned_care_adapter` or `search_faq_knowledge_base` to retrieve exact store policies, shipping/return FAQs, and manual instructions with citations.
 
 ### Communication Tone:
 - Empathetic, polite, proactive, and concise.
@@ -286,7 +308,7 @@ You integrate cutting-edge ML and AI engineering capabilities:
 root_agent = Agent(
     name="customer_care_coordinator",
     model=MODEL_NAME,
-    description="Comprehensive Post-Purchase AI Customer Care Chatbot combining Multi-Agents, LSTM Sentiment, Fine-Tuning, Hybrid FAQ RAG, 99k+ Kaggle Orders, Multilingual Adaptation, and Asynchronous Vendor Ticketing.",
+    description="Comprehensive Post-Purchase AI Customer Care Chatbot combining Multi-Agents, Multilingual NLP, Cross-Session Long-Term Memory, Dynamic Few-Shot RAG, LSTM Sentiment, Fine-Tuning, Hybrid FAQ RAG, 99k+ Kaggle Orders, and Asynchronous Vendor Ticketing.",
     instruction=CARE_COORDINATOR_INSTRUCTIONS,
     sub_agents=[
         order_logistics_agent,
@@ -296,23 +318,17 @@ root_agent = Agent(
         vendor_ticket_agent
     ],
     tools=[
-        lookup_order,
-        track_shipment,
-        predict_delivery_delay_risk,
-        get_ecommerce_dataset_kpis,
+        troubleshoot_product_issue,
+        search_product_guides,
         search_faq_knowledge_base,
         add_dynamic_faq,
         adapt_response_tone_and_language,
-        troubleshoot_product_issue,
-        search_product_guides,
-        check_return_eligibility,
-        create_rma_return,
-        check_warranty_status,
-        file_warranty_claim,
-        run_lstm_sentiment_analysis,
+        detect_and_adapt_language,
+        recall_customer_memory,
+        save_customer_fact,
+        get_cross_session_timeline,
+        retrieve_gold_exemplars,
         apply_finetuned_care_adapter,
-        issue_courtesy_credit,
-        escalate_to_human_supervisor,
         get_customer_session_summary,
         create_support_ticket,
         get_ticket_status,
@@ -323,3 +339,6 @@ root_agent = Agent(
     before_model_callback=input_safety_guardrail,
     before_tool_callback=tool_argument_guardrail
 )
+
+# Alias for ADK evaluation module introspection
+agent = root_agent

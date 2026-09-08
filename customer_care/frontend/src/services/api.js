@@ -186,4 +186,155 @@ export async function fetchContextMetricsApi() {
   }
 }
 
+// -------------------------------------------------------------
+// CROSS-SESSION LONG-TERM MEMORY APIs
+// -------------------------------------------------------------
+
+export async function fetchCustomerProfilesApi() {
+  try {
+    const res = await fetch(`${API_BASE}/customer/profiles`);
+    if (!res.ok) throw new Error('Failed to fetch customer profiles');
+    return await res.json();
+  } catch (err) {
+    console.error('Error loading profiles:', err);
+    return { status: 'error', profiles: [] };
+  }
+}
+
+export async function fetchCustomerProfileApi(userId) {
+  try {
+    const res = await fetch(`${API_BASE}/customer/profile?user_id=${encodeURIComponent(userId)}`);
+    if (!res.ok) throw new Error('Failed to fetch customer profile');
+    return await res.json();
+  } catch (err) {
+    console.error('Error loading customer profile:', err);
+    return { status: 'error', profile: null, episodes: [] };
+  }
+}
+
+export async function addCustomerNoteApi(userId, note) {
+  const res = await fetch(`${API_BASE}/customer/note`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ user_id: userId, note }),
+  });
+  if (!res.ok) {
+    const errData = await res.json().catch(() => ({}));
+    throw new Error(errData.detail || 'Failed to add note');
+  }
+  return await res.json();
+}
+
+export async function fetchCustomerEpisodesApi(userId, limit = 10) {
+  try {
+    const res = await fetch(`${API_BASE}/customer/episodes?user_id=${encodeURIComponent(userId)}&limit=${limit}`);
+    if (!res.ok) throw new Error('Failed to fetch customer episodes');
+    return await res.json();
+  } catch (err) {
+    console.error('Error loading customer episodes:', err);
+    return { status: 'error', episodes: [] };
+  }
+}
+
+// -------------------------------------------------------------
+// DYNAMIC FEW-SHOT RAG APIs
+// -------------------------------------------------------------
+
+export async function fetchFewShotExemplarsApi(category = 'All') {
+  try {
+    const url = category && category !== 'All' 
+      ? `${API_BASE}/few-shot/exemplars?category=${encodeURIComponent(category)}`
+      : `${API_BASE}/few-shot/exemplars`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Failed to fetch few-shot exemplars');
+    return await res.json();
+  } catch (err) {
+    console.error('Error loading exemplars:', err);
+    return { status: 'error', exemplars: [] };
+  }
+}
+
+export async function searchFewShotExemplarsApi(query, category = 'All', topK = 3) {
+  try {
+    const url = `${API_BASE}/few-shot/search?query=${encodeURIComponent(query)}&category=${encodeURIComponent(category)}&top_k=${topK}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Failed to search exemplars');
+    return await res.json();
+  } catch (err) {
+    console.error('Error searching exemplars:', err);
+    return { status: 'error', matches: [] };
+  }
+}
+
+export async function addFewShotExemplarApi(exemplarData) {
+  const res = await fetch(`${API_BASE}/few-shot/add`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(exemplarData),
+  });
+  if (!res.ok) {
+    const errData = await res.json().catch(() => ({}));
+    throw new Error(errData.detail || 'Failed to add gold exemplar');
+  }
+  return await res.json();
+}
+
+export async function deleteFewShotExemplarApi(exemplarId) {
+  const res = await fetch(`${API_BASE}/few-shot/${encodeURIComponent(exemplarId)}`, {
+    method: 'DELETE',
+  });
+  if (!res.ok) {
+    const errData = await res.json().catch(() => ({}));
+    throw new Error(errData.detail || 'Failed to delete exemplar');
+  }
+  return await res.json();
+}
+
+// -------------------------------------------------------------
+// MULTILINGUAL NLP & CROSS-LINGUAL RAG APIs
+// -------------------------------------------------------------
+
+export async function detectLanguageApi(text) {
+  try {
+    const res = await fetch(`${API_BASE}/nlp/detect-language`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text }),
+    });
+    if (!res.ok) throw new Error('Failed to detect language');
+    return await res.json();
+  } catch (err) {
+    console.error('Error detecting language:', err);
+    return { status: 'error', analysis: { language: 'en', name: 'English', confidence: 1.0 } };
+  }
+}
+
+export async function crossLingualSearchApi(query, category = 'All') {
+  try {
+    const res = await fetch(`${API_BASE}/nlp/cross-lingual-search`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query, category }),
+    });
+    if (!res.ok) throw new Error('Failed to perform cross-lingual search');
+    return await res.json();
+  } catch (err) {
+    console.error('Error in cross-lingual search:', err);
+    return { status: 'error', matches_count: 0, exemplars: [] };
+  }
+}
+
+export async function fetchSupportedLanguagesApi() {
+  try {
+    const res = await fetch(`${API_BASE}/nlp/supported-languages`);
+    if (!res.ok) throw new Error('Failed to fetch supported languages');
+    return await res.json();
+  } catch (err) {
+    console.error('Error loading languages:', err);
+    return { status: 'error', languages: {} };
+  }
+}
+
+
+
 

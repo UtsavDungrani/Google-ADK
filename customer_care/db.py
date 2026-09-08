@@ -143,6 +143,21 @@ def get_knowledge_docs_collection() -> Optional[Any]:
     return db["knowledge_docs"] if db is not None else None
 
 
+def get_profiles_collection() -> Optional[Any]:
+    db = get_db()
+    return db["customer_profiles"] if db is not None else None
+
+
+def get_episodes_collection() -> Optional[Any]:
+    db = get_db()
+    return db["customer_episodes"] if db is not None else None
+
+
+def get_exemplars_collection() -> Optional[Any]:
+    db = get_db()
+    return db["gold_exemplars"] if db is not None else None
+
+
 # -------------------------------------------------------------
 # Seed Data Definitions
 # -------------------------------------------------------------
@@ -403,17 +418,291 @@ SEED_KNOWLEDGE_DOCS = [
     }
 ]
 
+# -------------------------------------------------------------
+# Cross-Session Long-Term Memory Seed Data
+# -------------------------------------------------------------
+
+SEED_PROFILES = [
+    {
+        "customer_id": "CUST-9921",
+        "customer_name": "Alex Mercer",
+        "customer_email": "alex.mercer@example.com",
+        "customer_phone": "+1-555-0199",
+        "preferred_tone": "Technical & Concise",
+        "preferred_language": "English",
+        "churn_risk": 0.35,
+        "churn_risk_level": "Medium Risk",
+        "total_credits_issued": 0.0,
+        "owned_devices": [
+            {
+                "order_id": "ORD-10021",
+                "item_name": "UltraHD 65\" 4K Smart TV",
+                "item_model": "UTV-65-4K-PRO",
+                "serial_number": "SN-TV-98214-X",
+                "purchase_date": "2026-08-05",
+                "delivery_date": "2026-08-08"
+            }
+        ],
+        "active_tickets": ["TCK-10021-VND"],
+        "persistent_notes": [
+            "Uses Eero 6+ Wi-Fi mesh network with 160MHz channels",
+            "Prefers step-by-step firmware debugging instructions before hardware RMA",
+            "Reported error TV-NET-502 resolved via vendor OTA patch build v1.09-patch2"
+        ],
+        "last_interaction_at": "2026-08-24 16:40:00"
+    },
+    {
+        "customer_id": "CUST-8812",
+        "customer_name": "Sarah Connor",
+        "customer_email": "s.connor@example.com",
+        "customer_phone": "+1-555-0188",
+        "preferred_tone": "Polite & Direct",
+        "preferred_language": "English",
+        "churn_risk": 0.12,
+        "churn_risk_level": "Low Risk",
+        "total_credits_issued": 0.0,
+        "owned_devices": [
+            {
+                "order_id": "ORD-10022",
+                "item_name": "ProSound ANC Wireless Headphones",
+                "item_model": "PS-ANC-900",
+                "serial_number": "SN-HP-44019-B",
+                "purchase_date": "2026-08-15",
+                "delivery_date": "2026-08-18"
+            }
+        ],
+        "active_tickets": [],
+        "persistent_notes": [
+            "Regularly pairs headphones via Bluetooth Multipoint between iPhone 15 and MacBook Pro",
+            "Inquired about 30-day return policy; within eligible return window until Sep 17, 2026"
+        ],
+        "last_interaction_at": "2026-08-19 14:20:00"
+    },
+    {
+        "customer_id": "CUST-7741",
+        "customer_name": "David Kim",
+        "customer_email": "david.kim@example.com",
+        "customer_phone": "+1-555-0144",
+        "preferred_tone": "Empathetic & Detailed",
+        "preferred_language": "English",
+        "churn_risk": 0.72,
+        "churn_risk_level": "High Risk",
+        "total_credits_issued": 25.0,
+        "owned_devices": [
+            {
+                "order_id": "ORD-10023",
+                "item_name": "BaristaPro Espresso Machine",
+                "item_model": "BPE-15BAR",
+                "serial_number": "SN-ESP-11983-Z",
+                "purchase_date": "2026-08-19",
+                "delivery_date": None
+            }
+        ],
+        "active_tickets": ["TCK-10023-VND"],
+        "persistent_notes": [
+            "Order delayed due to regional DHL customs port inspection hold",
+            "Customer was highly frustrated by delivery lag; granted $25 courtesy store credit voucher",
+            "Awaiting DHL customs clearance release update under vendor ticket TCK-10023-VND"
+        ],
+        "last_interaction_at": "2026-08-25 08:30:00"
+    }
+]
+
+SEED_EPISODES = [
+    {
+        "episode_id": "EPS-9921-01",
+        "customer_id": "CUST-9921",
+        "session_id": "sess_alex_01",
+        "timestamp": "2026-08-24 09:15:00",
+        "summary": "Alex reported recurring Wi-Fi disconnects and TV-NET-502 error on UltraHD 65\" TV. Unplugging and DNS 8.8.8.8 failed. Vendor ticket TCK-10021-VND opened with authorized hardware engineering.",
+        "topics": ["Wi-Fi Disconnect", "Error TV-NET-502", "Ticket Creation"],
+        "sentiment_at_conclusion": "Frustrated but appreciative of quick ticket SLA",
+        "resolved": False
+    },
+    {
+        "episode_id": "EPS-9921-02",
+        "customer_id": "CUST-9921",
+        "session_id": "sess_alex_02",
+        "timestamp": "2026-08-24 16:40:00",
+        "summary": "Vendor Senior Hardware Specialist Marcus Vance responded to ticket TCK-10021-VND with OTA firmware patch (build v1.09-patch2) for 160MHz mesh channel compatibility. Alex was instructed to apply via TV settings.",
+        "topics": ["Ticket Resolution", "OTA Patch", "Firmware v1.09"],
+        "sentiment_at_conclusion": "Relieved / Satisfied",
+        "resolved": True
+    },
+    {
+        "episode_id": "EPS-8812-01",
+        "customer_id": "CUST-8812",
+        "session_id": "sess_sarah_01",
+        "timestamp": "2026-08-19 14:20:00",
+        "summary": "Sarah checked Bluetooth dual-device multipoint pairing for ProSound ANC Headphones. Successfully paired both laptop and phone simultaneously. Also inquired about 30-day return policy guarantee.",
+        "topics": ["Bluetooth Multipoint", "Headphone Setup", "Return Window"],
+        "sentiment_at_conclusion": "Satisfied / Confident",
+        "resolved": True
+    },
+    {
+        "episode_id": "EPS-7741-01",
+        "customer_id": "CUST-7741",
+        "session_id": "sess_david_01",
+        "timestamp": "2026-08-25 08:30:00",
+        "summary": "David inquired about delayed BaristaPro Espresso Machine (ORD-10023). Tracking indicated customs inspection hold. Escalation agent provided $25 courtesy credit and filed vendor ticket TCK-10023-VND with customs brokerage.",
+        "topics": ["Shipping Delay", "Customs Hold", "Courtesy Credit $25", "Ticket TCK-10023-VND"],
+        "sentiment_at_conclusion": "Mollified after courtesy credit and direct ticket opening",
+        "resolved": False
+    }
+]
+
+# -------------------------------------------------------------
+# Dynamic Few-Shot Gold-Standard Exemplars
+# Curated high-performance human resolutions for in-context learning
+# -------------------------------------------------------------
+
+SEED_EXEMPLARS = [
+    {
+        "exemplar_id": "EXEMP-RET-01",
+        "title": "30-Day Return Grace Period Exception",
+        "category": "Returns & Warranty",
+        "situation": "Customer requests return on day 32 (2 days past standard 30-day window) due to hospitalization or extenuating hardship.",
+        "customer_inquiry": "I was hospitalized for a week and missed the 30-day return cutoff for my UltraHD TV (order ORD-10021). Can I please still return it for a refund?",
+        "expert_thought": "Customer is only 2 days outside the standard 30-day window with extenuating medical hardship. Policy allows Tier-2 supervisor 48-72h grace waivers with zero restocking fees. Express high empathy, grant the exception, generate prepaid FedEx RMA, and state clear refund timeline.",
+        "expert_response": (
+            "I am so sorry to hear that you were hospitalized, and I truly hope you are recovering well. "
+            "While our standard return window is 30 days, we gladly authorize a **Medical Grace Exception** for you today with a 100% full refund and **zero restocking fees**.\n\n"
+            "Here are your return details:\n"
+            "• **RMA Authorization Code**: `RMA-GRACE-9921`\n"
+            "• **Prepaid Return Label**: Dispatched to your email via FedEx Freight.\n"
+            "• **Refund Timeline**: Full amount of $863.99 will be credited to your original payment method within 3-5 business days of carrier drop-off.\n\n"
+            "Please prioritize your recovery, and let us know if you need any assistance scheduling a carrier pickup!"
+        ),
+        "policy_citation": "*Source: Official Store Policy - Section 4.2 Grace Waivers*",
+        "tags": ["return", "rma", "grace period", "exception", "medical", "hospital", "refund", "tv"]
+    },
+    {
+        "exemplar_id": "EXEMP-DIAG-01",
+        "title": "Wi-Fi Mesh Handshake & Error TV-NET-502 Diagnostics",
+        "category": "Product Diagnostics",
+        "situation": "Smart TV shows error TV-NET-502 on Wi-Fi 6 mesh network with frequent drops.",
+        "customer_inquiry": "My 65 inch TV shows error code TV-NET-502 and keeps dropping from my Eero Wi-Fi mesh network. I restarted my router and it still won't connect.",
+        "expert_thought": "Error TV-NET-502 indicates a 160MHz channel handshake timeout on Wi-Fi 6 mesh networks. Provide structured numbered manual steps: discharge TV capacitors for 60s, separate or split 2.4/5GHz SSID bands, assign Google static DNS 8.8.8.8, and advise checking for OTA patch build v1.09.",
+        "expert_response": (
+            "Error code **TV-NET-502** indicates a known channel handshake timeout that commonly occurs with 160MHz channels on Wi-Fi 6 mesh systems (like Eero 6+). "
+            "Please follow these exact diagnostic steps from our hardware engineering manual:\n\n"
+            "1. **Capacitance Discharge**: Unplug the TV's power cord from the wall for a full **60 seconds** (this clears the Wi-Fi card's volatile memory cache).\n"
+            "2. **Bluetooth Remote Re-pair**: Hold down `Home` + `Back` buttons on your remote for 5 seconds until the pairing LED blinks.\n"
+            "3. **Forget & Reconnect**: Navigate to `Settings` > `Network` > `Forget Network`, then reconnect specifically to your 2.4GHz or 5GHz band.\n"
+            "4. **Static DNS Override**: Set DNS from Auto to Manual and input **`8.8.8.8`** (Primary) and **`8.8.4.4`** (Secondary).\n"
+            "5. **Check Firmware**: Go to `Settings` > `System` > `Software Update` > `Check Patch` to apply Over-The-Air hotfix build **v1.09-patch2**.\n\n"
+            "If your Wi-Fi still disconnects after step 5, let me know and I will immediately dispatch a vendor engineering replacement panel under your 2-year warranty!"
+        ),
+        "policy_citation": "*Source: Smart TV User Manual & Hardware Diagnostics Guide (Doc: KNOW-TV-001)*",
+        "tags": ["wifi", "mesh", "tv-net-502", "error", "tv", "dns", "firmware", "diagnostics"]
+    },
+    {
+        "exemplar_id": "EXEMP-ESC-01",
+        "title": "Severe Courier Delay & Customer Frustration De-Escalation",
+        "category": "Escalations & Courtesy Credits",
+        "situation": "Customer is furious that high-value purchase is delayed by 4+ days with no tracking updates.",
+        "customer_inquiry": "My order ORD-10023 was supposed to arrive 4 days ago! This is ridiculous and unacceptable service, I needed this machine for an event this weekend!",
+        "expert_thought": "Customer frustration velocity is extremely high (churn risk > 0.7). Do not give robotic tracking status or defensive excuses. Apologize sincerely with deep empathy, acknowledge the unacceptable 4-day delay, immediately issue a $25-$50 courtesy credit voucher, open a direct courier priority investigation, and provide personal accountability.",
+        "expert_response": (
+            "I completely understand your frustration, and you are 100% right—a 4-day delay without clear communication is unacceptable, especially when you were relying on your machine for a weekend event. I sincerely apologize for this experience.\n\n"
+            "I am taking immediate action to make this right:\n"
+            "1. **Instant Courtesy Credit**: I have credited **$25.00** directly to your customer wallet (`CARE-CREDIT-7741`), usable immediately with no expiration.\n"
+            "2. **Carrier Escalation Ticket**: I have opened priority case **`TCK-10023-VND`** directly with DHL customs logistics management to force-release your package from inspection.\n"
+            "3. **Personal Monitoring**: I am actively tracking your shipment checkpoints and will notify you as soon as the package enters the final delivery van.\n\n"
+            "If the courier cannot guarantee delivery within 24 hours, I will gladly offer you a 100% full refund or arrange an expedited overnight replacement."
+        ),
+        "policy_citation": "*Source: Customer Care Executive Escalation Guidelines (Section 3: Goodwill Credits)*",
+        "tags": ["delay", "frustration", "courtesy credit", "voucher", "apology", "churn", "shipping", "dhl"]
+    },
+    {
+        "exemplar_id": "EXEMP-CLM-01",
+        "title": "2-Year Hardware Warranty Replacement for Screen Artifacts",
+        "category": "Returns & Warranty",
+        "situation": "TV displays black horizontal lines after 10 days of normal usage.",
+        "customer_inquiry": "My TV from order ORD-10021 has black horizontal lines running across the bottom half of the screen. It was never dropped. Can I get this replaced under warranty?",
+        "expert_thought": "Defect involves display panel horizontal lines without physical damage, covered under the 2-Year Manufacturer Hardware Warranty. Guide picture self-test, verify 2-year warranty validity, approve replacement claim CLM-TV-98214 with 24-hour express dispatch, and arrange carrier pickup for defective unit.",
+        "expert_response": (
+            "Thank you for reaching out, and I am sorry to hear about the display artifacts on your 65\" Smart TV. Horizontal lines indicate an internal T-Con board or display panel matrix defect, which is **100% covered under your 2-Year Manufacturer Warranty**.\n\n"
+            "I have officially authorized your warranty replacement claim:\n"
+            "• **Claim Number**: `CLM-TV-98214`\n"
+            "• **Coverage Status**: Verified Active (24 months total coverage, expires August 8, 2028).\n"
+            "• **Replacement Unit**: A brand new **UltraHD 65\" 4K Smart TV (UTV-65-4K-PRO)** is being prepared for 24-hour express courier dispatch.\n"
+            "• **Defective Unit Pickup**: The courier will bring the replacement box and collect your defective unit with a prepaid label—no packaging hassle for you.\n\n"
+            "You will receive live tracking information via SMS and email as soon as the replacement leaves the fulfillment center!"
+        ),
+        "policy_citation": "*Source: Official Return & Warranty Policy - Section 2.1 Hardware Panel Coverage*",
+        "tags": ["warranty", "claim", "replacement", "tv", "screen", "lines", "hardware defect", "panel"]
+    },
+    {
+        "exemplar_id": "EXEMP-HP-01",
+        "title": "ProSound ANC Headphones Dual-Device Multipoint Setup",
+        "category": "Product Diagnostics",
+        "situation": "Customer struggling to connect Bluetooth headphones to both work laptop and personal smartphone simultaneously.",
+        "customer_inquiry": "How do I pair my ProSound headphones to both my MacBook and my iPhone at the same time? When I connect to one, the other disconnects.",
+        "expert_thought": "Bluetooth multipoint requires pairing device 1, temporarily disabling Bluetooth on device 1, pairing device 2, and then re-enabling device 1. Explain clear sequence and mention automatic audio priority switching.",
+        "expert_response": (
+            "Your ProSound ANC Wireless Headphones support **Dual-Device Multipoint Bluetooth**, which allows you to take phone calls on your iPhone while listening to audio or video on your MacBook. "
+            "To set up multipoint pairing seamlessly, please follow this exact order:\n\n"
+            "1. **Enter Pairing Mode**: Power off the headphones, then press and hold the Power button for **5 seconds** until the LED blinks alternating Red and Blue.\n"
+            "2. **Pair Device 1 (iPhone)**: Open Bluetooth Settings on your phone and tap **`PS-ANC-900`** to connect.\n"
+            "3. **Disconnect Temporarily**: Turn off Bluetooth on your iPhone momentarily.\n"
+            "4. **Pair Device 2 (MacBook)**: Re-enter pairing mode on the headphones (hold Power for 5s), open MacBook Bluetooth settings, and select **`PS-ANC-900`**.\n"
+            "5. **Re-Enable Device 1**: Turn Bluetooth back on your iPhone. Both devices will now display as **Connected** simultaneously!\n\n"
+            "The headphones will automatically switch audio to whichever device initiates a call or plays media."
+        ),
+        "policy_citation": "*Source: ProSound ANC Wireless Headphones Manual (Doc: KNOW-HP-001)*",
+        "tags": ["headphones", "bluetooth", "multipoint", "pairing", "laptop", "phone", "audio", "macbook"]
+    },
+    {
+        "exemplar_id": "EXEMP-ESP-01",
+        "title": "Espresso Machine Orange Light Descaling Alert & Pressure Recovery",
+        "category": "Product Diagnostics",
+        "situation": "Espresso machine orange light is flashing and espresso extraction pressure is low.",
+        "customer_inquiry": "The orange light on my BaristaPro espresso machine started flashing today and the pressure gauge barely reaches 5 bars. What is wrong with it?",
+        "expert_thought": "Flashing orange icon is the automatic scale buildup sensor alert. Scale accumulation in boiler restricts flow and drops extraction pressure. Guide 50/50 water-vinegar descaling cycle (Brew + Steam 3s hold), followed by 30lb tamping and fine grind size (setting 2-4) to reach optimal 15 bars.",
+        "expert_response": (
+            "The flashing orange icon is your machine's **Automatic Descaling Alert**, which triggers every 200 brew cycles. Mineral scale accumulation inside the thermocoil restricts water flow and prevents the pump from building the required 15 bars of extraction pressure.\n\n"
+            "Here is how to clear the alert and restore full 15-bar crema pressure:\n\n"
+            "1. **Prepare Solution**: Mix 50% white vinegar (or official BaristaPro descaler) with 50% warm filtered water in the reservoir.\n"
+            "2. **Initiate Descaling Mode**: Ensure the machine is turned on, then press and hold the **Brew + Steam** buttons simultaneously for **3 seconds**. The orange light will turn solid.\n"
+            "3. **Purge Circuits**: Turn the dial to Hot Water for 30 seconds, then Steam for 30 seconds, and run the rest through the group head.\n"
+            "4. **Rinse**: Fill reservoir with fresh clean water and run 2 complete purge cycles to eliminate any residual descaler.\n"
+            "5. **Pressure Calibration**: Set grinder size to **Fine (Setting 2-3)** and tamp with **30 lbs of firm, level pressure** using 18g of freshly roasted beans.\n\n"
+            "Once descaling completes, the orange light will shut off automatically and extraction pressure will return to optimal 15 bars!"
+        ),
+        "policy_citation": "*Source: BaristaPro Espresso Machine Manual (Doc: KNOW-ESP-002 & KNOW-ESP-003)*",
+        "tags": ["espresso", "descaling", "orange light", "pressure", "crema", "cleaning", "grinder"]
+    }
+]
+
 
 def list_knowledge_chunks(category: Optional[str] = None) -> List[Dict[str, Any]]:
-    """Fetches knowledge docs and FAQs stored in MongoDB."""
+    """Fetches knowledge docs and FAQs stored in MongoDB with offline seed fallback."""
     col = get_knowledge_docs_collection()
-    if col is None:
-        return []
-    query = {"status": "active"}
+    if col is not None:
+        try:
+            query = {"status": "active"}
+            if category and category.lower() != "all":
+                query["category"] = {"$regex": f"^{category}$", "$options": "i"}
+            docs = list(col.find(query))
+            if docs:
+                return serialize_docs(docs)
+        except Exception:
+            pass
+    # Fallback to SEED_KNOWLEDGE_DOCS if MongoDB offline or collection empty
+    raw_seed = SEED_KNOWLEDGE_DOCS
     if category and category.lower() != "all":
-        query["category"] = {"$regex": f"^{category}$", "$options": "i"}
-    docs = list(col.find(query))
-    return serialize_docs(docs)
+        raw_seed = [d for d in SEED_KNOWLEDGE_DOCS if d.get("category", "").lower() == category.lower()]
+    
+    normalized = []
+    for d in raw_seed:
+        item = dict(d)
+        item["doc_id"] = item.get("doc_id") or item.get("exemplar_id", "KNOW-SEED-001")
+        item["heading"] = item.get("heading") or item.get("title", "Knowledge Document")
+        item["content"] = item.get("content") or item.get("expert_response") or item.get("situation", "")
+        item["doc_title"] = item.get("doc_title") or item.get("category", "General Support")
+        normalized.append(item)
+    return normalized
 
 
 def insert_knowledge_chunk(heading: str, content: str, category: str = "General Support", doc_title: str = "Store FAQ Guide", tags: Optional[List[str]] = None) -> Dict[str, Any]:
@@ -446,15 +735,31 @@ def delete_knowledge_chunk(doc_id: str) -> bool:
 
 
 def list_faq_docs(category: Optional[str] = None) -> List[Dict[str, Any]]:
-    """Fetches FAQ documents stored in MongoDB."""
+    """Fetches FAQ documents stored in MongoDB with offline seed fallback."""
     col = get_faqs_collection()
-    if col is None:
-        return []
-    query = {"status": "active"}
-    if category and category.lower() != "all":
-        query["category"] = {"$regex": f"^{category}$", "$options": "i"}
-    docs = list(col.find(query))
-    return serialize_docs(docs)
+    if col is not None:
+        try:
+            query = {"status": "active"}
+            if category and category.lower() != "all":
+                query["category"] = {"$regex": f"^{category}$", "$options": "i"}
+            docs = list(col.find(query))
+            if docs:
+                return serialize_docs(docs)
+        except Exception:
+            pass
+    seed_faqs = []
+    for f in SEED_KNOWLEDGE_DOCS:
+        faq_item = {
+            "faq_id": f.get("doc_id") or f.get("exemplar_id", "FAQ-SEED-001"),
+            "category": f.get("category", "General Support"),
+            "question": f.get("heading") or f.get("title", "Question"),
+            "answer": f.get("content") or f.get("expert_response", "Answer"),
+            "tags": f.get("tags", []),
+            "status": f.get("status", "active")
+        }
+        if not category or category.lower() == "all" or f.get("category", "").lower() == category.lower():
+            seed_faqs.append(faq_item)
+    return seed_faqs
 
 
 def insert_faq_doc(question: str, answer: str, category: str = "General Support", tags: Optional[List[str]] = None) -> Dict[str, Any]:
@@ -569,6 +874,43 @@ def init_db(force_reseed: bool = False) -> Dict[str, Any]:
         results["knowledge_docs_seeded"] = len(SEED_KNOWLEDGE_DOCS)
     else:
         results["knowledge_docs_count"] = know_col.count_documents({})
+
+    # 8. Customer Profiles Collection (Cross-Session Semantic Memory)
+    profiles_col = db["customer_profiles"]
+    profiles_col.create_index([("customer_id", ASCENDING)], unique=True)
+    profiles_col.create_index([("customer_email", ASCENDING)])
+
+    if force_reseed or profiles_col.count_documents({}) == 0:
+        for p in SEED_PROFILES:
+            profiles_col.update_one({"customer_id": p["customer_id"]}, {"$set": p}, upsert=True)
+        results["profiles_seeded"] = len(SEED_PROFILES)
+    else:
+        results["profiles_count"] = profiles_col.count_documents({})
+
+    # 9. Customer Episodes Collection (Cross-Session Episodic Timeline)
+    episodes_col = db["customer_episodes"]
+    episodes_col.create_index([("episode_id", ASCENDING)], unique=True)
+    episodes_col.create_index([("customer_id", ASCENDING)])
+    episodes_col.create_index([("timestamp", ASCENDING)])
+
+    if force_reseed or episodes_col.count_documents({}) == 0:
+        for e in SEED_EPISODES:
+            episodes_col.update_one({"episode_id": e["episode_id"]}, {"$set": e}, upsert=True)
+        results["episodes_seeded"] = len(SEED_EPISODES)
+    else:
+        results["episodes_count"] = episodes_col.count_documents({})
+
+    # 10. Gold-Standard Exemplars Collection (Dynamic Few-Shot In-Context RAG)
+    exemplars_col = db["gold_exemplars"]
+    exemplars_col.create_index([("exemplar_id", ASCENDING)], unique=True)
+    exemplars_col.create_index([("category", ASCENDING)])
+
+    if force_reseed or exemplars_col.count_documents({}) == 0:
+        for ex in SEED_EXEMPLARS:
+            exemplars_col.update_one({"exemplar_id": ex["exemplar_id"]}, {"$set": ex}, upsert=True)
+        results["exemplars_seeded"] = len(SEED_EXEMPLARS)
+    else:
+        results["exemplars_count"] = exemplars_col.count_documents({})
 
     results["status"] = "success"
     results["database"] = MONGODB_DB_NAME

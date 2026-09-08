@@ -6,7 +6,7 @@ import {
   WarrantyClaimCard, 
   CreditVoucherCard 
 } from './RichCards';
-import { Ticket } from 'lucide-react';
+import { Ticket, Sparkles, Brain, Globe } from 'lucide-react';
 
 export default function MessageBubble({ message, onOpenTicket }) {
   const isUser = message.role === 'user';
@@ -215,23 +215,44 @@ export default function MessageBubble({ message, onOpenTicket }) {
         )}
 
         <div className={`mt-2 text-[10px] flex items-center justify-between gap-2 border-t border-zinc-800/80 pt-1.5 ${isUser ? 'text-blue-200' : 'text-zinc-400'}`}>
-          {message.token_metrics ? (
-            <span className={`font-mono text-[10px] flex items-center gap-1.5 px-2 py-0.5 rounded border ${
-              isUser 
-                ? 'bg-blue-700/50 border-blue-500/40 text-blue-100' 
-                : 'bg-zinc-950/80 border-zinc-800 text-amber-300'
-            }`}>
-              <span>⚡ {message.token_metrics.total_tokens} tokens</span>
-              {message.token_metrics.completion_tokens && (
-                <span className="text-zinc-400 font-normal hidden sm:inline">
-                  (Prompt: {message.token_metrics.prompt_tokens} | Res: {message.token_metrics.completion_tokens} | Saved: {message.token_metrics.tokens_saved})
-                </span>
-              )}
-            </span>
-          ) : (
-            <span />
-          )}
-          <span className="font-mono text-[10px] text-zinc-500">{message.timestamp}</span>
+          <div className="flex items-center gap-1.5 flex-wrap">
+            {message.token_metrics ? (
+              <span className={`font-mono text-[10px] flex items-center gap-1.5 px-2 py-0.5 rounded border ${
+                isUser 
+                  ? 'bg-blue-700/50 border-blue-500/40 text-blue-100' 
+                  : 'bg-zinc-950/80 border-zinc-800 text-amber-300'
+              }`}>
+                <span>⚡ {message.token_metrics.total_tokens} tokens</span>
+                {message.token_metrics.completion_tokens && (
+                  <span className="text-zinc-400 font-normal hidden sm:inline">
+                    (Prompt: {message.token_metrics.prompt_tokens} | Res: {message.token_metrics.completion_tokens} | Saved: {message.token_metrics.tokens_saved})
+                  </span>
+                )}
+              </span>
+            ) : null}
+
+            {message.few_shot_rag_active && (
+              <span className="font-sans text-[10px] font-medium flex items-center gap-1 px-1.5 py-0.5 rounded bg-amber-950/60 border border-amber-600/50 text-amber-300" title="Guided by Dynamic Few-Shot Precedents">
+                <Sparkles className="w-3 h-3 text-amber-400" />
+                <span>Few-Shot RAG</span>
+              </span>
+            )}
+
+            {message.cross_session_memory_active && (
+              <span className="font-sans text-[10px] font-medium flex items-center gap-1 px-1.5 py-0.5 rounded bg-purple-950/60 border border-purple-600/50 text-purple-300" title="Guided by Cross-Session Memory">
+                <Brain className="w-3 h-3 text-purple-400" />
+                <span>Memory</span>
+              </span>
+            )}
+
+            {message.cross_lingual_rag_active && (
+              <span className="font-sans text-[10px] font-medium flex items-center gap-1 px-1.5 py-0.5 rounded bg-teal-950/60 border border-teal-600/50 text-teal-300" title={`Cross-Lingual RAG Bridge (${message.language_name || 'Multilingual'})`}>
+                <Globe className="w-3 h-3 text-teal-400" />
+                <span>{message.language_name ? `${message.language_name} CLIR` : 'Cross-Lingual'}</span>
+              </span>
+            )}
+          </div>
+          <span className="font-mono text-[10px] text-zinc-500 shrink-0">{message.timestamp}</span>
         </div>
       </div>
     </div>

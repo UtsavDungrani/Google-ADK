@@ -206,6 +206,10 @@ export default function SystemArchitectureModal({ isOpen, onClose }) {
                   <ul className="text-xs text-zinc-400 space-y-1.5 leading-relaxed">
                     <li className="flex items-start gap-2">
                       <Check className="w-3.5 h-3.5 text-zinc-300 shrink-0 mt-0.5" />
+                      <span><strong>Dynamic Few-Shot RAG</strong>: Hybrid TF-IDF cosine similarity + BM25 overlap retrieves gold supervisor precedents for in-context prompt injection.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-3.5 h-3.5 text-zinc-300 shrink-0 mt-0.5" />
                       <span><strong>Sparse & Dense Retrieval</strong>: BM25 keyword matching combined with TF-IDF cosine similarity.</span>
                     </li>
                     <li className="flex items-start gap-2">
@@ -214,7 +218,7 @@ export default function SystemArchitectureModal({ isOpen, onClose }) {
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-3.5 h-3.5 text-zinc-300 shrink-0 mt-0.5" />
-                      <span><strong>Database Storage</strong>: MongoDB collections for tickets, chat sessions, orders, and FAQs.</span>
+                      <span><strong>Database Storage</strong>: MongoDB collections for tickets, chat sessions, orders, customer profiles, episodes, and gold exemplars.</span>
                     </li>
                   </ul>
                 </div>

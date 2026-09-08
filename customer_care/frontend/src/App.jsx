@@ -10,33 +10,45 @@ import WebsiteHomepage from './components/WebsiteHomepage';
 import ChatWidget from './components/ChatWidget';
 import FaqKnowledgeExplorer from './components/FaqKnowledgeExplorer';
 import SystemArchitectureModal from './components/SystemArchitectureModal';
+import CustomerMemoryModal from './components/CustomerMemoryModal';
+import FewShotExemplarExplorer from './components/FewShotExemplarExplorer';
+import MultilingualExplorerModal from './components/MultilingualExplorerModal';
 import { 
   sendChatMessage, 
   checkHealth, 
   fetchChatSessions, 
   fetchChatSession, 
-  deleteChatSession 
+  deleteChatSession,
+  fetchCustomerProfileApi
 } from './services/api';
 
-const INITIAL_MESSAGE = {
+const getInitialMessage = (customerName = 'Alex Mercer') => ({
   id: 'welcome-1',
   role: 'assistant',
-  text: `Hello! I'm your Customer Support assistant.
+  text: `Hello ${customerName ? customerName.split(' ')[0] : 'there'}! I'm your Customer Support assistant.
+
+I have your profile and past purchase records connected via **Cross-Session Long-Term Memory**.
 
 How can I help you today?
 * Track an order or shipment (\`ORD-10021\`, \`ORD-10023\`)
-* Search FAQ policy & store guidelines (30-day return, warranty, international shipping)
-* Troubleshoot error codes & device setup
+* Check on unresolved support tickets (\`TCK-10021-VND\`)
+* Troubleshoot error codes & device firmware
 * Return an item & generate prepaid RMA labels
-* File warranty replacement claims
-* Create or check vendor support tickets (\`TCK-10021-VND\`)`,
+* File warranty replacement claims`,
   timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-};
+});
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('website'); // 'website' | 'chat' | 'vendor'
   const [isWidgetOpen, setIsWidgetOpen] = useState(false);
-  const [messages, setMessages] = useState([INITIAL_MESSAGE]);
+  const [activeUserId, setActiveUserId] = useState('CUST-9921'); // Default persona: Alex Mercer
+  const [customerProfile, setCustomerProfile] = useState(null);
+  const [isMemoryOpen, setIsMemoryOpen] = useState(false);
+  const [isFewShotOpen, setIsFewShotOpen] = useState(false);
+  const [isMultilingualOpen, setIsMultilingualOpen] = useState(false);
+  const [detectedLanguage, setDetectedLanguage] = useState('en');
+  const [languageName, setLanguageName] = useState('English');
+  const [messages, setMessages] = useState([getInitialMessage('Alex Mercer')]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [sessionId, setSessionId] = useState(null);
@@ -73,6 +85,18 @@ export default function App() {
     init();
   }, []);
 
+  useEffect(() => {
+    async function loadProfile() {
+      if (activeUserId) {
+        const data = await fetchCustomerProfileApi(activeUserId);
+        if (data && data.profile) {
+          setCustomerProfile(data.profile);
+        }
+      }
+    }
+    loadProfile();
+  }, [activeUserId]);
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -105,7 +129,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const data = await sendChatMessage(messageText, sessionId);
+      const data = await sendChatMessage(messageText, sessionId, activeUserId);
       
       if (data.session_id) {
         setSessionId(data.session_id);
@@ -113,13 +137,31 @@ export default function App() {
       if (data.session_state) {
         setSessionState(data.session_state);
       }
+      if (data.customer_profile) {
+        setCustomerProfile(data.customer_profile);
+      }
+      if (data.detected_language) {
+        setDetectedLanguage(data.detected_language);
+      }
+      if (data.language_name) {
+        setLanguageName(data.language_name);
+      }
 
-      const botMessage = data.bot_turn || {
-        id: `bot-${Date.now()}`,
-        role: 'assistant',
-        text: data.response,
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        token_metrics: data.token_metrics
+      const botMessage = {
+        ...(data.bot_turn || {
+          id: `bot-${Date.now()}`,
+          role: 'assistant',
+          text: data.response,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          token_metrics: data.token_metrics
+        }),
+        few_shot_rag_active: data.few_shot_rag_active,
+        few_shot_exemplars: data.few_shot_exemplars,
+        cross_session_memory_active: data.cross_session_memory_active,
+        detected_language: data.detected_language,
+        language_name: data.language_name,
+        is_code_mixed: data.is_code_mixed,
+        cross_lingual_rag_active: data.cross_lingual_rag_active
       };
 
       setMessages((prev) => {
@@ -184,11 +226,28 @@ export default function App() {
     }
   };
 
-  const handleResetChat = () => {
-    setMessages([INITIAL_MESSAGE]);
+  const handleResetChat = (personaName = null) => {
+    const name = personaName || customerProfile?.customer_name || 'Alex Mercer';
+    setMessages([getInitialMessage(name)]);
     setSessionId(null);
     setSessionState({});
     setInput('');
+  };
+
+  const handleSelectUser = async (newUserId) => {
+    setActiveUserId(newUserId);
+    setSessionId(null);
+    setSessionState({});
+    setInput('');
+    try {
+      const data = await fetchCustomerProfileApi(newUserId);
+      if (data && data.profile) {
+        setCustomerProfile(data.profile);
+        setMessages([getInitialMessage(data.profile.customer_name)]);
+      }
+    } catch (err) {
+      console.error('Failed to load profile for selected user:', err);
+    }
   };
 
   return (
@@ -206,6 +265,13 @@ export default function App() {
         onToggleSidebar={() => setSidebarOpen((prev) => !prev)}
         onOpenFaqExplorer={() => setIsFaqOpen(true)}
         onOpenSystemStats={() => setIsStatsOpen(true)}
+        onOpenMemoryModal={() => setIsMemoryOpen(true)}
+        onOpenFewShotExplorer={() => setIsFewShotOpen(true)}
+        onOpenMultilingualExplorer={() => setIsMultilingualOpen(true)}
+        detectedLanguage={detectedLanguage}
+        languageName={languageName}
+        activeCustomerName={customerProfile?.customer_name}
+        activeUserId={activeUserId}
       />
 
       {/* Main Content Area */}
@@ -352,6 +418,26 @@ export default function App() {
       <SystemArchitectureModal
         isOpen={isStatsOpen}
         onClose={() => setIsStatsOpen(false)}
+      />
+
+      {/* Cross-Session Long-Term Memory Modal */}
+      <CustomerMemoryModal
+        isOpen={isMemoryOpen}
+        onClose={() => setIsMemoryOpen(false)}
+        activeUserId={activeUserId}
+        onSelectUser={handleSelectUser}
+      />
+
+      {/* Dynamic Few-Shot RAG Precedents Explorer Modal */}
+      <FewShotExemplarExplorer
+        isOpen={isFewShotOpen}
+        onClose={() => setIsFewShotOpen(false)}
+      />
+
+      {/* Multilingual NLP & Cross-Lingual RAG Explorer Modal */}
+      <MultilingualExplorerModal
+        isOpen={isMultilingualOpen}
+        onClose={() => setIsMultilingualOpen(false)}
       />
 
     </div>

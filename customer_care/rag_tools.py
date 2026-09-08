@@ -80,17 +80,21 @@ def index_customer_care_docs(docs_dir: Optional[str] = None) -> Dict[str, Any]:
         heading = item.get("heading", "General Information")
         content = item.get("content", "").strip()
         doc_title = item.get("doc_title", "MongoDB Knowledge Document")
+        tags = item.get("tags", [])
+        tags_str = " ".join(tags) if isinstance(tags, list) else str(tags or "")
 
         if heading and content:
-            combined_text = f"{heading}\n{content}"
+            searchable_text = f"{doc_title} {cat} {heading} {tags_str}\n{content}"
+            display_content = f"{heading}\n{content}"
             all_chunks.append({
                 "chunk_id": doc_id,
                 "source": cat,
                 "heading": heading,
-                "text": combined_text,
+                "text": searchable_text,
+                "display_content": display_content,
                 "storage_type": "mongodb",
                 "category": cat,
-                "tokens": _tokenize(combined_text)
+                "tokens": _tokenize(searchable_text)
             })
             chunk_counter += 1
 
@@ -118,8 +122,12 @@ def index_customer_care_docs(docs_dir: Optional[str] = None) -> Dict[str, Any]:
     }
 
 
-def _extract_key_sentences(query: str, text: str, max_sentences: int = 3) -> str:
+def _extract_key_sentences(query: str, text: str, max_sentences: int = 6) -> str:
     """Extracts top N query-relevant sentences from a text chunk using token overlap scoring."""
+    # If the text is already concise (under 150 words), preserve all numbered instructions and steps intact
+    if len(_tokenize(text)) <= 150:
+        return text.strip()
+
     sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+|\n+', text) if s.strip()]
     if len(sentences) <= max_sentences:
         return text.strip()
@@ -259,7 +267,7 @@ def search_product_guides(
             "chunk_id": c["chunk_id"],
             "source_doc": c["source"],
             "section_heading": c["heading"],
-            "content": c["text"],
+            "content": c.get("display_content", c["text"]),
             "citation": f"*Source: {c['source']}*",
             "relevance_score": round(rrf_score, 4)
         })
@@ -296,7 +304,7 @@ def troubleshoot_product_issue(
         Dict with troubleshooting steps, citations, and resolution recommendations.
     """
     search_query = f"{product_name} {issue_description}"
-    search_res = search_product_guides(query=search_query, top_k=2)
+    search_res = search_product_guides(query=search_query, top_k=4)
     results = search_res.get("results", [])
 
     if not results:
@@ -305,14 +313,27 @@ def troubleshoot_product_issue(
             "message": f"No specific manual entries found for '{search_query}'. Please verify model name."
         }
 
-    top_chunk = results[0]
+    # Prioritize manual matching product category if identifiable
+    prod_lower = product_name.lower()
+    matched = []
+    for r in results:
+        src = r.get("source_doc", "").lower()
+        if any(w in prod_lower for w in ["tv", "television"]) and "tv" in src:
+            matched.append(r)
+        elif any(w in prod_lower for w in ["espresso", "coffee", "barista"]) and ("espresso" in src or "coffee" in src):
+            matched.append(r)
+        elif any(w in prod_lower for w in ["headphone", "audio", "earphone", "prosound"]) and "headphone" in src:
+            matched.append(r)
+
+    final_results = matched if matched else results
+    top_chunk = final_results[0]
     return {
         "status": "success",
         "product_name": product_name,
         "issue_detected": issue_description,
         "primary_source": top_chunk["citation"],
         "recommended_steps": top_chunk["content"],
-        "all_citations": [r["citation"] for r in results]
+        "all_citations": [r["citation"] for r in final_results]
     }
 
 

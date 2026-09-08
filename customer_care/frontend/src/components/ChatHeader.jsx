@@ -7,7 +7,10 @@ import {
   PanelLeftClose, 
   PanelLeft, 
   BookOpen, 
-  Server
+  Server,
+  Brain,
+  Sparkles,
+  Globe
 } from 'lucide-react';
 
 export default function ChatHeader({ 
@@ -20,10 +23,18 @@ export default function ChatHeader({
   sidebarOpen, 
   onToggleSidebar, 
   onOpenFaqExplorer, 
-  onOpenSystemStats 
+  onOpenSystemStats,
+  onOpenMemoryModal,
+  onOpenFewShotExplorer,
+  onOpenMultilingualExplorer,
+  detectedLanguage = 'en',
+  languageName,
+  activeCustomerName,
+  activeUserId
 }) {
   const activeOrder = sessionState?.current_order_id;
   const activeTicket = sessionState?.active_ticket_id;
+  const activeCustomer = sessionState?.customer_name || activeCustomerName;
 
   return (
     <header className="border-b border-zinc-800 bg-zinc-900 px-4 py-2.5 text-zinc-100">
@@ -96,6 +107,35 @@ export default function ChatHeader({
         {/* Right: Actions */}
         <div className="flex items-center gap-2">
           <button
+            onClick={onOpenMemoryModal}
+            className="flex items-center gap-1.5 rounded-md border border-purple-500/40 bg-purple-500/10 px-2.5 py-1 text-xs text-purple-300 hover:bg-purple-500/20 hover:text-white transition-colors shadow-sm"
+            title="Cross-Session Long-Term Memory & Persona Switcher"
+          >
+            <Brain className="h-3.5 w-3.5 text-purple-400" />
+            <span className="hidden sm:inline font-medium">{activeCustomer ? activeCustomer.split(' ')[0] : 'Memory'}</span>
+          </button>
+
+          <button
+            onClick={onOpenFewShotExplorer}
+            className="flex items-center gap-1.5 rounded-md border border-amber-500/40 bg-amber-500/10 px-2.5 py-1 text-xs text-amber-300 hover:bg-amber-500/20 hover:text-white transition-colors shadow-sm"
+            title="Dynamic Few-Shot RAG Precedents & In-Context Exemplars"
+          >
+            <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+            <span className="hidden sm:inline font-medium">Few-Shot RAG</span>
+          </button>
+
+          <button
+            onClick={onOpenMultilingualExplorer}
+            className="flex items-center gap-1.5 rounded-md border border-teal-500/40 bg-teal-500/10 px-2.5 py-1 text-xs text-teal-300 hover:bg-teal-500/20 hover:text-white transition-colors shadow-sm"
+            title="Multilingual NLP, Sub-ms LID & Cross-Lingual RAG Bridge"
+          >
+            <Globe className="h-3.5 w-3.5 text-teal-400" />
+            <span className="hidden sm:inline font-medium">
+              {detectedLanguage && detectedLanguage !== 'en' ? `${detectedLanguage.toUpperCase()} NLP` : 'Multilingual'}
+            </span>
+          </button>
+
+          <button
             onClick={onOpenFaqExplorer}
             className="flex items-center gap-1 rounded-md border border-zinc-800 bg-zinc-800/80 px-2.5 py-1 text-xs text-zinc-300 hover:bg-zinc-700 hover:text-white transition-colors"
             title="Search Knowledge Base & Policies"
@@ -125,10 +165,19 @@ export default function ChatHeader({
         </div>
       </div>
 
-      {/* Active Session Context (Order / Ticket) */}
-      {activeTab === 'chat' && (activeOrder || activeTicket) && (
+      {/* Active Session Context (Customer / Order / Ticket) */}
+      {activeTab === 'chat' && (activeCustomer || activeOrder || activeTicket) && (
         <div className="mt-2 flex items-center gap-2 border-t border-zinc-800/60 pt-2 text-[11px] text-zinc-400">
           <span>Active Context:</span>
+          {activeCustomer && (
+            <span 
+              onClick={onOpenMemoryModal}
+              className="cursor-pointer flex items-center gap-1 font-mono text-purple-300 bg-purple-950/40 hover:bg-purple-900/40 px-1.5 py-0.5 rounded border border-purple-800/60 transition-colors"
+              title="View Customer Long-Term Memory"
+            >
+              <Brain className="w-3 h-3 text-purple-400" /> {activeCustomer}
+            </span>
+          )}
           {activeOrder && (
             <span className="font-mono text-zinc-200 bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700">
               {activeOrder}

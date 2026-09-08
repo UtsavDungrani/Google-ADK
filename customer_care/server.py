@@ -10,6 +10,7 @@ import datetime
 import logging
 from typing import Optional, Dict, Any, List
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
@@ -52,6 +53,32 @@ try:
         delete_dynamic_faq,
         get_faq_summary_stats
     )
+    from .memory_service import (
+        get_customer_profile,
+        list_all_profiles,
+        save_customer_profile,
+        add_customer_note,
+        record_customer_episode,
+        get_customer_episodes,
+        format_cross_session_context,
+        consolidate_session_memory
+    )
+    from .few_shot_rag import (
+        retrieve_dynamic_exemplars,
+        format_dynamic_few_shot_prompt,
+        list_all_exemplars,
+        get_exemplar,
+        add_curated_exemplar,
+        delete_curated_exemplar
+    )
+    from .multilingual_nlp import (
+        detect_language,
+        align_cross_lingual_query,
+        shield_entities,
+        unshield_entities,
+        get_pragmatic_politeness_directive,
+        LANGUAGE_METADATA
+    )
 except (ImportError, ValueError):
     from agent import root_agent
     from db import (
@@ -73,6 +100,32 @@ except (ImportError, ValueError):
         add_dynamic_faq,
         delete_dynamic_faq,
         get_faq_summary_stats
+    )
+    from memory_service import (
+        get_customer_profile,
+        list_all_profiles,
+        save_customer_profile,
+        add_customer_note,
+        record_customer_episode,
+        get_customer_episodes,
+        format_cross_session_context,
+        consolidate_session_memory
+    )
+    from few_shot_rag import (
+        retrieve_dynamic_exemplars,
+        format_dynamic_few_shot_prompt,
+        list_all_exemplars,
+        get_exemplar,
+        add_curated_exemplar,
+        delete_curated_exemplar
+    )
+    from multilingual_nlp import (
+        detect_language,
+        align_cross_lingual_query,
+        shield_entities,
+        unshield_entities,
+        get_pragmatic_politeness_directive,
+        LANGUAGE_METADATA
     )
 
 logging.basicConfig(level=logging.INFO)
@@ -119,6 +172,14 @@ class ChatResponse(BaseModel):
     user_turn: Optional[Dict[str, Any]] = None
     bot_turn: Optional[Dict[str, Any]] = None
     token_metrics: Optional[Dict[str, Any]] = None
+    customer_profile: Optional[Dict[str, Any]] = None
+    cross_session_memory_active: bool = False
+    few_shot_rag_active: bool = False
+    few_shot_exemplars: Optional[List[Dict[str, Any]]] = None
+    detected_language: Optional[str] = "en"
+    language_name: Optional[str] = "English"
+    is_code_mixed: Optional[bool] = False
+    cross_lingual_rag_active: Optional[bool] = False
 
 
 class VendorReplyRequest(BaseModel):
@@ -138,6 +199,37 @@ def health_check():
     }
 
 
+@app.get("/evals", response_class=HTMLResponse, tags=["Evaluations"])
+@app.get("/api/evals/report", response_class=HTMLResponse, tags=["Evaluations"])
+def get_evals_report():
+    """Renders and serves the interactive ADK Evaluation HTML report dashboard."""
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    html_path = os.path.join(base_dir, "evals", "eval_results.html")
+    csv_path = os.path.join(base_dir, "evals", "eval_results.csv")
+
+    # Auto-compile or refresh if HTML is missing or CSV was updated
+    if os.path.exists(csv_path):
+        if not os.path.exists(html_path) or (os.path.getmtime(csv_path) > os.path.getmtime(html_path)):
+            try:
+                from evals.eval_reporter import generate_html_report
+                generate_html_report(
+                    csv_path=csv_path,
+                    output_html_path=html_path,
+                    evalset_path=os.path.join(base_dir, "evals", "customer_care.evalset.json")
+                )
+            except Exception as e:
+                logger.error(f"Error compiling eval report: {e}")
+
+    if not os.path.exists(html_path):
+        raise HTTPException(
+            status_code=404,
+            detail="Evaluation report not found. Run python run_evals.py to generate it."
+        )
+
+    with open(html_path, "r", encoding="utf-8") as f:
+        return HTMLResponse(content=f.read())
+
+
 @app.post("/api/chat", response_model=ChatResponse)
 async def chat_endpoint(req: ChatRequest):
     """Processes user chat input through Google ADK root_agent and persists chat turn to MongoDB."""
@@ -148,6 +240,21 @@ async def chat_endpoint(req: ChatRequest):
     user_id = req.user_id or "cust_user_default"
     session_id = req.session_id
 
+    # 1. Resolve customer profile from user_id, active session state, or user message
+    profile = get_customer_profile(user_id)
+    if not profile and session_id and session_id in _SESSIONS_REGISTRY:
+        existing_sess = _SESSIONS_REGISTRY[session_id]
+        if hasattr(existing_sess, "state") and existing_sess.state.get("customer_id"):
+            profile = get_customer_profile(existing_sess.state["customer_id"])
+
+    if not profile:
+        ord_match = re.search(r"\b(ORD-\d{4,6})\b", user_msg, re.IGNORECASE)
+        if ord_match:
+            profile = get_customer_profile(ord_match.group(1).upper())
+
+    if profile:
+        user_id = profile.get("customer_id", user_id)
+
     if not session_id or session_id not in _SESSIONS_REGISTRY:
         session = await session_service.create_session(app_name="customer_care", user_id=user_id)
         session_id = session.id
@@ -155,10 +262,81 @@ async def chat_endpoint(req: ChatRequest):
 
     session_obj = _SESSIONS_REGISTRY[session_id]
 
+    # 2. Pre-turn Multilingual NLP, Dynamic Few-Shot RAG & Cross-Session Memory Composition
+    memory_active = False
+    few_shot_active = False
+    few_shot_exemplars: List[Dict[str, Any]] = []
+
+    # 2a. Multilingual Language Identification & Script Detection
+    lang_info = detect_language(user_msg)
+    detected_lang = lang_info["language"]
+    lang_name = lang_info["name"]
+    is_code_mixed = lang_info["is_code_mixed"]
+    cross_lingual_rag_active = False
+
+    if hasattr(session_obj, "state"):
+        session_obj.state["detected_language"] = detected_lang
+        session_obj.state["preferred_language"] = lang_name
+        session_obj.state["is_code_mixed"] = is_code_mixed
+
+    # 2b. Cross-Lingual Query Alignment (translates foreign symptoms to English search concepts)
+    clir_alignment = align_cross_lingual_query(user_msg, source_lang=detected_lang)
+    effective_search_query = clir_alignment["aligned_english_query"] if not clir_alignment["is_english"] else user_msg
+    if not clir_alignment["is_english"]:
+        cross_lingual_rag_active = True
+
+    # 2c. Dynamic Few-Shot Precedents Retrieval using effective search query
+    few_shot_matches = retrieve_dynamic_exemplars(query=effective_search_query, top_k=2, min_relevance=0.18)
+    few_shot_prompt = None
+    if few_shot_matches:
+        few_shot_active = True
+        few_shot_exemplars = few_shot_matches
+        few_shot_prompt = format_dynamic_few_shot_prompt(query=effective_search_query, top_k=2, min_relevance=0.18)
+
+    # 2d. Cultural Pragmatics Politeness Directives for non-English responses
+    politeness_directive = None
+    if not clir_alignment["is_english"]:
+        politeness_directive = get_pragmatic_politeness_directive(detected_lang)
+
+    mem_ctx = None
+    if profile:
+        cid = profile["customer_id"]
+        if hasattr(session_obj, "state"):
+            session_obj.state["customer_id"] = cid
+            session_obj.state["customer_name"] = profile.get("customer_name")
+            if profile.get("preferred_tone"):
+                session_obj.state["preferred_tone"] = profile.get("preferred_tone")
+            if profile.get("preferred_language"):
+                session_obj.state["preferred_language"] = profile.get("preferred_language")
+
+        mem_ctx = format_cross_session_context(cid)
+        if mem_ctx:
+            if hasattr(session_obj, "state"):
+                session_obj.state["cross_session_memory"] = mem_ctx
+            memory_active = True
+
+    # Assemble composed in-context prompt
+    prompt_sections = []
+    if politeness_directive:
+        prompt_sections.append(f"=== MULTILINGUAL CULTURAL PRAGMATICS & POLITE HONORIFICS ===\n{politeness_directive}\n============================================================")
+    if few_shot_prompt:
+        prompt_sections.append(few_shot_prompt)
+    if mem_ctx and getattr(session_obj, "state", {}).get("is_first_turn", True):
+        prompt_sections.append(mem_ctx)
+        if hasattr(session_obj, "state"):
+            session_obj.state["is_first_turn"] = False
+
+    if prompt_sections:
+        customer_tag = f"[Customer Message ({lang_name})]:" if not clir_alignment["is_english"] else "[Customer Message]:"
+        prompt_sections.append(f"{customer_tag} {user_msg}")
+        prompt_text = "\n\n".join(prompt_sections)
+    else:
+        prompt_text = user_msg
+
     try:
         msg_content = types.Content(
             role="user",
-            parts=[types.Part.from_text(text=user_msg)]
+            parts=[types.Part.from_text(text=prompt_text)]
         )
 
         response_chunks: List[str] = []
@@ -246,6 +424,20 @@ async def chat_endpoint(req: ChatRequest):
             except Exception as e:
                 logger.warning(f"Failed to persist chat history to MongoDB: {e}")
 
+        # 3. Cross-Session Memory Consolidation Pipeline
+        if profile or current_state.get("customer_id") or current_state.get("current_order_id"):
+            try:
+                consol_target = profile["customer_id"] if profile else current_state.get("customer_id", user_id)
+                consolidate_session_memory(
+                    session_id=session_id,
+                    user_id=consol_target,
+                    messages=[user_turn, bot_turn],
+                    session_state=current_state
+                )
+                profile = get_customer_profile(consol_target)
+            except Exception as e:
+                logger.warning(f"Failed to consolidate session memory: {e}")
+
         return ChatResponse(
             response=full_response,
             session_id=session_id,
@@ -254,7 +446,15 @@ async def chat_endpoint(req: ChatRequest):
             status="success",
             user_turn=user_turn,
             bot_turn=bot_turn,
-            token_metrics=bot_turn.get("token_metrics")
+            token_metrics=bot_turn.get("token_metrics"),
+            customer_profile=profile,
+            cross_session_memory_active=memory_active,
+            few_shot_rag_active=few_shot_active,
+            few_shot_exemplars=few_shot_exemplars,
+            detected_language=detected_lang,
+            language_name=lang_name,
+            is_code_mixed=is_code_mixed,
+            cross_lingual_rag_active=cross_lingual_rag_active
         )
 
     except Exception as e:
@@ -264,7 +464,15 @@ async def chat_endpoint(req: ChatRequest):
             session_id=session_id,
             user_id=user_id,
             session_state={},
-            status="error"
+            status="error",
+            customer_profile=profile,
+            cross_session_memory_active=memory_active,
+            few_shot_rag_active=False,
+            few_shot_exemplars=[],
+            detected_language="en",
+            language_name="English",
+            is_code_mixed=False,
+            cross_lingual_rag_active=False
         )
 
 
@@ -467,11 +675,215 @@ def api_get_context_reduction_metrics():
     }
 
 
+# -------------------------------------------------------------
+# CROSS-SESSION LONG-TERM MEMORY ENDPOINTS
+# -------------------------------------------------------------
+
+@app.get("/api/customer/profiles")
+def api_list_customer_profiles():
+    """Returns all available customer profiles for persona switching."""
+    profiles = list_all_profiles()
+    return {"status": "success", "count": len(profiles), "profiles": profiles}
+
+
+@app.get("/api/customer/profile")
+def api_get_customer_profile(user_id: str):
+    """Retrieves customer semantic memory profile and recent episodes."""
+    profile = get_customer_profile(user_id)
+    if not profile:
+        return {"status": "not_found", "profile": None, "episodes": []}
+    cid = profile.get("customer_id")
+    episodes = get_customer_episodes(cid, limit=6)
+    return {
+        "status": "success",
+        "profile": profile,
+        "episodes": episodes,
+        "formatted_context": format_cross_session_context(cid)
+    }
+
+
+class CustomerNoteRequest(BaseModel):
+    user_id: str
+    note: str
+
+
+@app.post("/api/customer/note")
+def api_add_customer_note(req: CustomerNoteRequest):
+    """Appends a new learned trait or note to customer profile."""
+    profile = get_customer_profile(req.user_id)
+    if not profile:
+        raise HTTPException(status_code=404, detail="Customer profile not found.")
+    cid = profile.get("customer_id")
+    success = add_customer_note(cid, req.note)
+    if not success:
+        return {"status": "already_exists", "message": "Note already exists in profile."}
+    return {"status": "success", "message": "Note committed to long-term cross-session memory."}
+
+
+@app.get("/api/customer/episodes")
+def api_get_customer_episodes(user_id: str, limit: int = 10):
+    """Returns episodic interaction timeline for a customer."""
+    profile = get_customer_profile(user_id)
+    cid = profile.get("customer_id") if profile else user_id
+    episodes = get_customer_episodes(cid, limit=limit)
+    return {"status": "success", "customer_id": cid, "count": len(episodes), "episodes": episodes}
+
+
+class ConsolidateSessionRequest(BaseModel):
+    session_id: str
+    user_id: str
+
+
+@app.post("/api/customer/consolidate")
+def api_consolidate_session(req: ConsolidateSessionRequest):
+    """Manually triggers session distillation and episodic memory consolidation."""
+    session_obj = _SESSIONS_REGISTRY.get(req.session_id)
+    state = dict(session_obj.state) if session_obj and hasattr(session_obj, "state") else {}
+    messages = []
+    if is_mongo_connected():
+        col = get_chat_sessions_collection()
+        if col:
+            doc = col.find_one({"session_id": req.session_id})
+            if doc:
+                messages = doc.get("messages", [])
+    result = consolidate_session_memory(
+        session_id=req.session_id,
+        user_id=req.user_id,
+        messages=messages,
+        session_state=state
+    )
+    return {"status": "success", "consolidation": result}
+
+
+# -------------------------------------------------------------
+# DYNAMIC FEW-SHOT RAG ENDPOINTS
+# -------------------------------------------------------------
+
+@app.get("/api/few-shot/exemplars")
+def api_list_exemplars(category: Optional[str] = None):
+    """Lists all curated gold-standard resolution exemplars."""
+    exemplars = list_all_exemplars(category=category)
+    return {"status": "success", "count": len(exemplars), "exemplars": exemplars}
+
+
+@app.get("/api/few-shot/search")
+def api_search_exemplars(query: str, category: Optional[str] = "All", top_k: int = 3, min_relevance: float = 0.10):
+    """Tests dynamic semantic retrieval against gold-standard exemplars."""
+    results = retrieve_dynamic_exemplars(
+        query=query,
+        category=category,
+        top_k=top_k,
+        min_relevance=min_relevance
+    )
+    prompt_preview = format_dynamic_few_shot_prompt(
+        query=query,
+        category=category,
+        top_k=top_k,
+        min_relevance=min_relevance
+    )
+    return {
+        "status": "success",
+        "query": query,
+        "category": category,
+        "count": len(results),
+        "matches": results,
+        "prompt_preview": prompt_preview
+    }
+
+
+class AddExemplarRequest(BaseModel):
+    title: str
+    category: str
+    situation: str
+    customer_inquiry: str
+    expert_thought: str
+    expert_response: str
+    policy_citation: Optional[str] = ""
+    tags: Optional[List[str]] = None
+
+
+@app.post("/api/few-shot/add")
+def api_add_exemplar(req: AddExemplarRequest):
+    """Adds or updates a gold-standard resolution exemplar for in-context RAG."""
+    ex = add_curated_exemplar(
+        title=req.title,
+        category=req.category,
+        situation=req.situation,
+        customer_inquiry=req.customer_inquiry,
+        expert_thought=req.expert_thought,
+        expert_response=req.expert_response,
+        policy_citation=req.policy_citation or "",
+        tags=req.tags or []
+    )
+    return {"status": "success", "exemplar": ex}
+
+
+@app.delete("/api/few-shot/{exemplar_id}")
+def api_delete_exemplar(exemplar_id: str):
+    """Deletes an exemplar by ID."""
+    deleted = delete_curated_exemplar(exemplar_id)
+    if not deleted:
+        raise HTTPException(status_code=404, detail="Exemplar not found or could not be deleted.")
+    return {"status": "success", "exemplar_id": exemplar_id}
+
+
+# -------------------------------------------------------------
+# MULTILINGUAL NLP & CROSS-LINGUAL RAG ENDPOINTS
+# -------------------------------------------------------------
+
+class DetectLanguageRequest(BaseModel):
+    text: str
+
+
+@app.post("/api/nlp/detect-language")
+def api_detect_language(req: DetectLanguageRequest):
+    """Detects language, script, confidence, and code-mixing in sub-milliseconds."""
+    res = detect_language(req.text)
+    directive = get_pragmatic_politeness_directive(res["language"])
+    return {
+        "status": "success",
+        "analysis": res,
+        "politeness_directive": directive
+    }
+
+
+class CrossLingualSearchRequest(BaseModel):
+    query: str
+    category: Optional[str] = "All"
+
+
+@app.post("/api/nlp/cross-lingual-search")
+def api_cross_lingual_search(req: CrossLingualSearchRequest):
+    """Aligns a multilingual query and searches English gold precedents & knowledge base."""
+    alignment = align_cross_lingual_query(req.query)
+    effective_q = alignment["aligned_english_query"] if not alignment["is_english"] else req.query
+    exemplars = retrieve_dynamic_exemplars(query=effective_q, category=req.category, top_k=3, min_relevance=0.10)
+    
+    return {
+        "status": "success",
+        "original_query": req.query,
+        "alignment": alignment,
+        "effective_search_query": effective_q,
+        "matches_count": len(exemplars),
+        "exemplars": exemplars
+    }
+
+
+@app.get("/api/nlp/supported-languages")
+def api_supported_languages():
+    """Lists all supported multilingual languages, scripts, and honorific tiers."""
+    return {
+        "status": "success",
+        "languages": LANGUAGE_METADATA
+    }
+
+
 @app.get("/api/stats/system")
 def api_get_system_stats():
     """Returns live agent architecture metrics for mentor presentation dashboard."""
     tickets = list_tickets()
     rag_stats = get_faq_summary_stats()
+    all_exemplars = list_all_exemplars()
     
     return {
         "status": "success",
@@ -486,6 +898,11 @@ def api_get_system_stats():
         "open_tickets": len([t for t in tickets if t.get("status") in ["Open", "Pending Vendor Response"]]),
         "resolved_tickets": len([t for t in tickets if t.get("status") in ["Closed", "Resolved"]]),
         "lstm_sentiment_engine": "Active (Bi-LSTM Model)",
+        "cross_session_memory_engine": "Active (Episodic Timeline + Semantic Profiles)",
+        "few_shot_rag_engine": "Active (Hybrid TF-IDF Cosine + BM25 Overlap)",
+        "curated_gold_exemplars": len(all_exemplars),
+        "multilingual_nlp_engine": "Active (Sub-ms LID + mNER + Cross-Lingual RAG Bridge)",
+        "supported_languages_count": len(LANGUAGE_METADATA),
         "context_reduction_engine": "Active (4-Pillar Token Optimization: 42.8% Average Savings)",
         "mongodb_connected": is_mongo_connected()
     }
