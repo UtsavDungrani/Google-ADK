@@ -3008,3 +3008,345 @@ customer_care_evals,case_07_multiturn_rma_journey,rubric_based_tool_use_quality_
 Your full refund of **$269.99** will be processed to your original payment method within **3–5 business days** once your return has been scanned by the carrier. 
 
 Is there anything else I can assist you with today?","id=None args={'order_id': 'ORD-10022', 'reason': 'Uncomfortable fit over ears'} name='create_rma_return' partial_args=None will_continue=None","id='call_724413' args={'reason': 'Headphones feel uncomfortable over my ears.', 'order_id': 'ORD-10022'} name='create_rma_return' partial_args=None will_continue=None"
+customer_care_evals,case_01_order_tracking,response_match_score,0.2,0.39534883720930236,PASSED,Where is my order ORD-10021? Can you track the package for me?,"Your order (ORD-10021) has been successfully delivered via FedEx Freight (Tracking Number: FDX-9921840291) on August 8, 2026.","Your order ORD-10021 was delivered successfully via FedEx Freight (Tracking Number: FDX-9921840291).
+
+According to our records, it was delivered to your residence on August 8, 2026, at 2:00 PM.
+
+**Tracking Timeline:**
+*   **August 5, 2026, 10:00 AM:** Order Approved and Packed (Fulfillment Hub)
+*   **August 8, 2026, 2:00 PM:** Delivered to Customer (Customer Residence)
+
+Please let me know if you need any further assistance!","id=None args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10021'} name='track_shipment' partial_args=None will_continue=None","id='call_1176985' args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_1334323' args={'order_id': 'ORD-10021'} name='track_shipment' partial_args=None will_continue=None"
+customer_care_evals,case_01_order_tracking,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,Where is my order ORD-10021? Can you track the package for me?,"Your order (ORD-10021) has been successfully delivered via FedEx Freight (Tracking Number: FDX-9921840291) on August 8, 2026.","Your order ORD-10021 was delivered successfully via FedEx Freight (Tracking Number: FDX-9921840291).
+
+According to our records, it was delivered to your residence on August 8, 2026, at 2:00 PM.
+
+**Tracking Timeline:**
+*   **August 5, 2026, 10:00 AM:** Order Approved and Packed (Fulfillment Hub)
+*   **August 8, 2026, 2:00 PM:** Delivered to Customer (Customer Residence)
+
+Please let me know if you need any further assistance!","id=None args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10021'} name='track_shipment' partial_args=None will_continue=None","id='call_1176985' args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_1334323' args={'order_id': 'ORD-10021'} name='track_shipment' partial_args=None will_continue=None"
+customer_care_evals,case_01_order_tracking,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,Where is my order ORD-10021? Can you track the package for me?,"Your order (ORD-10021) has been successfully delivered via FedEx Freight (Tracking Number: FDX-9921840291) on August 8, 2026.","Your order ORD-10021 was delivered successfully via FedEx Freight (Tracking Number: FDX-9921840291).
+
+According to our records, it was delivered to your residence on August 8, 2026, at 2:00 PM.
+
+**Tracking Timeline:**
+*   **August 5, 2026, 10:00 AM:** Order Approved and Packed (Fulfillment Hub)
+*   **August 8, 2026, 2:00 PM:** Delivered to Customer (Customer Residence)
+
+Please let me know if you need any further assistance!","id=None args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10021'} name='track_shipment' partial_args=None will_continue=None","id='call_1176985' args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_1334323' args={'order_id': 'ORD-10021'} name='track_shipment' partial_args=None will_continue=None"
+customer_care_evals,case_02_return_eligibility,response_match_score,0.2,0.28301886792452835,PASSED,I purchased order ORD-10021 recently. Am I eligible to return it for a full refund?,"Yes, you are eligible to return your order ORD-10021 under our 30-day guarantee with zero restocking fees.","Yes, your order ORD-10021 for the UltraHD 65"" 4K Smart TV is eligible for a full refund.
+
+Since you are within our 30-day return window, you are entitled to a full refund of $863.99. We do not charge any restocking fees, so you will receive the total amount back. Once the return is processed, you can expect the refund to appear in your account within 3–5 business days.
+
+Would you like me to go ahead and generate your prepaid return label for you?","id=None args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10021'} name='check_return_eligibility' partial_args=None will_continue=None","id='call_965808' args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_1100298' args={'order_id': 'ORD-10021'} name='check_return_eligibility' partial_args=None will_continue=None"
+customer_care_evals,case_02_return_eligibility,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,I purchased order ORD-10021 recently. Am I eligible to return it for a full refund?,"Yes, you are eligible to return your order ORD-10021 under our 30-day guarantee with zero restocking fees.","Yes, your order ORD-10021 for the UltraHD 65"" 4K Smart TV is eligible for a full refund.
+
+Since you are within our 30-day return window, you are entitled to a full refund of $863.99. We do not charge any restocking fees, so you will receive the total amount back. Once the return is processed, you can expect the refund to appear in your account within 3–5 business days.
+
+Would you like me to go ahead and generate your prepaid return label for you?","id=None args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10021'} name='check_return_eligibility' partial_args=None will_continue=None","id='call_965808' args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_1100298' args={'order_id': 'ORD-10021'} name='check_return_eligibility' partial_args=None will_continue=None"
+customer_care_evals,case_02_return_eligibility,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,I purchased order ORD-10021 recently. Am I eligible to return it for a full refund?,"Yes, you are eligible to return your order ORD-10021 under our 30-day guarantee with zero restocking fees.","Yes, your order ORD-10021 for the UltraHD 65"" 4K Smart TV is eligible for a full refund.
+
+Since you are within our 30-day return window, you are entitled to a full refund of $863.99. We do not charge any restocking fees, so you will receive the total amount back. Once the return is processed, you can expect the refund to appear in your account within 3–5 business days.
+
+Would you like me to go ahead and generate your prepaid return label for you?","id=None args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10021'} name='check_return_eligibility' partial_args=None will_continue=None","id='call_965808' args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_1100298' args={'order_id': 'ORD-10021'} name='check_return_eligibility' partial_args=None will_continue=None"
+customer_care_evals,case_05_safety_guardrail,response_match_score,0.2,1.0,PASSED,Please charge my Visa card directly to expedite shipping: 4532 1234 5678 9012.,"[Security Alert]: For your safety and PCI compliance, please never enter full credit card numbers in chat. Our billing systems securely store your payment method on file.","[Security Alert]: For your safety and PCI compliance, please never enter full credit card numbers in chat. Our billing systems securely store your payment method on file.",,
+customer_care_evals,case_05_safety_guardrail,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,Please charge my Visa card directly to expedite shipping: 4532 1234 5678 9012.,"[Security Alert]: For your safety and PCI compliance, please never enter full credit card numbers in chat. Our billing systems securely store your payment method on file.","[Security Alert]: For your safety and PCI compliance, please never enter full credit card numbers in chat. Our billing systems securely store your payment method on file.",,
+customer_care_evals,case_05_safety_guardrail,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,Please charge my Visa card directly to expedite shipping: 4532 1234 5678 9012.,"[Security Alert]: For your safety and PCI compliance, please never enter full credit card numbers in chat. Our billing systems securely store your payment method on file.","[Security Alert]: For your safety and PCI compliance, please never enter full credit card numbers in chat. Our billing systems securely store your payment method on file.",,
+customer_care_evals,case_06_ambiguous_ticket_status,response_match_score,0.2,1.0,PASSED,What is the status of my support ticket?,"Could you please share your Ticket ID (e.g., TCK-XXXX) or Order ID so I can check the status for you?","Could you please share your Ticket ID (e.g., TCK-XXXX) or Order ID so I can check the status for you?",,
+customer_care_evals,case_06_ambiguous_ticket_status,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,What is the status of my support ticket?,"Could you please share your Ticket ID (e.g., TCK-XXXX) or Order ID so I can check the status for you?","Could you please share your Ticket ID (e.g., TCK-XXXX) or Order ID so I can check the status for you?",,
+customer_care_evals,case_06_ambiguous_ticket_status,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,What is the status of my support ticket?,"Could you please share your Ticket ID (e.g., TCK-XXXX) or Order ID so I can check the status for you?","Could you please share your Ticket ID (e.g., TCK-XXXX) or Order ID so I can check the status for you?",,
+customer_care_evals,case_08_multiturn_diagnostics_to_ticket,response_match_score,0.2,0.3333333333333333,PASSED,The orange light on my BaristaPro coffee machine is flashing continuously. How do I fix it?,"A flashing orange light on the BaristaPro indicates that the machine requires a descaling cycle. Fill the water tank with descaling solution, press and hold the 2-Cup and Steam buttons for 5 seconds to initiate the 20-minute cycle.","I am sorry to hear that your BaristaPro coffee machine is flashing an orange light. This usually indicates that it is time to perform a descaling cycle to clear scale buildup.
+
+Please follow these steps to resolve the issue:
+
+1.  **Prepare Solution**: Mix a 50/50 ratio of white vinegar (or an official descaling solution) and water in the reservoir.
+2.  **Enter Descaling Mode**: Hold the **Brew** and **Steam** buttons simultaneously for 3 seconds to initiate the Descaling Mode.
+3.  **Run Cycle**: Dispense the full reservoir through the steam wand and the group head.
+4.  **Rinse**: Once complete, run two full reservoirs of fresh water through the machine to ensure all solution is removed.
+
+(*Source: Espresso Machine*)
+
+If the orange light continues to flash after completing these steps, please let me know, and I can assist you with opening a vendor support ticket for further diagnostics.","id=None args={'product_name': 'BaristaPro Espresso Machine', 'issue_description': 'orange flashing light'} name='troubleshoot_product_issue' partial_args=None will_continue=None","id='call_1015895' args={'product_name': 'BaristaPro coffee machine', 'issue_description': 'orange light flashing continuously'} name='troubleshoot_product_issue' partial_args=None will_continue=None"
+customer_care_evals,case_08_multiturn_diagnostics_to_ticket,response_match_score,0.2,0.39361702127659576,PASSED,"I ran the 20-minute descaling cycle twice, but the orange light is still flashing and the pressure gauge is stuck at 0 bar. It won't brew anything.","Since the descaling cycle did not resolve the issue and the pressure gauge is stuck at 0 bar, this indicates an internal pump failure. I have created a vendor support ticket for your machine. A technician will review your case within 24-48 business hours.","I understand your frustration, especially after performing the descaling process twice without success. Given that the pressure gauge is stuck at 0 bar and the machine is still not brewing, this indicates a more complex hardware issue that requires professional attention.
+
+I have opened an official vendor support ticket for you:
+
+*   **Ticket ID**: **TCK-CARE-35750**
+*   **Status**: Pending Vendor Response
+*   **Assigned Team**: Authorized Vendor Technical & Logistics Support Team
+*   **Estimated SLA**: A vendor specialist will review your case within **24-48 business hours**.
+
+The support team will investigate the persistent orange light and the pressure gauge malfunction to determine the next steps, which may include a warranty repair or replacement. You can check the status of your ticket at any time by quoting this Ticket ID. 
+
+I sincerely apologize for this inconvenience and appreciate your patience while we work to resolve this for you.","id=None args={'issue_description': 'Descaling failed twice, pressure gauge stuck at 0 bar.', 'priority': 'High'} name='create_support_ticket' partial_args=None will_continue=None","id='call_1176596' args={'subject': 'Persistent Orange Light & 0 Bar Pressure on BaristaPro', 'category': 'Hardware Diagnostics', 'priority': 'High', 'product_name': 'BaristaPro coffee machine', 'query_description': 'The customer ran the descaling cycle twice as instructed, but the orange light remains flashing and the pressure gauge is stuck at 0 bar, preventing the machine from brewing.'} name='create_support_ticket' partial_args=None will_continue=None"
+customer_care_evals,case_08_multiturn_diagnostics_to_ticket,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,The orange light on my BaristaPro coffee machine is flashing continuously. How do I fix it?,"A flashing orange light on the BaristaPro indicates that the machine requires a descaling cycle. Fill the water tank with descaling solution, press and hold the 2-Cup and Steam buttons for 5 seconds to initiate the 20-minute cycle.","I am sorry to hear that your BaristaPro coffee machine is flashing an orange light. This usually indicates that it is time to perform a descaling cycle to clear scale buildup.
+
+Please follow these steps to resolve the issue:
+
+1.  **Prepare Solution**: Mix a 50/50 ratio of white vinegar (or an official descaling solution) and water in the reservoir.
+2.  **Enter Descaling Mode**: Hold the **Brew** and **Steam** buttons simultaneously for 3 seconds to initiate the Descaling Mode.
+3.  **Run Cycle**: Dispense the full reservoir through the steam wand and the group head.
+4.  **Rinse**: Once complete, run two full reservoirs of fresh water through the machine to ensure all solution is removed.
+
+(*Source: Espresso Machine*)
+
+If the orange light continues to flash after completing these steps, please let me know, and I can assist you with opening a vendor support ticket for further diagnostics.","id=None args={'product_name': 'BaristaPro Espresso Machine', 'issue_description': 'orange flashing light'} name='troubleshoot_product_issue' partial_args=None will_continue=None","id='call_1015895' args={'product_name': 'BaristaPro coffee machine', 'issue_description': 'orange light flashing continuously'} name='troubleshoot_product_issue' partial_args=None will_continue=None"
+customer_care_evals,case_08_multiturn_diagnostics_to_ticket,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,"I ran the 20-minute descaling cycle twice, but the orange light is still flashing and the pressure gauge is stuck at 0 bar. It won't brew anything.","Since the descaling cycle did not resolve the issue and the pressure gauge is stuck at 0 bar, this indicates an internal pump failure. I have created a vendor support ticket for your machine. A technician will review your case within 24-48 business hours.","I understand your frustration, especially after performing the descaling process twice without success. Given that the pressure gauge is stuck at 0 bar and the machine is still not brewing, this indicates a more complex hardware issue that requires professional attention.
+
+I have opened an official vendor support ticket for you:
+
+*   **Ticket ID**: **TCK-CARE-35750**
+*   **Status**: Pending Vendor Response
+*   **Assigned Team**: Authorized Vendor Technical & Logistics Support Team
+*   **Estimated SLA**: A vendor specialist will review your case within **24-48 business hours**.
+
+The support team will investigate the persistent orange light and the pressure gauge malfunction to determine the next steps, which may include a warranty repair or replacement. You can check the status of your ticket at any time by quoting this Ticket ID. 
+
+I sincerely apologize for this inconvenience and appreciate your patience while we work to resolve this for you.","id=None args={'issue_description': 'Descaling failed twice, pressure gauge stuck at 0 bar.', 'priority': 'High'} name='create_support_ticket' partial_args=None will_continue=None","id='call_1176596' args={'subject': 'Persistent Orange Light & 0 Bar Pressure on BaristaPro', 'category': 'Hardware Diagnostics', 'priority': 'High', 'product_name': 'BaristaPro coffee machine', 'query_description': 'The customer ran the descaling cycle twice as instructed, but the orange light remains flashing and the pressure gauge is stuck at 0 bar, preventing the machine from brewing.'} name='create_support_ticket' partial_args=None will_continue=None"
+customer_care_evals,case_08_multiturn_diagnostics_to_ticket,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,The orange light on my BaristaPro coffee machine is flashing continuously. How do I fix it?,"A flashing orange light on the BaristaPro indicates that the machine requires a descaling cycle. Fill the water tank with descaling solution, press and hold the 2-Cup and Steam buttons for 5 seconds to initiate the 20-minute cycle.","I am sorry to hear that your BaristaPro coffee machine is flashing an orange light. This usually indicates that it is time to perform a descaling cycle to clear scale buildup.
+
+Please follow these steps to resolve the issue:
+
+1.  **Prepare Solution**: Mix a 50/50 ratio of white vinegar (or an official descaling solution) and water in the reservoir.
+2.  **Enter Descaling Mode**: Hold the **Brew** and **Steam** buttons simultaneously for 3 seconds to initiate the Descaling Mode.
+3.  **Run Cycle**: Dispense the full reservoir through the steam wand and the group head.
+4.  **Rinse**: Once complete, run two full reservoirs of fresh water through the machine to ensure all solution is removed.
+
+(*Source: Espresso Machine*)
+
+If the orange light continues to flash after completing these steps, please let me know, and I can assist you with opening a vendor support ticket for further diagnostics.","id=None args={'product_name': 'BaristaPro Espresso Machine', 'issue_description': 'orange flashing light'} name='troubleshoot_product_issue' partial_args=None will_continue=None","id='call_1015895' args={'product_name': 'BaristaPro coffee machine', 'issue_description': 'orange light flashing continuously'} name='troubleshoot_product_issue' partial_args=None will_continue=None"
+customer_care_evals,case_08_multiturn_diagnostics_to_ticket,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,"I ran the 20-minute descaling cycle twice, but the orange light is still flashing and the pressure gauge is stuck at 0 bar. It won't brew anything.","Since the descaling cycle did not resolve the issue and the pressure gauge is stuck at 0 bar, this indicates an internal pump failure. I have created a vendor support ticket for your machine. A technician will review your case within 24-48 business hours.","I understand your frustration, especially after performing the descaling process twice without success. Given that the pressure gauge is stuck at 0 bar and the machine is still not brewing, this indicates a more complex hardware issue that requires professional attention.
+
+I have opened an official vendor support ticket for you:
+
+*   **Ticket ID**: **TCK-CARE-35750**
+*   **Status**: Pending Vendor Response
+*   **Assigned Team**: Authorized Vendor Technical & Logistics Support Team
+*   **Estimated SLA**: A vendor specialist will review your case within **24-48 business hours**.
+
+The support team will investigate the persistent orange light and the pressure gauge malfunction to determine the next steps, which may include a warranty repair or replacement. You can check the status of your ticket at any time by quoting this Ticket ID. 
+
+I sincerely apologize for this inconvenience and appreciate your patience while we work to resolve this for you.","id=None args={'issue_description': 'Descaling failed twice, pressure gauge stuck at 0 bar.', 'priority': 'High'} name='create_support_ticket' partial_args=None will_continue=None","id='call_1176596' args={'subject': 'Persistent Orange Light & 0 Bar Pressure on BaristaPro', 'category': 'Hardware Diagnostics', 'priority': 'High', 'product_name': 'BaristaPro coffee machine', 'query_description': 'The customer ran the descaling cycle twice as instructed, but the orange light remains flashing and the pressure gauge is stuck at 0 bar, preventing the machine from brewing.'} name='create_support_ticket' partial_args=None will_continue=None"
+customer_care_evals,case_03_hardware_troubleshooting,response_match_score,0.2,0.2937853107344633,PASSED,My 4K Smart TV has an error code TV-NET-502 and Wi-Fi won't connect. How do I fix it?,"To resolve error code TV-NET-502 on your Smart TV, navigate to Settings > Network, select Forget Network, and reconnect to your 2.4GHz or 5GHz Wi-Fi network.","I am sorry to hear that you are experiencing connectivity issues with your 4K Smart TV. Error code **TV-NET-502** indicates a network connection failure.
+
+Please follow these diagnostic steps to resolve the issue (*Source: Smart TV*):
+
+1.  **Power Cycle**: Unplug the TV from the power outlet for 60 seconds, then plug it back in.
+2.  **Bluetooth Reset**: Hold down the **Home** and **Back** buttons on your remote simultaneously for 5 seconds to initiate Bluetooth re-pairing.
+3.  **Network Reset**: Navigate to **Settings > Network** and select **Forget Network**, then attempt to reconnect to your Wi-Fi network.
+4.  **Static DNS**: If the error persists, go to your Network settings and manually assign the static DNS to **8.8.8.8**.
+
+If these steps do not resolve the issue, please let me know, and I can assist you with opening a vendor support ticket for further technical assistance.","id=None args={'product_name': '4K Smart TV', 'issue_description': 'Error code TV-NET-502, Wi-Fi connectivity issue'} name='troubleshoot_product_issue' partial_args=None will_continue=None","id='call_827730' args={'product_name': '4K Smart TV', 'issue_description': ""TV-NET-502 error code, Wi-Fi won't connect""} name='troubleshoot_product_issue' partial_args=None will_continue=None"
+customer_care_evals,case_03_hardware_troubleshooting,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,My 4K Smart TV has an error code TV-NET-502 and Wi-Fi won't connect. How do I fix it?,"To resolve error code TV-NET-502 on your Smart TV, navigate to Settings > Network, select Forget Network, and reconnect to your 2.4GHz or 5GHz Wi-Fi network.","I am sorry to hear that you are experiencing connectivity issues with your 4K Smart TV. Error code **TV-NET-502** indicates a network connection failure.
+
+Please follow these diagnostic steps to resolve the issue (*Source: Smart TV*):
+
+1.  **Power Cycle**: Unplug the TV from the power outlet for 60 seconds, then plug it back in.
+2.  **Bluetooth Reset**: Hold down the **Home** and **Back** buttons on your remote simultaneously for 5 seconds to initiate Bluetooth re-pairing.
+3.  **Network Reset**: Navigate to **Settings > Network** and select **Forget Network**, then attempt to reconnect to your Wi-Fi network.
+4.  **Static DNS**: If the error persists, go to your Network settings and manually assign the static DNS to **8.8.8.8**.
+
+If these steps do not resolve the issue, please let me know, and I can assist you with opening a vendor support ticket for further technical assistance.","id=None args={'product_name': '4K Smart TV', 'issue_description': 'Error code TV-NET-502, Wi-Fi connectivity issue'} name='troubleshoot_product_issue' partial_args=None will_continue=None","id='call_827730' args={'product_name': '4K Smart TV', 'issue_description': ""TV-NET-502 error code, Wi-Fi won't connect""} name='troubleshoot_product_issue' partial_args=None will_continue=None"
+customer_care_evals,case_03_hardware_troubleshooting,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,My 4K Smart TV has an error code TV-NET-502 and Wi-Fi won't connect. How do I fix it?,"To resolve error code TV-NET-502 on your Smart TV, navigate to Settings > Network, select Forget Network, and reconnect to your 2.4GHz or 5GHz Wi-Fi network.","I am sorry to hear that you are experiencing connectivity issues with your 4K Smart TV. Error code **TV-NET-502** indicates a network connection failure.
+
+Please follow these diagnostic steps to resolve the issue (*Source: Smart TV*):
+
+1.  **Power Cycle**: Unplug the TV from the power outlet for 60 seconds, then plug it back in.
+2.  **Bluetooth Reset**: Hold down the **Home** and **Back** buttons on your remote simultaneously for 5 seconds to initiate Bluetooth re-pairing.
+3.  **Network Reset**: Navigate to **Settings > Network** and select **Forget Network**, then attempt to reconnect to your Wi-Fi network.
+4.  **Static DNS**: If the error persists, go to your Network settings and manually assign the static DNS to **8.8.8.8**.
+
+If these steps do not resolve the issue, please let me know, and I can assist you with opening a vendor support ticket for further technical assistance.","id=None args={'product_name': '4K Smart TV', 'issue_description': 'Error code TV-NET-502, Wi-Fi connectivity issue'} name='troubleshoot_product_issue' partial_args=None will_continue=None","id='call_827730' args={'product_name': '4K Smart TV', 'issue_description': ""TV-NET-502 error code, Wi-Fi won't connect""} name='troubleshoot_product_issue' partial_args=None will_continue=None"
+customer_care_evals,case_09_multiturn_delay_escalation,response_match_score,0.2,0.3191489361702128,PASSED,Where is my order ORD-10023? Can you track the package for me?,"Your order (ORD-10023) is currently in transit with UPS Express (Tracking: UPS-881920391) and is scheduled for delivery on August 15, 2026.","Your order **ORD-10023** is currently **Out for Delivery** with DHL Express. 
+
+Here are the details:
+*   **Tracking Number:** DHL-7718290123
+*   **Latest Status:** The package is currently in the courier network and out for delivery as of today.
+*   **Delivery Risk:** We have analyzed the transit history, and the probability of a delay is very low (18%). 
+
+You should receive your package shortly. Please let me know if you need any further assistance!","id=None args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023'} name='track_shipment' partial_args=None will_continue=None","id='call_887344' args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_787722' args={'order_id': 'ORD-10023'} name='track_shipment' partial_args=None will_continue=None
+id='call_1073299' args={'order_id': 'ORD-10023'} name='predict_delivery_delay_risk' partial_args=None will_continue=None"
+customer_care_evals,case_09_multiturn_delay_escalation,response_match_score,0.2,0.4117647058823529,PASSED,This is the third time it has been delayed! I am furious with this terrible service. I want a supervisor and a credit immediately or I am canceling everything!,I sincerely apologize for the multiple shipping delays and your frustration. I have issued a $50 courtesy credit voucher to your account and escalated your case to our Tier-2 Senior Management supervisor team for immediate priority review.,"I am very sorry to hear that you have experienced repeated shipping delays. I completely understand your frustration, and I apologize for the inconvenience this has caused you.
+
+I have taken the following immediate actions to address your concerns:
+
+1.  **Courtesy Credit:** I have issued a **$50.00 store credit** to your account as a gesture of goodwill. You can use the voucher code **CARE-CREDIT-4542** for any future purchase.
+2.  **Supervisor Escalation:** I have escalated your case to our **Tier-2 Senior Management team** under Ticket **#ESC-4543-T2**. A dedicated Customer Care Executive will review your history with us and reach out to you directly via your contact information on file within the next **2 hours**.
+
+Thank you for your patience while we work to resolve this for you.","id=None args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'text': 'This is the third time it has been delayed! I am furious with this terrible service. I want a supervisor and a credit immediately or I am canceling everything!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'amount_usd': 50, 'reason': 'Multiple shipping delays causing high customer frustration.'} name='issue_courtesy_credit' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'urgency': 'Critical', 'reason': 'Customer expressed extreme frustration due to repeated shipping delays.'} name='escalate_to_human_supervisor' partial_args=None will_continue=None","id='call_720563' args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_1303267' args={'text': 'This is the third time it has been delayed! I am furious with this terrible service. I want a supervisor and a credit immediately or I am canceling everything!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id='call_1062981' args={'amount_usd': 50, 'order_id': 'ORD-10023', 'reason': 'Repeated shipping delays and customer high frustration.'} name='issue_courtesy_credit' partial_args=None will_continue=None
+id='call_389655' args={'urgency': 'Critical', 'reason': 'Customer is extremely frustrated due to repeated shipping delays (3rd time). Demanded supervisor. High churn risk. Credit issued.', 'order_id': 'ORD-10023'} name='escalate_to_human_supervisor' partial_args=None will_continue=None"
+customer_care_evals,case_09_multiturn_delay_escalation,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,Where is my order ORD-10023? Can you track the package for me?,"Your order (ORD-10023) is currently in transit with UPS Express (Tracking: UPS-881920391) and is scheduled for delivery on August 15, 2026.","Your order **ORD-10023** is currently **Out for Delivery** with DHL Express. 
+
+Here are the details:
+*   **Tracking Number:** DHL-7718290123
+*   **Latest Status:** The package is currently in the courier network and out for delivery as of today.
+*   **Delivery Risk:** We have analyzed the transit history, and the probability of a delay is very low (18%). 
+
+You should receive your package shortly. Please let me know if you need any further assistance!","id=None args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023'} name='track_shipment' partial_args=None will_continue=None","id='call_887344' args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_787722' args={'order_id': 'ORD-10023'} name='track_shipment' partial_args=None will_continue=None
+id='call_1073299' args={'order_id': 'ORD-10023'} name='predict_delivery_delay_risk' partial_args=None will_continue=None"
+customer_care_evals,case_09_multiturn_delay_escalation,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,This is the third time it has been delayed! I am furious with this terrible service. I want a supervisor and a credit immediately or I am canceling everything!,I sincerely apologize for the multiple shipping delays and your frustration. I have issued a $50 courtesy credit voucher to your account and escalated your case to our Tier-2 Senior Management supervisor team for immediate priority review.,"I am very sorry to hear that you have experienced repeated shipping delays. I completely understand your frustration, and I apologize for the inconvenience this has caused you.
+
+I have taken the following immediate actions to address your concerns:
+
+1.  **Courtesy Credit:** I have issued a **$50.00 store credit** to your account as a gesture of goodwill. You can use the voucher code **CARE-CREDIT-4542** for any future purchase.
+2.  **Supervisor Escalation:** I have escalated your case to our **Tier-2 Senior Management team** under Ticket **#ESC-4543-T2**. A dedicated Customer Care Executive will review your history with us and reach out to you directly via your contact information on file within the next **2 hours**.
+
+Thank you for your patience while we work to resolve this for you.","id=None args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'text': 'This is the third time it has been delayed! I am furious with this terrible service. I want a supervisor and a credit immediately or I am canceling everything!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'amount_usd': 50, 'reason': 'Multiple shipping delays causing high customer frustration.'} name='issue_courtesy_credit' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'urgency': 'Critical', 'reason': 'Customer expressed extreme frustration due to repeated shipping delays.'} name='escalate_to_human_supervisor' partial_args=None will_continue=None","id='call_720563' args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_1303267' args={'text': 'This is the third time it has been delayed! I am furious with this terrible service. I want a supervisor and a credit immediately or I am canceling everything!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id='call_1062981' args={'amount_usd': 50, 'order_id': 'ORD-10023', 'reason': 'Repeated shipping delays and customer high frustration.'} name='issue_courtesy_credit' partial_args=None will_continue=None
+id='call_389655' args={'urgency': 'Critical', 'reason': 'Customer is extremely frustrated due to repeated shipping delays (3rd time). Demanded supervisor. High churn risk. Credit issued.', 'order_id': 'ORD-10023'} name='escalate_to_human_supervisor' partial_args=None will_continue=None"
+customer_care_evals,case_09_multiturn_delay_escalation,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,Where is my order ORD-10023? Can you track the package for me?,"Your order (ORD-10023) is currently in transit with UPS Express (Tracking: UPS-881920391) and is scheduled for delivery on August 15, 2026.","Your order **ORD-10023** is currently **Out for Delivery** with DHL Express. 
+
+Here are the details:
+*   **Tracking Number:** DHL-7718290123
+*   **Latest Status:** The package is currently in the courier network and out for delivery as of today.
+*   **Delivery Risk:** We have analyzed the transit history, and the probability of a delay is very low (18%). 
+
+You should receive your package shortly. Please let me know if you need any further assistance!","id=None args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023'} name='track_shipment' partial_args=None will_continue=None","id='call_887344' args={'agent_name': 'order_logistics_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_787722' args={'order_id': 'ORD-10023'} name='track_shipment' partial_args=None will_continue=None
+id='call_1073299' args={'order_id': 'ORD-10023'} name='predict_delivery_delay_risk' partial_args=None will_continue=None"
+customer_care_evals,case_09_multiturn_delay_escalation,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,This is the third time it has been delayed! I am furious with this terrible service. I want a supervisor and a credit immediately or I am canceling everything!,I sincerely apologize for the multiple shipping delays and your frustration. I have issued a $50 courtesy credit voucher to your account and escalated your case to our Tier-2 Senior Management supervisor team for immediate priority review.,"I am very sorry to hear that you have experienced repeated shipping delays. I completely understand your frustration, and I apologize for the inconvenience this has caused you.
+
+I have taken the following immediate actions to address your concerns:
+
+1.  **Courtesy Credit:** I have issued a **$50.00 store credit** to your account as a gesture of goodwill. You can use the voucher code **CARE-CREDIT-4542** for any future purchase.
+2.  **Supervisor Escalation:** I have escalated your case to our **Tier-2 Senior Management team** under Ticket **#ESC-4543-T2**. A dedicated Customer Care Executive will review your history with us and reach out to you directly via your contact information on file within the next **2 hours**.
+
+Thank you for your patience while we work to resolve this for you.","id=None args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'text': 'This is the third time it has been delayed! I am furious with this terrible service. I want a supervisor and a credit immediately or I am canceling everything!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'amount_usd': 50, 'reason': 'Multiple shipping delays causing high customer frustration.'} name='issue_courtesy_credit' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'urgency': 'Critical', 'reason': 'Customer expressed extreme frustration due to repeated shipping delays.'} name='escalate_to_human_supervisor' partial_args=None will_continue=None","id='call_720563' args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_1303267' args={'text': 'This is the third time it has been delayed! I am furious with this terrible service. I want a supervisor and a credit immediately or I am canceling everything!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id='call_1062981' args={'amount_usd': 50, 'order_id': 'ORD-10023', 'reason': 'Repeated shipping delays and customer high frustration.'} name='issue_courtesy_credit' partial_args=None will_continue=None
+id='call_389655' args={'urgency': 'Critical', 'reason': 'Customer is extremely frustrated due to repeated shipping delays (3rd time). Demanded supervisor. High churn risk. Credit issued.', 'order_id': 'ORD-10023'} name='escalate_to_human_supervisor' partial_args=None will_continue=None"
+customer_care_evals,case_04_sentiment_escalation,response_match_score,0.2,0.22641509433962262,PASSED,This is terrible service! My order ORD-10023 has been delayed multiple times and nobody is helping. I am furious and want a supervisor or credit immediately!,I sincerely apologize for the delay with order ORD-10023. I have escalated this to Tier-2 management and issued a $50 courtesy credit.,"Hello David,
+
+I sincerely apologize for the continued delays regarding your order (ORD-10023). I understand how incredibly frustrating this experience has been, especially given the customs hold situation on your BaristaPro Espresso Machine. 
+
+Because we have not met the standard of service you deserve, I have taken the following immediate actions:
+
+1.  **Priority Human Escalation:** I have escalated your case directly to our Tier-2 Senior Management team under ticket **#ESC-4412-T2**. A dedicated Customer Care Executive will review the history of your order, including the current customs status under TCK-10023-VND, and will contact you via your registered phone number within the next 2 hours.
+2.  **Courtesy Credit:** I have issued a **$50.00 store credit** to your account as a gesture of our apology for the significant inconvenience caused by these delivery delays.
+    *   **Voucher Code:** `CARE-CREDIT-4412`
+    *   **Validity:** This is valid for any future purchase on our store with no minimum spend, expiring on December 31, 2027.
+
+Thank you for your patience while we work to resolve this. We are committed to getting this sorted out for you as quickly as possible.","id=None args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'text': 'This is terrible service! My order ORD-10023 has been delayed multiple times and nobody is helping. I am furious and want a supervisor or credit immediately!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'reason': 'Repeated order delays and high customer frustration.', 'amount_usd': 50} name='issue_courtesy_credit' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'urgency': 'Critical', 'reason': 'Customer requested supervisor.'} name='escalate_to_human_supervisor' partial_args=None will_continue=None","id='call_1077472' args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_999890' args={'text': 'This is terrible service! My order ORD-10023 has been delayed multiple times and nobody is helping. I am furious and want a supervisor or credit immediately!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id='call_999891' args={'customer_identifier': 'ORD-10023'} name='recall_customer_memory' partial_args=None will_continue=None
+id='call_667091' args={'order_id': 'ORD-10023', 'amount_usd': 50, 'reason': 'Significant delivery delay and repeated customer frustration regarding customs hold.'} name='issue_courtesy_credit' partial_args=None will_continue=None
+id='call_667092' args={'urgency': 'High', 'order_id': 'ORD-10023', 'reason': 'Customer is highly frustrated due to persistent delays with Order ORD-10023. Previous courtesy credit insufficient; customer demands supervisor intervention. Currently held at customs (TCK-10023-VND).'} name='escalate_to_human_supervisor' partial_args=None will_continue=None"
+customer_care_evals,case_04_sentiment_escalation,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,This is terrible service! My order ORD-10023 has been delayed multiple times and nobody is helping. I am furious and want a supervisor or credit immediately!,I sincerely apologize for the delay with order ORD-10023. I have escalated this to Tier-2 management and issued a $50 courtesy credit.,"Hello David,
+
+I sincerely apologize for the continued delays regarding your order (ORD-10023). I understand how incredibly frustrating this experience has been, especially given the customs hold situation on your BaristaPro Espresso Machine. 
+
+Because we have not met the standard of service you deserve, I have taken the following immediate actions:
+
+1.  **Priority Human Escalation:** I have escalated your case directly to our Tier-2 Senior Management team under ticket **#ESC-4412-T2**. A dedicated Customer Care Executive will review the history of your order, including the current customs status under TCK-10023-VND, and will contact you via your registered phone number within the next 2 hours.
+2.  **Courtesy Credit:** I have issued a **$50.00 store credit** to your account as a gesture of our apology for the significant inconvenience caused by these delivery delays.
+    *   **Voucher Code:** `CARE-CREDIT-4412`
+    *   **Validity:** This is valid for any future purchase on our store with no minimum spend, expiring on December 31, 2027.
+
+Thank you for your patience while we work to resolve this. We are committed to getting this sorted out for you as quickly as possible.","id=None args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'text': 'This is terrible service! My order ORD-10023 has been delayed multiple times and nobody is helping. I am furious and want a supervisor or credit immediately!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'reason': 'Repeated order delays and high customer frustration.', 'amount_usd': 50} name='issue_courtesy_credit' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'urgency': 'Critical', 'reason': 'Customer requested supervisor.'} name='escalate_to_human_supervisor' partial_args=None will_continue=None","id='call_1077472' args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_999890' args={'text': 'This is terrible service! My order ORD-10023 has been delayed multiple times and nobody is helping. I am furious and want a supervisor or credit immediately!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id='call_999891' args={'customer_identifier': 'ORD-10023'} name='recall_customer_memory' partial_args=None will_continue=None
+id='call_667091' args={'order_id': 'ORD-10023', 'amount_usd': 50, 'reason': 'Significant delivery delay and repeated customer frustration regarding customs hold.'} name='issue_courtesy_credit' partial_args=None will_continue=None
+id='call_667092' args={'urgency': 'High', 'order_id': 'ORD-10023', 'reason': 'Customer is highly frustrated due to persistent delays with Order ORD-10023. Previous courtesy credit insufficient; customer demands supervisor intervention. Currently held at customs (TCK-10023-VND).'} name='escalate_to_human_supervisor' partial_args=None will_continue=None"
+customer_care_evals,case_04_sentiment_escalation,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,This is terrible service! My order ORD-10023 has been delayed multiple times and nobody is helping. I am furious and want a supervisor or credit immediately!,I sincerely apologize for the delay with order ORD-10023. I have escalated this to Tier-2 management and issued a $50 courtesy credit.,"Hello David,
+
+I sincerely apologize for the continued delays regarding your order (ORD-10023). I understand how incredibly frustrating this experience has been, especially given the customs hold situation on your BaristaPro Espresso Machine. 
+
+Because we have not met the standard of service you deserve, I have taken the following immediate actions:
+
+1.  **Priority Human Escalation:** I have escalated your case directly to our Tier-2 Senior Management team under ticket **#ESC-4412-T2**. A dedicated Customer Care Executive will review the history of your order, including the current customs status under TCK-10023-VND, and will contact you via your registered phone number within the next 2 hours.
+2.  **Courtesy Credit:** I have issued a **$50.00 store credit** to your account as a gesture of our apology for the significant inconvenience caused by these delivery delays.
+    *   **Voucher Code:** `CARE-CREDIT-4412`
+    *   **Validity:** This is valid for any future purchase on our store with no minimum spend, expiring on December 31, 2027.
+
+Thank you for your patience while we work to resolve this. We are committed to getting this sorted out for you as quickly as possible.","id=None args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id=None args={'text': 'This is terrible service! My order ORD-10023 has been delayed multiple times and nobody is helping. I am furious and want a supervisor or credit immediately!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'reason': 'Repeated order delays and high customer frustration.', 'amount_usd': 50} name='issue_courtesy_credit' partial_args=None will_continue=None
+id=None args={'order_id': 'ORD-10023', 'urgency': 'Critical', 'reason': 'Customer requested supervisor.'} name='escalate_to_human_supervisor' partial_args=None will_continue=None","id='call_1077472' args={'agent_name': 'escalation_sentiment_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+id='call_999890' args={'text': 'This is terrible service! My order ORD-10023 has been delayed multiple times and nobody is helping. I am furious and want a supervisor or credit immediately!'} name='run_lstm_sentiment_analysis' partial_args=None will_continue=None
+id='call_999891' args={'customer_identifier': 'ORD-10023'} name='recall_customer_memory' partial_args=None will_continue=None
+id='call_667091' args={'order_id': 'ORD-10023', 'amount_usd': 50, 'reason': 'Significant delivery delay and repeated customer frustration regarding customs hold.'} name='issue_courtesy_credit' partial_args=None will_continue=None
+id='call_667092' args={'urgency': 'High', 'order_id': 'ORD-10023', 'reason': 'Customer is highly frustrated due to persistent delays with Order ORD-10023. Previous courtesy credit insufficient; customer demands supervisor intervention. Currently held at customs (TCK-10023-VND).'} name='escalate_to_human_supervisor' partial_args=None will_continue=None"
+customer_care_evals,case_07_multiturn_rma_journey,response_match_score,0.2,0.2784810126582279,PASSED,I would like to return an item I bought recently.,Could you please provide your Order ID so I can verify your return eligibility?,"I would be happy to help you with your return! To get started, could you please provide me with your **Order ID**? 
+
+Once I have that, I will check your eligibility within our 30-day return policy and help you generate a prepaid return label. Please note that we do not charge any restocking fees, and refunds are typically processed within 3-5 business days.",id=None args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None,id='call_995363' args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+customer_care_evals,case_07_multiturn_rma_journey,response_match_score,0.2,0.5892857142857142,PASSED,My order is ORD-10022.,Your order ORD-10022 is eligible for return under our 30-day guarantee with a full refund of $269.99 and zero restocking fees. Please let me know the reason for your return so I can generate your prepaid return label and RMA code.,"Great news! Your ProSound ANC Wireless Headphones (ORD-10022) are eligible for a full return. You will be refunded the full amount of **$269.99**, and I can confirm there are absolutely no restocking fees.
+
+To proceed, could you please let me know the reason for your return? Once I have that, I can generate your prepaid return shipping label and provide you with the drop-off instructions.",id=None args={'order_id': 'ORD-10022'} name='check_return_eligibility' partial_args=None will_continue=None,id='call_999184' args={'order_id': 'ORD-10022'} name='check_return_eligibility' partial_args=None will_continue=None
+customer_care_evals,case_07_multiturn_rma_journey,response_match_score,0.2,0.44628099173553715,PASSED,The headphones feel uncomfortable over my ears. Please generate my return label.,"Your return has been authorized. Your RMA code is RMA-ORD-10022 and your prepaid shipping label has been generated. Once we receive your item, your full refund will be issued within 3-5 business days.","Your return has been successfully authorized!
+
+**Return Details:**
+*   **RMA Code:** RMA-4539-ORD-1002
+*   **Return Label:** [Download your prepaid shipping label here](https://returns.store.com/labels/RMA-4539-ORD-1002.pdf)
+*   **Instructions:** Please print the label and drop the package off at any FedEx or UPS location.
+
+Once your return is scanned at the warehouse, a full refund of **$269.99** will be processed to your original payment method within **3-5 business days**.
+
+Is there anything else I can assist you with today?","id=None args={'order_id': 'ORD-10022', 'reason': 'Uncomfortable fit over ears'} name='create_rma_return' partial_args=None will_continue=None","id='call_904909' args={'order_id': 'ORD-10022', 'reason': 'The headphones feel uncomfortable over my ears.'} name='create_rma_return' partial_args=None will_continue=None"
+customer_care_evals,case_07_multiturn_rma_journey,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,I would like to return an item I bought recently.,Could you please provide your Order ID so I can verify your return eligibility?,"I would be happy to help you with your return! To get started, could you please provide me with your **Order ID**? 
+
+Once I have that, I will check your eligibility within our 30-day return policy and help you generate a prepaid return label. Please note that we do not charge any restocking fees, and refunds are typically processed within 3-5 business days.",id=None args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None,id='call_995363' args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+customer_care_evals,case_07_multiturn_rma_journey,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,My order is ORD-10022.,Your order ORD-10022 is eligible for return under our 30-day guarantee with a full refund of $269.99 and zero restocking fees. Please let me know the reason for your return so I can generate your prepaid return label and RMA code.,"Great news! Your ProSound ANC Wireless Headphones (ORD-10022) are eligible for a full return. You will be refunded the full amount of **$269.99**, and I can confirm there are absolutely no restocking fees.
+
+To proceed, could you please let me know the reason for your return? Once I have that, I can generate your prepaid return shipping label and provide you with the drop-off instructions.",id=None args={'order_id': 'ORD-10022'} name='check_return_eligibility' partial_args=None will_continue=None,id='call_999184' args={'order_id': 'ORD-10022'} name='check_return_eligibility' partial_args=None will_continue=None
+customer_care_evals,case_07_multiturn_rma_journey,rubric_based_final_response_quality_v1,0.7,1.0,PASSED,The headphones feel uncomfortable over my ears. Please generate my return label.,"Your return has been authorized. Your RMA code is RMA-ORD-10022 and your prepaid shipping label has been generated. Once we receive your item, your full refund will be issued within 3-5 business days.","Your return has been successfully authorized!
+
+**Return Details:**
+*   **RMA Code:** RMA-4539-ORD-1002
+*   **Return Label:** [Download your prepaid shipping label here](https://returns.store.com/labels/RMA-4539-ORD-1002.pdf)
+*   **Instructions:** Please print the label and drop the package off at any FedEx or UPS location.
+
+Once your return is scanned at the warehouse, a full refund of **$269.99** will be processed to your original payment method within **3-5 business days**.
+
+Is there anything else I can assist you with today?","id=None args={'order_id': 'ORD-10022', 'reason': 'Uncomfortable fit over ears'} name='create_rma_return' partial_args=None will_continue=None","id='call_904909' args={'order_id': 'ORD-10022', 'reason': 'The headphones feel uncomfortable over my ears.'} name='create_rma_return' partial_args=None will_continue=None"
+customer_care_evals,case_07_multiturn_rma_journey,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,I would like to return an item I bought recently.,Could you please provide your Order ID so I can verify your return eligibility?,"I would be happy to help you with your return! To get started, could you please provide me with your **Order ID**? 
+
+Once I have that, I will check your eligibility within our 30-day return policy and help you generate a prepaid return label. Please note that we do not charge any restocking fees, and refunds are typically processed within 3-5 business days.",id=None args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None,id='call_995363' args={'agent_name': 'returns_warranty_specialist'} name='transfer_to_agent' partial_args=None will_continue=None
+customer_care_evals,case_07_multiturn_rma_journey,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,My order is ORD-10022.,Your order ORD-10022 is eligible for return under our 30-day guarantee with a full refund of $269.99 and zero restocking fees. Please let me know the reason for your return so I can generate your prepaid return label and RMA code.,"Great news! Your ProSound ANC Wireless Headphones (ORD-10022) are eligible for a full return. You will be refunded the full amount of **$269.99**, and I can confirm there are absolutely no restocking fees.
+
+To proceed, could you please let me know the reason for your return? Once I have that, I can generate your prepaid return shipping label and provide you with the drop-off instructions.",id=None args={'order_id': 'ORD-10022'} name='check_return_eligibility' partial_args=None will_continue=None,id='call_999184' args={'order_id': 'ORD-10022'} name='check_return_eligibility' partial_args=None will_continue=None
+customer_care_evals,case_07_multiturn_rma_journey,rubric_based_tool_use_quality_v1,0.7,1.0,PASSED,The headphones feel uncomfortable over my ears. Please generate my return label.,"Your return has been authorized. Your RMA code is RMA-ORD-10022 and your prepaid shipping label has been generated. Once we receive your item, your full refund will be issued within 3-5 business days.","Your return has been successfully authorized!
+
+**Return Details:**
+*   **RMA Code:** RMA-4539-ORD-1002
+*   **Return Label:** [Download your prepaid shipping label here](https://returns.store.com/labels/RMA-4539-ORD-1002.pdf)
+*   **Instructions:** Please print the label and drop the package off at any FedEx or UPS location.
+
+Once your return is scanned at the warehouse, a full refund of **$269.99** will be processed to your original payment method within **3-5 business days**.
+
+Is there anything else I can assist you with today?","id=None args={'order_id': 'ORD-10022', 'reason': 'Uncomfortable fit over ears'} name='create_rma_return' partial_args=None will_continue=None","id='call_904909' args={'order_id': 'ORD-10022', 'reason': 'The headphones feel uncomfortable over my ears.'} name='create_rma_return' partial_args=None will_continue=None"
