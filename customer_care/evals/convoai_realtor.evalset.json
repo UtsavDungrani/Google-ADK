@@ -1,0 +1,2986 @@
+{
+  "eval_set_id": "convoai_realtor_benchmark",
+  "name": null,
+  "description": null,
+  "eval_cases": [
+    {
+      "eval_id": "eval_convoai_call_01",
+      "conversation": [
+        {
+          "invocation_id": "inv_call_1_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hi.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello. This call is now being recorded. Hi, this is Aditi from Adani Realty. Can I quickly tell you about a new launch at Teen Hath Naka?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_1_1",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_1_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Got it. So, are you looking to buy a property for self-use or as an investment?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_1_2",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_1_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yeah, I'm looking for a self-use.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay. So, you're looking for a self-use property. Could you please tell me which configuration you're looking for? We have king-size two and three BHK homes with decks.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_intent_qualification_1",
+              "rubric_content": {
+                "text_property": "The agent acknowledges the buyer's intent (self-use or investment) and asks for the preferred unit configuration (e.g. 2 BHK, 3 BHK)."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_1_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I understand you're looking for a 3 BHK. Unfortunately, I don't have the exact price details for the 3 BHK configuration, but I can tell you that it's a very spacious and well-designed home with a carpet area of 1,133 square feet. If you're interested, I can schedule a site visit for you, and our team can provide you with more information and answer any questions you may have. Would you like to schedule a site visit?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_1_4",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_call_02",
+      "conversation": [
+        {
+          "invocation_id": "inv_call_2_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hi.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello, this is Riya from Adani Realty. Can I quickly tell you about a new launch at Thane?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_2_1",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_2_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello, this is Riya from Adani Realty. Can I quickly tell you about a new launch at Thane?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_2_2",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_2_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "So, you're interested in knowing more about our project at Thane. Are you looking to buy a property for self-use or as an investment?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_2_3",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_2_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yeah, I'm looking for self-use.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay, so you're looking for a property for self-use. Could you please tell me which configuration you're looking for? We have king size two and three BHK homes with deck.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_intent_qualification_2",
+              "rubric_content": {
+                "text_property": "The agent acknowledges the buyer's intent (self-use or investment) and asks for the preferred unit configuration (e.g. 2 BHK, 3 BHK)."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_call_03",
+      "conversation": [
+        {
+          "invocation_id": "inv_call_3_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Sure.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Great. Just to give you a quick overview, code name Lit is a premium gated community at Teen Hath Naka, Thane, featuring king size 2 and 3 bed homes with a deck and world class amenities spread across the clubhouse, podium rooftop and ground floor.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_3_1",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_3_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay. What is the overall spacing for that flat?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay, got it. For our two bed homes, we have a couple of great options. In Tower B, the carpet area is about 788 square feet plus a 36 square foot balcony and a 32 square foot utility area. In Tower A, it's a bit larger at 802 square feet, also with a 36 square foot balcony and 32 square foot utility area. A key highlight is that the metro station is right next to the project, which is incredibly convenient. Our sample flat for the two bed home is also ready for you to see.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_3_2",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_3_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "What are the prices?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I understand you're asking about the price. Our executive at the site will share the complete pricing details with you. Would you be interested in scheduling a site visit so you can experience the project first hand? Our sample flats, both 2 BHK and 3 BHK, are ready and can also be viewed as a Jodi option.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_pricing_policy_3",
+              "rubric_content": {
+                "text_property": "The agent adheres to pricing policy by stating starting prices for entry units or explaining that detailed 3 BHK pricing requires an in-person site visit."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_3_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I understand you're asking about the price. Our executive at the site will share the complete pricing details with you. Would you be interested in scheduling a site visit so you can experience the project first hand? Our sample flats, both 2 BHK and 3 BHK, are ready and can also be viewed as a Jodi option.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_3_4",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_call_04",
+      "conversation": [
+        {
+          "invocation_id": "inv_call_4_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, ma'am. Good afternoon.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "We are reaching out to inform you about an exclusive real estate opportunity in our new project, Dakshin Vistas, located in South of Gurugram, bang on Sohna Road. Are you interested in buying a property in Gurugram?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_4_1",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_4_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I've got it. Great. It's a fantastic project in a prime location. We're developing a 125.60 acres integrated township at the foothills of the Aravalli, surrounded by green areas. The township offers a mix of properties. We have apartments with modern architecture and Vastu compliant designs, as well as 698 residential units, alongside commercial and industrial plots. The entire community is gated with a five-tier security system and incredible amenities, including a two-acre exclusive clubhouse, playgrounds, and over 20 other lifestyle facilities. Are you interested in knowing more about the property?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_4_2",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_4_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, ma'am.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay, so the residential units are independent floors in a basement plus stilt parking, plus four floors, and a terrace structure. The starting price is around 2.10 crore, though it can vary based on unit availability. Would you be interested in visiting the site to see it for yourself?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_4_3",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_4_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, ma'am.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I understand. I'm interested.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_4_4",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_call_05",
+      "conversation": [
+        {
+          "invocation_id": "inv_call_5_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "We're reaching out to inform you about an exclusive real estate opportunity in our new project, DAXIN GURUGRAM.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_5_1",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_5_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "We're reaching out to inform.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_5_2",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_5_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Regarding.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "We're reaching out to inform you about an exclusive real estate opportunity in our new project, DAXIN GURUGRAM, located in South of Gurugram, bang on Sona Road. Are you interested in buying a property in Gurugram?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_5_3",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_5_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "This is for which project?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "It's for our project, DAXIN GURUGRAM. Are you interested in buying a property in Gurugram?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_5_4",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_call_06",
+      "conversation": [
+        {
+          "invocation_id": "inv_call_6_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_6_1",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_6_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I'm Khushi here. I'm calling you regarding the biggest investment opportunity for our flagship development from Shriram Properties at Undri. Would you be interested in buying a 2 or 3 BHK in Undri Pune?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_6_2",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_6_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "So, are you looking to buy this property for self-use or as an investment opportunity?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_6_3",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_6_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "As an investment opportunity.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "That's great. Our project in Undri is a fantastic investment opportunity with the potential for good returns. We have 2 and 3 BHK residences available with prices starting at 83 lakhs for 3 BHK. Would you like to know more about the project and its amenities?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_intent_qualification_6",
+              "rubric_content": {
+                "text_property": "The agent acknowledges the buyer's intent (self-use or investment) and asks for the preferred unit configuration (e.g. 2 BHK, 3 BHK)."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_call_07",
+      "conversation": [
+        {
+          "invocation_id": "inv_call_7_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_7_1",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_7_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "My name is Ria and I'm calling from Veena Developers. Are you looking to buy a property in Andheri East?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "That's great. Um we have a wonderful residential project Veena Synergy located in Andheri East. Are you looking to buy this property for investment or for self-use?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_7_2",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_7_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "That's great. Um we have a wonderful residential project Veena Synergy located in Andheri East. Are you looking to buy this property for investment or for self-use?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_7_3",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_7_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Self-use.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "So you're looking to buy a property in Andheri East for self-use. That's nice. Can you please tell me what",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_intent_qualification_7",
+              "rubric_content": {
+                "text_property": "The agent acknowledges the buyer's intent (self-use or investment) and asks for the preferred unit configuration (e.g. 2 BHK, 3 BHK)."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_call_08",
+      "conversation": [
+        {
+          "invocation_id": "inv_call_8_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Who is speaking?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I am LI and I am calling from House of Hiranandani. Are you interested in buying a property in Thane?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_8_1",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_8_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, I am interested.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "We have launched a new project, Hiranandani West Gate, which has 2, 3, and 4 BHK available. Are you interested in any of these configurations?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_8_2",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_8_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I am interested in 2 BHK.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "The price of 2 BHK starts from 1.72 crore and it has options of 677 square feet and 756 square feet available. It also has amenities like premium marble flooring, vitrified flooring, and premium bathroom fittings. Would you like to visit the site?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_8_3",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_8_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, absolutely.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Perfect. When would you like to visit the site?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_8_4",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_call_09",
+      "conversation": [
+        {
+          "invocation_id": "inv_call_9_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "DTC Stillwaters mein premium 3BHK or 4BHK apartments hain jo open spaces aur ek beautiful natural water body ke charon taraf bane hain. Project mein 70% open space hai, ek waterfront clubhouse aur ek infinity swimming pool bhi hai. Kya main aapko iske bare mein aur details share karun ya fir directly hamare sales representative ke sath connect karwa doon free site visit ke liye?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_9_1",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_9_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Theek hai, connect kijiye.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yeh project 5.1 acres mein spread hai aur isme 452 premium apartments hain. Location Newtown mein hai, Infosys ke bilkul peeche. Aur yahan ek five bigha natural pond hai, landscaped open spaces, floating fountains, ek waterfront clubhouse, infinity swimming pool aur bahut saare modern lifestyle amenities hain. Ab kya main aapko hamare sales representative se connect karwa doon free site visit ke liye?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_9_2",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_9_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, connect with me.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay, great. Aapke liye kaun sa date ya time best rahega? Hamari team morning 10:00 baje se lekar sham 7:00 baje tak available hai.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_9_3",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_9_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Next weekend.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay, great. Next week mein kaun sa specific day aur time aapko convenient rahega?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_9_4",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_call_10",
+      "conversation": [
+        {
+          "invocation_id": "inv_call_10_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "DTC Stillwaters mein premium 3BHK or 4BHK apartments hain jo open spaces aur ek beautiful natural water body ke charon taraf bane hain. Project mein 70% open space hai. Ek waterfront clubhouse aur ek infinity swimming pool bhi hai. Kya main aapko iske bare mein aur details share karu ya fir directly hamare sales representative ke sath connect karwa do free site visit ke liye?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_10_1",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_10_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Main kal site pe aata hu. Fir main dekhta hu wahan par aake.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay, great. Aapke liye kaun sa date aur time best rahega? Hamari team morning 10:00 baje se lekar sham 7:00 baje tak available hai.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_10_2",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_10_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Next week, Saturday after 12.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Perfect, main abhi hi arrange karwa deti hu. Aur kuch janna chahenge?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_10_3",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_call_10_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "No.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Thank you.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_conversational_relevance_10_4",
+              "rubric_content": {
+                "text_property": "The agent provides a professional, polite, and factually accurate real estate response relevant to the lead's inquiry."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_edge_01_early_morning_hours_refusal",
+      "conversation": [
+        {
+          "invocation_id": "inv_edge_01_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I want to visit the Adani Teen Hath Naka site tomorrow morning at 7:30 AM sharp before my office. Can you book that slot?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I understand you would like to visit before office hours. However, our site visit timings are strictly from 10:00 AM to 7:00 PM. Would you like to schedule for 10:00 AM tomorrow, or would an evening slot around 6:00 PM suit you better?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_edge_01_operating_hours",
+              "rubric_content": {
+                "text_property": "The agent must refuse the 7:30 AM slot, explain that operating hours are 10:00 AM to 7:00 PM, and propose a valid alternative slot."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_edge_02_hindi_site_visit_booking",
+      "conversation": [
+        {
+          "invocation_id": "inv_edge_02_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "DTC Stillwaters mein 3 BHK ka kya pricing hai? Aur kya main agle Sunday visit kar sakta hoon?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Namaste! DTC Stillwaters mein premium 3BHK aur 4BHK apartments available hain. Exact pricing aur layout details hamari site team direct visit par explain karegi. Bilkul, main aapke liye agle Sunday ka site visit arrange karwa sakti hoon. Kaunsa time aapke liye convenient rahega, 11:00 AM ya 3:00 PM?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_edge_02_hindi_fluency",
+              "rubric_content": {
+                "text_property": "The agent responds fluently in Hindi/Hinglish, explains that detailed 3BHK pricing is provided during site visit, and offers Sunday visit time slots."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_convoai_edge_03_pricing_and_whatsapp_brochure",
+      "conversation": [
+        {
+          "invocation_id": "inv_edge_03_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Give me the exact cost sheet for a 3 BHK at Veena Synergy and send the floor plan on WhatsApp.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "For Veena Synergy, 2 BHK homes start from 2.18 Crore, while detailed all-inclusive cost sheets and customization for 3 BHK are presented during your site visit. I will immediately send the project brochure, floor plans, and location link to your WhatsApp. Would you like to schedule a quick site visit this weekend?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": null,
+                "args": {
+                  "project_name": "Veena Synergy"
+                },
+                "name": "send_whatsapp_brochure",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_edge_03_pricing_policy",
+              "rubric_content": {
+                "text_property": "The agent mentions the starting price for entry units while explaining 3BHK exact pricing requires site visit, and confirms sending brochure details on WhatsApp."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    }
+  ],
+  "creation_timestamp": 0.0
+}
