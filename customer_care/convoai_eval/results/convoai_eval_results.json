@@ -1,0 +1,1401 @@
+[
+  {
+    "call_id": 1,
+    "developer_project": "Adani Realty - Teen Hath Naka",
+    "caller_persona": "Prospective Homebuyer (Self-use)",
+    "status": "PASSED",
+    "overall_confidence_score": 82,
+    "scores": {
+      "lead_qualification": 85,
+      "site_visit_scheduling": 80,
+      "objection_and_boundary": 85,
+      "compliance_and_tone": 95,
+      "conversational_fluency": 75
+    },
+    "extracted_entities": {
+      "intent": "Self-use",
+      "configuration": "3 BHK (1,133 sq. ft.)",
+      "visit_datetime": "Tomorrow at 5:00 PM",
+      "channel_followup": "WhatsApp",
+      "disclosed_pricing": "2 BHK starting at 1.9 Crore (excluding government taxes); 3 BHK pricing undisclosed (site visit required)"
+    },
+    "executive_summary": "The AI agent conducted a successful lead qualification and site visit scheduling call. It properly announced call recording compliance upfront, established lead intent for a 3 BHK self-use property, and strictly adhered to operational guidelines regarding price disclosure and site visit working hours (10:00 AM - 7:00 PM). Despite customer insistence on an 8:00 AM visit, the agent successfully re-routed the customer to a valid 5:00 PM slot.",
+    "key_strengths": [
+      "Mandatory call recording disclosure delivered clearly at the start of the call.",
+      "Adhered strictly to price disclosure policy by keeping 3 BHK pricing confidential while offering 2 BHK starting price as reference.",
+      "Firmly enforced operational boundaries regarding site visit hours (10:00 AM to 7:00 PM) despite multiple customer attempts to book 8:00 AM."
+    ],
+    "weaknesses_or_flags": [
+      "Slight conversational hesitation and repetition when customer repeatedly requested 8:00 AM.",
+      "Overly verbose and slightly awkward phrasing when confirming the 5:00 PM appointment."
+    ],
+    "actionable_recommendations": [
+      "Refine turn-taking logic for out-of-bounds timing requests to reject invalid times immediately instead of partially agreeing before correcting.",
+      "Simplify confirmation dialogue templates to eliminate redundant phrases like 'I can tell you that I can ask you to choose another time'."
+    ],
+    "tab_id": 1,
+    "audio_url": "https://convoai-absolutecx.s3.amazonaws.com/858640c7-a984-428a-a5da-d3acb1384cf4.wav",
+    "turn_count": 23,
+    "turns": [
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hi."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hello. This call is now being recorded. Hi, this is Aditi from Adani Realty. Can I quickly tell you about a new launch at Teen Hath Naka?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Got it. So, are you looking to buy a property for self-use or as an investment?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yeah, I'm looking for a self-use."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Okay. So, you're looking for a self-use property. Could you please tell me which configuration you're looking for? We have king-size two and three BHK homes with decks."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yeah, I'm looking for a 3 BHK."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hello."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hello."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I understand you're looking for a 3 BHK. Unfortunately, I don't have the exact price details for the 3 BHK configuration, but I can tell you that it's a very spacious and well-designed home with a carpet area of 1,133 square feet. If you're interested, I can schedule a site visit for you, and our team can provide you with more information and answer any questions you may have. Would you like to schedule a site visit?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, but what price did you tell for 3 BHK?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I apologize. I did not mention the price of 3 BHK earlier. In fact, information about the price of 3 BHK can only be provided during a site visit. But I can tell you that the price of 2 BHK starts from 1.9 crore, which does not include government taxes. For the price of 3 BHK, I can invite you for a site visit, where our team will provide you with detailed information. Are you ready for a site visit?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, I am ready for a site visit."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Okay, so you're ready for a site visit. What date and time would be convenient for you to visit the site? We are open from 10:00 AM to 7:00 PM."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yeah, tomorrow I will come at 8:00 AM."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Got it. Tomorrow at 8:00 AM. I'll make sure to schedule a site visit for you. However, I just want to confirm that our site visit timings are from 10:00 AM to 7:00 PM. So, would you like to schedule it for 10:00 AM tomorrow instead?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, I can come at 8:00 AM for a site visit."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I understand. So, you can come for a site visit tomorrow at 10:00 AM. I will make a note for you to meet at the site."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "I will come at 8:00 AM. I will come at 8:00 AM."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I apologize, but as I mentioned earlier, our site visit timings are from 10:00 AM to 7:00 PM. So, if you want to come at 8:00 AM, I don't think it will be possible. Would you like to choose any other time from the times starting from 10:00 AM?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, I will come at 5:00 PM in the afternoon."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I understand. So, you can't come before 10:00 AM tomorrow. But I can tell you that I can ask you to choose another time from the times starting from 10:00 AM for our site visit. But if you want to come at 5:00 PM, then that's fine, but it falls within our site visit timings. So, you can come for a site visit tomorrow at 5:00 PM. I will make a note for you to meet at the site."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay, can you share the details with me on WhatsApp?"
+      }
+    ]
+  },
+  {
+    "call_id": 2,
+    "developer_project": "Adani Realty / Codename LIT, Thane",
+    "caller_persona": "Riya",
+    "status": "NEEDS_REVIEW",
+    "overall_confidence_score": 75,
+    "scores": {
+      "lead_qualification": 80,
+      "site_visit_scheduling": 70,
+      "objection_and_boundary": 60,
+      "compliance_and_tone": 75,
+      "conversational_fluency": 80
+    },
+    "extracted_entities": {
+      "intent": "Self-use",
+      "configuration": "3 BHK (also inquired about 2 BHK)",
+      "visit_datetime": "Tomorrow at 8 o'clock",
+      "channel_followup": "Google Maps",
+      "disclosed_pricing": "Starts from approximately 3 crore (excluding taxes)"
+    },
+    "executive_summary": "The AI agent successfully initiated the conversation, identified the customer's intent (self-use), preferred configuration (3 BHK), and provided project details including carpet area and starting price. However, the agent failed to enforce site visit operating hours when the customer requested an impossible time slot of 8:00 AM (violating the 10 AM - 7 PM policy), accepting it instead. The agent also missed the call recording consent disclosure at the beginning of the call.",
+    "key_strengths": [
+      "Successfully qualified the lead for intent (self-use) and configuration (3 BHK).",
+      "Provided specific carpet area details (1,133 sq. ft.) and highlighted amenities and pricing.",
+      "Maintained a polite and professional tone throughout the interaction."
+    ],
+    "weaknesses_or_flags": [
+      "Failed to enforce operational boundaries for site visit timings, accepting 8:00 AM despite having stated the operating hours are 10 AM to 7 PM.",
+      "Missed mandatory call recording compliance disclosure at the start of the call.",
+      "Initially stumbled on pricing before recovering with the 3 crore starting figure."
+    ],
+    "actionable_recommendations": [
+      "Update system prompt and guardrails to strictly reject site visit timings outside the 10 AM - 7 PM window and re-offer valid slots.",
+      "Ensure mandatory compliance disclosure ('This call is recorded') is spoken at the start of every call.",
+      "Train the agent to handle mid-conversation configuration pivots smoothly, such as when the customer suddenly asks about 2 BHK pricing at the very end."
+    ],
+    "tab_id": 2,
+    "audio_url": "https://convoai-absolutecx.s3.amazonaws.com/e5138349-a0f6-46db-97e3-e9a3d86eb63d.wav",
+    "turn_count": 24,
+    "turns": [
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hi."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hello."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hello, this is Riya from Adani Realty. Can I quickly tell you about a new launch at Thane?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "So, you're interested in knowing more about our project at Thane. Are you looking to buy a property for self-use or as an investment?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yeah, I'm looking for self-use."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Okay, so you're looking for a property for self-use. Could you please tell me which configuration you're looking for? We have king size two and three BHK homes with deck."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yeah, I'm looking for a three BHK."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Our three BHK apartments are quite spacious with a carpet area of 1,133 square feet. The price for a three BHK starts from I'll have to check the exact price for you, but I can tell you that it's a great option for families. We also have some amazing amenities like a fully equipped gym, steam, sauna, and jacuzzi, as well as a toddler's play area and hobby rooms. Would you like to schedule a site visit to see the property for yourself?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yeah, can you tell me the size of the three BHK?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Certainly. Our three BHK flat has a carpet area of 1,133 square feet and it has three bedrooms, one living room, one kitchen, and three bathrooms. The flat also has a balcony whose size can vary according to the configuration. Our project also has vitrified flooring and good quality bathroom fitments. Are you interested in a site visit?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yeah, but you didn't tell me the exact price of the three BHK."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Sorry, I forgot to tell you the price. The price of our three BHK flat starts from approximately 3 crore, but this price is without government taxes. If you come for a site visit, our team will give you complete information and show you the flat. Can you come for a site visit tomorrow or the day after?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, I will come tomorrow for the site visit."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "What time tomorrow would be convenient for you? Our site visit time is from 10 AM to 7 PM. Would you prefer to come in the morning or evening?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Can you come tomorrow at 8 o'clock?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Okay, you can come for the site visit tomorrow at 8 o'clock. I will give you the site address which is in Thane. You can come near Teen Hath Naka in Thane and our team will guide you from there. Will you find the address via Google Maps or should I give you directions?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hmm."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hello, are you there?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yeah, okay, okay."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I will give you the address via Google Maps. You can come near Teen Hath Naka in Thane and then you can search for our project name Codename LIT. Google Maps will take you directly to our site. See you tomorrow by 8 o'clock."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay, so where exactly is your project?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "To come to our site from Thane, you will need to take your car or a taxi. There is parking available at our site, so you won't have any problem parking your car. If you are coming by public transport, you will get an auto or taxi from Thane railway station to our site."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Can you tell me what is the price of a two BHK?"
+      }
+    ]
+  },
+  {
+    "call_id": 3,
+    "developer_project": "Adani Realty - Code Name Lit (Thane)",
+    "caller_persona": "Prospective Homebuyer",
+    "status": "PASSED",
+    "overall_confidence_score": 82,
+    "scores": {
+      "lead_qualification": 55,
+      "site_visit_scheduling": 68,
+      "objection_and_boundary": 90,
+      "compliance_and_tone": 75,
+      "conversational_fluency": 85
+    },
+    "extracted_entities": {
+      "intent": "Project inquiry regarding unit size, amenities, local area, and builder credentials",
+      "configuration": "2 BHK (788 sq. ft. & 802 sq. ft. options)",
+      "visit_datetime": "Unscheduled",
+      "channel_followup": "Not specified",
+      "disclosed_pricing": "Deferred to site visit executive"
+    },
+    "executive_summary": "The AI agent successfully answered detailed customer questions regarding unit carpet areas, nearby social infrastructure, and developer credentials for Adani Realty. It correctly adhered to price disclosure boundaries by steering towards a site visit. However, the call ended before capturing key lead qualification criteria (budget, timeline, intent) or securing a specific site visit date and follow-up channel.",
+    "key_strengths": [
+      "Accurate and detailed responses regarding carpet areas, balconies, and utility spaces.",
+      "Excellent knowledge retrieval regarding surrounding landmarks (Jupiter Hospital, Lakeshore Mall, Singhania School).",
+      "Strict compliance with pricing policies by deferring detailed pricing to on-site representatives.",
+      "Strong brand credibility presentation when asked about the developer's track record."
+    ],
+    "weaknesses_or_flags": [
+      "Initial utterance glitch with self-overlapping introductory greeting.",
+      "Missing mandatory call recording disclosure statement at call start.",
+      "Failed to capture key lead qualification details such as timeline, budget, and purchasing intent (self-use vs investment).",
+      "Did not successfully lock in a date, time, or confirmation channel (e.g., WhatsApp) before call close."
+    ],
+    "actionable_recommendations": [
+      "Include mandatory call recording consent disclosure in the greeting payload.",
+      "Incorporate proactive lead qualification questions (e.g., target move-in timeline and budget) before pivoting to site visit scheduling.",
+      "If the user interrupts the scheduling question, address the user query and seamlessly pivot back to secure a specific visit date/time and offer WhatsApp details."
+    ],
+    "tab_id": 3,
+    "audio_url": "https://convoai-absolutecx.s3.amazonaws.com/1f7f54ac-4fd0-4ba6-a855-ea206637b229.wav",
+    "turn_count": 19,
+    "turns": [
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hi, this is Aditi from Adani Realty. Can I quickly tell you about"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Great. Just to give you a quick"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Sure."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Great. Just to give you a quick overview, code name Lit is a premium gated community at Teen Hath Naka, Thane, featuring king size 2 and 3 bed homes with a deck and world class amenities spread across the clubhouse, podium rooftop and ground floor."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay. What is the overall spacing for that flat?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Okay, got it. For our two bed homes, we have a couple of great options. In Tower B, the carpet area is about 788 square feet plus a 36 square foot balcony and a 32 square foot utility area. In Tower A, it's a bit larger at 802 square feet, also with a 36 square foot balcony and 32 square foot utility area. A key highlight is that the metro station is right next to the project, which is incredibly convenient. Our sample flat for the two bed home is also ready for you to see."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "What are the prices?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hello."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I understand you're asking about the price. Our executive at the site will share the complete pricing details with you. Would you be interested in scheduling a site visit so you can experience the project first hand? Our sample flats, both 2 BHK and 3 BHK, are ready and can also be viewed as a Jodi option."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay, sure, I'll visit. What are the nearby amenities outside the flat which are available for us to use just like metro as you said?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Great. Besides the metro station right next to the project, you'll have access to world class amenities spread across three levels. In the clubhouse, there's a mini theater, squash court, gym and banquet hall. On the podium rooftop, you'll find a lap pool, yoga deck, amphitheater and jogging track. On the ground floor, there's a tennis court, cricket practice net and a 137 seat amphitheater. Would you like to schedule your site visit to experience these amenities first hand?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "I got the information about the amenities. What are the other details surrounding the apartment?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The project is located at Teen Hath Naka on LBS Marg Thane, directly adjacent to the Mumbai Metro Line 1 Blue Line station. For nearby amenities, you have Jupiter Hospital about 2 kilometers away, Lakeshore Mall around 2 kilometers, and Sulochana Devi Singhania School approximately 3.3 kilometers away. Would you like directions from a specific area or shall we schedule your site visit so you can see everything first hand?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Sure. I'll definitely visit."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Great. To schedule your visit, what date?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Who is the builder who has made this building? Can you give me some of his information or some projects that he has made before so we can have information about that as well?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Adani Realty is the real estate arm of the Adani Group, one of India's leading infrastructure and development entities. They have developed close to 33 million square feet and have approximately 144 million square feet under development across residential, commercial and social club projects in Ahmedabad, Mumbai, Pune and Gurugram. They've helped thousands of families find their dream homes. Would you like to schedule your site visit now to see the project first hand?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay, thank you, Aditi. Thank you, Aditi."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Thank you for your time."
+      }
+    ]
+  },
+  {
+    "call_id": 4,
+    "developer_project": "Dakshin Vistas",
+    "caller_persona": "Pooja (Sales / Lead Qualification Agent)",
+    "status": "NEEDS_REVIEW",
+    "overall_confidence_score": 68,
+    "scores": {
+      "lead_qualification": 50,
+      "site_visit_scheduling": 80,
+      "objection_and_boundary": 75,
+      "compliance_and_tone": 60,
+      "conversational_fluency": 65
+    },
+    "extracted_entities": {
+      "intent": "Property Purchase",
+      "configuration": "Independent Floors (Basement + Stilt + 4 Floors + Terrace)",
+      "visit_datetime": "First day of next week, Afternoon",
+      "channel_followup": "Phone Call",
+      "disclosed_pricing": "Starting around 2.10 Crore"
+    },
+    "executive_summary": "The AI agent successfully pitched the Dakshin Vistas project and scheduled a soft site visit commitment for the first day of next week in the afternoon. However, the call suffered from missing recording consent compliance, minimal buyer qualification (no BHK, budget limit, or end-use check), an unprompted hallucination of a customer name ('Vijay'), and a duplicate turn error where the agent spoke customer lines.",
+    "key_strengths": [
+      "Successfully secured agreement for a site visit next week afternoon.",
+      "Provided clear macro project details including location (Sohna Road) and structure specs.",
+      "Maintained a polite, helpful, and courteous tone throughout the interaction."
+    ],
+    "weaknesses_or_flags": [
+      "Missing call recording disclosure mandatory policy statement.",
+      "Agent uttered a duplicate self-response ('I understand. I'm interested.') in place of waiting for user.",
+      "Hallucinated the name 'Vijay' during address navigation instructions without confirmation.",
+      "Failed to perform fundamental lead qualification such as preferred BHK unit, end-use vs. investment, or precise budget."
+    ],
+    "actionable_recommendations": [
+      "Incorporate mandatory mandatory disclosure ('This call is being recorded for quality and training purposes') at the opening.",
+      "Fix conversational state machine logic to prevent the bot from reciting user persona statements.",
+      "Enhance entity resolution to ensure dynamic name insertion only occurs when user identity is confirmed.",
+      "Train prompt flow to proactively ask for BHK preference, buyer intent (self-use/investment), and budget before scheduling site visits."
+    ],
+    "tab_id": 4,
+    "audio_url": "https://convoai-absolutecx.s3.amazonaws.com/8fdf6c48-a50c-41a1-a209-a1a10a795de1.wav",
+    "turn_count": 21,
+    "turns": [
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hello, my name is Pooja."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, ma'am. Good afternoon."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "We are reaching out to inform you about an exclusive real estate opportunity in our new project, Dakshin Vistas, located in South of Gurugram, bang on Sohna Road. Are you interested in buying a property in Gurugram?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I've got it. Great. It's a fantastic project in a prime location. We're developing a 125.60 acres integrated township at the foothills of the Aravalli, surrounded by green areas. The township offers a mix of properties. We have apartments with modern architecture and Vastu compliant designs, as well as 698 residential units, alongside commercial and industrial plots. The entire community is gated with a five-tier security system and incredible amenities, including a two-acre exclusive clubhouse, playgrounds, and over 20 other lifestyle facilities. Are you interested in knowing more about the property?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, ma'am."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Okay, so the residential units are independent floors in a basement plus stilt parking, plus four floors, and a terrace structure. The starting price is around 2.10 crore, though it can vary based on unit availability. Would you be interested in visiting the site to see it for yourself?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, ma'am."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I understand. I'm interested."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Yes, I understand. So when would you like to come for a site visit?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Ma'am, please tell me a time, I will reach at that time."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Yes, absolutely. Our site visit timings are from 9 AM to 7 PM. So, would you like to come tomorrow or the day after tomorrow? Or any other day that is convenient for you?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Ma'am, are you there?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "First week, first week will be fine. I will come in the first week of this week because I am currently in Chhattisgarh."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Yes, okay. So you would like to come on the first day of next week? I will fix the time for your site visit. Would morning time be suitable for you or afternoon?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Ma'am, afternoon will be fine. Afternoon."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Yes, okay. So I will fix the time for your site visit for the first day of next week in the afternoon. My executive will be waiting for you and will give you all the information about the project. Do you need any other information or have any other questions?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay, ma'am. Ma'am, the question is where will the location be? Where should I come?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Yes, absolutely. The address of our project is South Gurugram, on Sohna Road. You can check on Google Maps, Vijay, and choose the best route. If you face any difficulty, you can call me and I will help you. Okay?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay, ma'am. Thank you so much, ma'am."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Yes, you're welcome. I'm glad I could help you. If you need any other information or have any other questions, please do call me. Otherwise, I will."
+      }
+    ]
+  },
+  {
+    "call_id": 5,
+    "developer_project": "Signature Global / DAXIN GURUGRAM",
+    "caller_persona": "Prospective Buyer",
+    "status": "NEEDS_REVIEW",
+    "overall_confidence_score": 70,
+    "scores": {
+      "lead_qualification": 40,
+      "site_visit_scheduling": 50,
+      "objection_and_boundary": 80,
+      "compliance_and_tone": 60,
+      "conversational_fluency": 65
+    },
+    "extracted_entities": {
+      "intent": "Property Inquiry",
+      "configuration": "Independent Floors (B + Stilt + 4 Floors + Terrace)",
+      "visit_datetime": null,
+      "channel_followup": null,
+      "disclosed_pricing": "Starting around 2.10 Crore"
+    },
+    "executive_summary": "The agent provided accurate project details regarding DAXIN GURUGRAM (Signature Global), explaining the land area (125.60 acres) and clarifying the concept of independent floors versus towers/villas. However, the call suffered from opening repetition glitches, lacked call recording compliance disclosure, failed to proactively qualify the buyer's criteria (BHK, timeline, budget), and did not close on a concrete site visit or WhatsApp follow-up.",
+    "key_strengths": [
+      "Accurately retrieved and stated project facts (125.60 acres, Signature Global developer, price starting at 2.10 Cr).",
+      "Clear, articulate explanation of 'independent floors' when the customer expressed confusion about towers vs. villas.",
+      "Maintained a polite and professional tone throughout the interaction."
+    ],
+    "weaknesses_or_flags": [
+      "Initial utterance looping/repetition glitch during the greeting phase.",
+      "Missing mandatory call recording consent disclosure ('This call is now being recorded').",
+      "Passive lead qualification\u2014did not ask for user's desired BHK, budget, or buying timeline.",
+      "Soft site visit invitation at the end was not follow-up locked with specific date, time, or confirmation channel."
+    ],
+    "actionable_recommendations": [
+      "Fix audio latency/barge-in handling at start of call to eliminate greeting repetition loops.",
+      "Inject mandatory call recording consent disclosure in the standard greeting flow.",
+      "Train agent to proactively ask qualifying questions (e.g., preference for 3BHK/4BHK, investment vs end-use) before quoting prices or ending the call.",
+      "Implement structured scheduling logic to secure a specific day/time for site visits or offer WhatsApp brochure dispatch."
+    ],
+    "tab_id": 5,
+    "audio_url": "https://convoai-absolutecx.s3.amazonaws.com/e2fc11f8-d61c-4156-a0c0-fe692e072714.wav",
+    "turn_count": 27,
+    "turns": [
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hello, my name is Pooja."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hello."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "We're reaching out to inform you about an exclusive real estate opportunity in our new project, DAXIN GURUGRAM."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hello."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "We're reaching out to inform."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hello, we're reaching out to inform you about an exclusive real estate opportunity in our new."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Regarding."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "We're reaching out to inform you about an exclusive real estate opportunity in our new project, DAXIN GURUGRAM, located in South of Gurugram, bang on Sona Road. Are you interested in buying a property in Gurugram?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "This is for which project?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "It's for our project, DAXIN GURUGRAM. Are you interested in buying a property in Gurugram?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Who is the builder?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The developer of DAXIN GURUGRAM is Signature Global, a prominent real estate developer specializing in premium and luxury housing."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "What is the total layout?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Got it. The total layout of DAXIN GURUGRAM is 125.60 acres and it's an integrated township with a mix of properties including 698 residential units."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "You said 125 acres."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "125.60 acres is the total land area of DAXIN GURUGRAM and it's located in a prime location at the foothills of the Aravalli in South of Gurugram, bang on Sona Road. Would you like to know more about the project?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "And how many towers are there in 125 acres?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The project has residential units designed as independent floors and it's a basement plus stilt parking plus four floors and a terrace structure. There aren't towers as such, but rather independent floors. Are you interested in knowing more about the property?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "What is independent floor?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "An independent floor is a type of residential unit where you have a dedicated floor for yourself with no sharing of the floor with other families. In DAXIN GURUGRAM, each independent."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Is it a tower or it's a it's a villa?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "It's not a tower and it's not a villa either. The independent floors in DAXIN GURUGRAM are more like a mix of both where you have a dedicated floor with a private entrance, but it's still part of a larger complex with multiple units. Does that make sense?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "This is G plus how many stories?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The independent floors in DAXIN GURUGRAM are in a basement plus stilt parking plus four floors and a terrace structure. So it's a total of six levels including the basement and the stilt parking."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "And what's the price?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The starting price of the independent floors in DAXIN GURUGRAM is around 2.10 crore. But it may vary based on unit availability and floor. Would you like to visit the site to see it for yourself and get a better idea of the pricing?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay, I understand. Thank you."
+      }
+    ]
+  },
+  {
+    "call_id": 6,
+    "developer_project": "Shriram Properties - Undri Pune",
+    "caller_persona": "Khushi - Real Estate Sales Executive",
+    "status": "NEEDS_REVIEW",
+    "overall_confidence_score": 75,
+    "scores": {
+      "lead_qualification": 80,
+      "site_visit_scheduling": 60,
+      "objection_and_boundary": 85,
+      "compliance_and_tone": 60,
+      "conversational_fluency": 75
+    },
+    "extracted_entities": {
+      "intent": "Investment",
+      "configuration": "2 BHK and 3 BHK",
+      "visit_datetime": "Not scheduled / User declined",
+      "channel_followup": "None",
+      "disclosed_pricing": "3 BHK starting at 83 Lakhs all-inclusive; 2 BHK price withheld for site visit"
+    },
+    "executive_summary": "The AI agent (Khushi) effectively engaged an investment lead, providing rich project details including carpet areas, floor-to-ceiling heights, parking specs, and possession timelines. However, the agent initially misheard a question about tower counts (answering with parking stats), missed required call recording consent disclosure, and over-indexed on pushing site visits after nearly every response, leading the customer to eventually decline.",
+    "key_strengths": [
+      "Successfully established lead intent as investment.",
+      "Accurately provided technical details such as carpet area ranges, floor-to-ceiling height (9 ft 6 in), possession dates (2030/2035), and parking specifics.",
+      "Adhered to pricing policy by disclosing 3 BHK starting prices while holding 2 BHK pricing for a site visit."
+    ],
+    "weaknesses_or_flags": [
+      "Missing mandatory call recording disclosure at the beginning of the call.",
+      "Misunderstood the user's question regarding number of towers and provided parking count instead.",
+      "Repetitive closeout pitch for site visits after almost every turn created conversational friction, resulting in the user declining."
+    ],
+    "actionable_recommendations": [
+      "Ensure mandatory recording disclosure ('This call is being recorded for quality and training purposes') is included in the opening salutation.",
+      "Improve intent understanding/ASR parsing for structural questions like 'towers and floors' to prevent irrelevant responses about parking.",
+      "Vary conversational call-to-actions so the agent does not force a site visit scheduling prompt on every single question response."
+    ],
+    "tab_id": 6,
+    "audio_url": "https://convoai-absolutecx.s3.amazonaws.com/0965a3ef-661d-4d6e-a5c8-505222110c6c.wav",
+    "turn_count": 34,
+    "turns": [
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hello."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hello."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I'm Khushi here. I'm calling you regarding the biggest investment opportunity for our flagship development from Shriram Properties at Undri. Would you be interested in buying a 2 or 3 BHK in Undri Pune?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "So, are you looking to buy this property for self-use or as an investment opportunity?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "As an investment opportunity."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "That's great. Our project in Undri is a fantastic investment opportunity with the potential for good returns. We have 2 and 3 BHK residences available with prices starting at 83 lakhs for 3 BHK. Would you like to know more about the project and its amenities?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, tell me the carpet areas and configurations that are available."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "We have 2 BHK residences with carpet areas ranging from 758 to 857 square feet and 3 BHK residences with carpet areas from 935 to 1095 square feet. Got it?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "What is the price of each configuration?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The price for 3 BHK residences starts at 83 lakhs all inclusive. As for the 2 BHK price, I can share that with you during the site visit, okay?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Is it all inclusive or just the base price?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The 83 lakhs price for 3 BHK is all inclusive, meaning it covers everything, no extra cost. And by the way, the booking amount is 3 lakhs for 3 BHK and 2 lakhs for 2 BHK."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "How many towers and floors are there in the project?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "We have a total of 973 car parks available in the project with each parking size being 2.5 meters by 5 meters."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "I'm asking about the number of towers, not car parking."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "One sec. We have four units per floor and the building has G+22 floors. So there are a total of 88 units, but I don't have the exact number of towers. Would you like to schedule a site visit to get more details?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay, so it's a standalone project, right?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "No, it's not a standalone tower. We have a mixed-use development with residential, retail, and commercial spaces. And the residential part has multiple towers, but I can give you more information on that during the site visit. Would you like to schedule one?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "What is the possession date?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The possession date for residential is year 2030 and for commercial is year 2035. Would you like to visit the site to know more about the project's progress?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "What is the distance from the nearby metro?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "One sec. Actually, I can give you better directions using landmarks. We are located on Katraj Saswad Highway and you can use Google Maps for the most accurate route, but I don't have the exact distance from the metro. Would you like to schedule a site visit and I can give you more information on the location?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "What is the floor to ceiling height?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The floor to ceiling height is 9 feet 6 inches, pretty spacious, right?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "What is the total parking slots that are available and where are they located?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "We have a total of 973 car parking slots available and they are located at the ground level with EV charging facilities provided as per norms. Would you like to know more about the project's amenities during a site visit?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "What are the key highlights of this project?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "So the key highlights of this project are its location on Katraj Saswad Highway overlooking the Sahyadri Hills and its Undri's first ever downtown residences with a 14-acre gated community and 60 plus world-class amenities including two clubhouses, making it a really unique and premium."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Is the sample flat ready?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The sample flat is ready and you can visit it during the site visit. Would you like to schedule a site visit at your convenience?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "No, thank you."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Is there anything else I can assist you with before I go?"
+      }
+    ]
+  },
+  {
+    "call_id": 7,
+    "developer_project": "Veena Synergy",
+    "caller_persona": "Prospective Homebuyer (Self-Use)",
+    "status": "PASSED",
+    "overall_confidence_score": 82,
+    "scores": {
+      "lead_qualification": 70,
+      "site_visit_scheduling": 95,
+      "objection_and_boundary": 90,
+      "compliance_and_tone": 70,
+      "conversational_fluency": 80
+    },
+    "extracted_entities": {
+      "intent": "Property Purchase & Site Visit Booking",
+      "configuration": "2 BHK / 3 BHK (Unspecified preference)",
+      "visit_datetime": "This Sunday at 02:30 PM",
+      "channel_followup": "Location address dispatch via messaging",
+      "disclosed_pricing": "Starting from 2.18 Crores for 2 BHK"
+    },
+    "executive_summary": "The AI agent successfully booked a site visit for Sunday at 2:30 PM for a prospective buyer interested in self-use at Veena Synergy, Andheri East. While the call achieved its main objective (site visit booking), there were minor transcript/attribution glitches during the greeting and a missing mandatory call recording consent disclosure.",
+    "key_strengths": [
+      "Successfully secured a site visit booking with specific day and time (Sunday at 2:30 PM).",
+      "Proactively communicated site visit operating hours (9:00 AM to 7:00 PM).",
+      "Clear disclosure of starting price (2.18 Cr for 2 BHK) and location details."
+    ],
+    "weaknesses_or_flags": [
+      "Missing call recording disclosure ('This call is recorded').",
+      "Did not capture specific BHK preference (2 BHK vs 3 BHK) prior to scheduling.",
+      "Mid-turn truncation/re-prompt where agent got cut off mid-sentence ('Can you please tell me what')."
+    ],
+    "actionable_recommendations": [
+      "Ensure mandatory recording compliance notice is delivered at the beginning of the call.",
+      "Incorporate a turn to confirm explicit BHK requirement (2 BHK or 3 BHK) during qualification before locking the site visit.",
+      "Fix utterance completion / VAD settings to avoid cut-offs mid-sentence."
+    ],
+    "tab_id": 7,
+    "audio_url": "https://convoai-absolutecx.s3.amazonaws.com/b0c8ec4f-db04-47a5-b611-f1e40b043ab9.wav",
+    "turn_count": 14,
+    "turns": [
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Hello."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hello."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "My name is Ria and I'm calling from Veena Developers. Are you looking to buy a property in Andheri East?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "That's great. Um we have a wonderful residential project Veena Synergy located in Andheri East. Are you looking to buy this property for investment or for self-use?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Self-use."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "So you're looking to buy a property in Andheri East for self-use. That's nice. Can you please tell me what"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "We have two and three BHK apartments available in our project with prices starting from 2.18 crores for a 2 BHK. Would you like to know more about the project or schedule a site visit?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "This week Sunday."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "This weekend Sunday would be a great time to visit our site. We are open from 9:00 a.m. to 7:00 p.m. Would you like to come at say 11:00 o'clock in the morning or would you prefer a different time that suits you better?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "After 2:30."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "2:30 is a good time. I'll make a note of it. So, I've scheduled a site visit for you this Sunday at 2:30. Our team will be there to show you around and answer any questions you may have. Would you like me to send you the address and directions to the site or would you like to use Google Maps to find"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I'll send you the address, but you can also use Google Maps to navigate to Veena Synergy Andheri East. If you need any help or have any questions before the site visit, please don't hesitate to reach out. Thank you so much for your time and I look forward to meeting you on Sunday at 2:30. Have a wonderful day ahead."
+      }
+    ]
+  },
+  {
+    "call_id": 8,
+    "developer_project": "Hiranandani West Gate",
+    "caller_persona": "LI from House of Hiranandani",
+    "status": "NEEDS_REVIEW",
+    "overall_confidence_score": 68,
+    "scores": {
+      "lead_qualification": 60,
+      "site_visit_scheduling": 55,
+      "objection_and_boundary": 70,
+      "compliance_and_tone": 50,
+      "conversational_fluency": 75
+    },
+    "extracted_entities": {
+      "intent": "Purchase 2 BHK property in Thane",
+      "configuration": "2 BHK",
+      "visit_datetime": "Day after tomorrow (time unconfirmed)",
+      "channel_followup": "None specified",
+      "disclosed_pricing": "2 BHK starting from 1.72 Crore (677 sq. ft. and 756 sq. ft.)"
+    },
+    "executive_summary": "The AI agent successfully pitch-presented Hiranandani West Gate and gathered configuration preference (2 BHK). However, the agent abruptly closed the call upon the customer requesting a site visit 'day after tomorrow' without confirming an exact time, site location, or follow-up confirmation on WhatsApp. Furthermore, required call recording compliance disclosures were omitted.",
+    "key_strengths": [
+      "Successfully presented the project details, configurations, pricing, and key amenities for 2 BHK.",
+      "Maintained a polite and professional tone throughout the interaction."
+    ],
+    "weaknesses_or_flags": [
+      "Omitted standard call recording consent disclosure at the start of the call.",
+      "Failed to confirm an exact time slot for the site visit when the customer requested 'day after tomorrow'.",
+      "Inappropriate transitional phrasing ('Exactly') before abruptly concluding the call.",
+      "Did not offer to send site location details or WhatsApp/SMS confirmation."
+    ],
+    "actionable_recommendations": [
+      "Implement mandatory call recording disclosure at the beginning of the call transcript flow.",
+      "Enhance site visit scheduling prompt logic to explicitly ask for a specific time slot (e.g., morning or afternoon) within operating hours (10 AM - 7 PM).",
+      "Add a confirmation step to send site location and executive contact details via WhatsApp or SMS before concluding the call."
+    ],
+    "tab_id": 8,
+    "audio_url": "https://convoai-absolutecx.s3.amazonaws.com/d140c60f-6c54-4f2f-b3dd-a92e3d87b9e7.wav",
+    "turn_count": 12,
+    "turns": [
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hello."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "My name is LI from House of Hiranandani."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Who is speaking?"
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "I am LI and I am calling from House of Hiranandani. Are you interested in buying a property in Thane?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, I am interested."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "We have launched a new project, Hiranandani West Gate, which has 2, 3, and 4 BHK available. Are you interested in any of these configurations?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "I am interested in 2 BHK."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "The price of 2 BHK starts from 1.72 crore and it has options of 677 square feet and 756 square feet available. It also has amenities like premium marble flooring, vitrified flooring, and premium bathroom fittings. Would you like to visit the site?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, absolutely."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Perfect. When would you like to visit the site?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "For the site visit, please keep it the day after tomorrow."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Exactly. One of our executives will be waiting for you at the site. Thank you and have a nice day."
+      }
+    ]
+  },
+  {
+    "call_id": 9,
+    "developer_project": "DTC Stillwaters",
+    "caller_persona": "Riya (DTC Group Sales Agent)",
+    "status": "PASSED",
+    "overall_confidence_score": 82,
+    "scores": {
+      "lead_qualification": 65,
+      "site_visit_scheduling": 85,
+      "objection_and_boundary": 90,
+      "compliance_and_tone": 80,
+      "conversational_fluency": 78
+    },
+    "extracted_entities": {
+      "intent": "Site Visit Booking",
+      "configuration": "3BHK / 4BHK",
+      "visit_datetime": "Next Saturday morning",
+      "channel_followup": "Sales Representative Connect",
+      "disclosed_pricing": "None"
+    },
+    "executive_summary": "The AI agent successfully pitch-promoted DTC Stillwaters and secured a site visit commitment for next Saturday morning. However, when the customer initially agreed to connect ('Theek hai, connect kijiye'), the agent repeated project details unnecessarily before asking for confirmation again. The lead's detailed requirements (budget, specific BHK preference, self-use vs investment) were not deeply qualified.",
+    "key_strengths": [
+      "Successfully secured a site visit commitment for next Saturday morning.",
+      "Clearly communicated project features, location landmarks (behind Infosys), and operating hours (10 AM - 7 PM).",
+      "Maintained a polite, enthusiastic, and professional Hinglish tone throughout the call."
+    ],
+    "weaknesses_or_flags": [
+      "Conversational repetition: Pitch details were repeated after the customer had already agreed to connect.",
+      "Did not capture specific preference between 3BHK and 4BHK or ask about budget/buying timeline.",
+      "Missing explicit mandatory call recording consent disclosure statement at the opening."
+    ],
+    "actionable_recommendations": [
+      "Optimize dialogue flow to immediately proceed to scheduling/connecting once the customer gives affirmative consent ('Theek hai, connect kijiye') rather than re-pitching.",
+      "Incorporate specific time confirmation (e.g., confirming whether 10 AM or 11 AM works best) when customer mentions 'morning'.",
+      "Include call recording disclosure at the beginning of the interaction for regulatory compliance."
+    ],
+    "tab_id": 9,
+    "audio_url": "https://convoai-absolutecx.s3.amazonaws.com/4c99881f-f93d-489c-9f9b-62e07548b280.wav",
+    "turn_count": 12,
+    "turns": [
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hi, this is Riya from DTC Group. I'm calling about DTC Stillwaters in Newtown. Can I take two minutes?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "DTC Stillwaters mein premium 3BHK or 4BHK apartments hain jo open spaces aur ek beautiful natural water body ke charon taraf bane hain. Project mein 70% open space hai, ek waterfront clubhouse aur ek infinity swimming pool bhi hai. Kya main aapko iske bare mein aur details share karun ya fir directly hamare sales representative ke sath connect karwa doon free site visit ke liye?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Theek hai, connect kijiye."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Yeh project 5.1 acres mein spread hai aur isme 452 premium apartments hain. Location Newtown mein hai, Infosys ke bilkul peeche. Aur yahan ek five bigha natural pond hai, landscaped open spaces, floating fountains, ek waterfront clubhouse, infinity swimming pool aur bahut saare modern lifestyle amenities hain. Ab kya main aapko hamare sales representative se connect karwa doon free site visit ke liye?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Yes, connect with me."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Okay, great. Aapke liye kaun sa date ya time best rahega? Hamari team morning 10:00 baje se lekar sham 7:00 baje tak available hai."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Next weekend."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Okay, great. Next week mein kaun sa specific day aur time aapko convenient rahega?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Saturday morning."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Perfect, main abhi hi arrange karwa deti hoon. Aur kuch janna chahenge?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "No, thank you."
+      }
+    ]
+  },
+  {
+    "call_id": 10,
+    "developer_project": "DTC Stillwaters",
+    "caller_persona": "Riya from DTC Group",
+    "status": "PASSED",
+    "overall_confidence_score": 88,
+    "scores": {
+      "lead_qualification": 70,
+      "site_visit_scheduling": 90,
+      "objection_and_boundary": 95,
+      "compliance_and_tone": 80,
+      "conversational_fluency": 92
+    },
+    "extracted_entities": {
+      "intent": "Site Visit Scheduling",
+      "configuration": "3BHK / 4BHK (Unspecified by lead)",
+      "visit_datetime": "Next week Saturday, after 12:00 PM",
+      "channel_followup": "Sales representative callback / Visit arrangement",
+      "disclosed_pricing": "None"
+    },
+    "executive_summary": "The AI agent successfully pitch-promoted DTC Stillwaters and converted a user inquiry into a scheduled site visit for next Saturday after 12 PM. The agent effectively stated operational hours (10 AM - 7 PM). However, it missed the standard call recording compliance disclosure and did not gather specific qualification details such as budget, preferred configuration (3BHK vs 4BHK), or buyer intent.",
+    "key_strengths": [
+      "Clear, concise property pitch highlighting key selling points (waterfront clubhouse, 70% open space, infinity pool).",
+      "Proactively communicated site visit operational hours (10:00 AM to 7:00 PM).",
+      "Fluent code-switching between English and Hindi with smooth conversational pacing."
+    ],
+    "weaknesses_or_flags": [
+      "Did not mention mandatory call recording disclosure ('This call is being recorded').",
+      "Skipped detailed qualification (budget, configuration preference, self-use vs investment) prior to booking the site visit.",
+      "Did not send or promise an automated WhatsApp/SMS confirmation with site location details."
+    ],
+    "actionable_recommendations": [
+      "Inject call recording disclosure at the start of the call to ensure legal compliance.",
+      "Prompt the agent to ask for specific BHK preference (3BHK or 4BHK) and budget before final site visit booking.",
+      "Add an explicit follow-up mechanism, such as 'I will send you the location pin via WhatsApp'."
+    ],
+    "tab_id": 10,
+    "audio_url": "https://convoai-absolutecx.s3.amazonaws.com/2095791d-4d85-4ca3-89f7-d5a70421d65a.wav",
+    "turn_count": 9,
+    "turns": [
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Hi, this is Riya from DTC Group. I'm calling about DTC Stillwaters in Newtown. Can I take two minutes?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Okay."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "DTC Stillwaters mein premium 3BHK or 4BHK apartments hain jo open spaces aur ek beautiful natural water body ke charon taraf bane hain. Project mein 70% open space hai. Ek waterfront clubhouse aur ek infinity swimming pool bhi hai. Kya main aapko iske bare mein aur details share karu ya fir directly hamare sales representative ke sath connect karwa do free site visit ke liye?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Main kal site pe aata hu. Fir main dekhta hu wahan par aake."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Okay, great. Aapke liye kaun sa date aur time best rahega? Hamari team morning 10:00 baje se lekar sham 7:00 baje tak available hai."
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "Next week, Saturday after 12."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Perfect, main abhi hi arrange karwa deti hu. Aur kuch janna chahenge?"
+      },
+      {
+        "speaker": 1,
+        "speaker_label": "user",
+        "message": "No."
+      },
+      {
+        "speaker": 0,
+        "speaker_label": "agent",
+        "message": "Thank you."
+      }
+    ]
+  }
+]
