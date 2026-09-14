@@ -736,7 +736,7 @@ def get_customer_session_summary(context: Optional[ToolContext] = None) -> Dict[
 
     return {
         "status": "success",
-        "session_state": dict(context.state),
+        "session_state": context.state.to_dict() if hasattr(context.state, "to_dict") else getattr(context.state, "_value", {}),
         "active_order": context.state.get("current_order_id"),
         "customer_id": context.state.get("customer_id"),
         "active_rma": context.state.get("active_rma_code"),

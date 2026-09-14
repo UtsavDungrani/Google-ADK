@@ -31,6 +31,7 @@ except ImportError:
 async def run_evaluations(
     eval_set_path: str = "evals/customer_care.evalset.json",
     config_path: str = "evals/eval_config.json",
+    agent_module: str = "agent",
     num_runs: int = 1,
     output_file: str = "evals/eval_results.csv",
     html_output_file: Optional[str] = None,
@@ -42,9 +43,9 @@ async def run_evaluations(
             html_output_file += ".html"
 
     print("=" * 70)
-    print("  GOOGLE ADK CUSTOMER CARE AGENT EVALUATION")
+    print("  GOOGLE ADK AGENT EVALUATION SUITE")
     print("=" * 70)
-    print(f"• Target Agent Module : customer_care.agent (root_agent)")
+    print(f"• Target Agent Module : {agent_module}")
     print(f"• Eval Dataset Path   : {eval_set_path}")
     print(f"• Config File Path    : {config_path}")
     print(f"• Iteration Runs      : {num_runs}")
@@ -76,7 +77,7 @@ async def run_evaluations(
 
     try:
         await AgentEvaluator.evaluate_eval_set(
-            agent_module="agent",
+            agent_module=agent_module,
             eval_set=eval_set,
             eval_config=eval_config,
             num_runs=num_runs,
@@ -118,7 +119,12 @@ async def run_evaluations(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Run ADK Agent Evaluations for Customer Care")
+    parser = argparse.ArgumentParser(description="Run ADK Agent Evaluations")
+    parser.add_argument(
+        "--agent-module",
+        default="agent",
+        help="Python module containing the root_agent (e.g. 'agent' or 'convoai_agent')"
+    )
     parser.add_argument(
         "--eval-set",
         default=os.path.join(current_dir, "evals", "customer_care.evalset.json"),
@@ -155,6 +161,7 @@ def main():
     asyncio.run(run_evaluations(
         eval_set_path=args.eval_set,
         config_path=args.config,
+        agent_module=args.agent_module,
         num_runs=args.runs,
         output_file=args.output,
         html_output_file=args.html_output,
