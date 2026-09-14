@@ -1,0 +1,3374 @@
+{
+  "eval_set_id": "multilingual_callcenter_archive1_benchmark",
+  "name": null,
+  "description": null,
+  "eval_cases": [
+    {
+      "eval_id": "eval_call_1735404531_en_customer_support",
+      "conversation": [
+        {
+          "invocation_id": "inv_17354045_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello. Am I speaking to Maria?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_1",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17354045_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes. This is Steven.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello. My name is Steven. I'm calling you from finance department of ______, but online company. You were speaking with Michael before, and your manager is mister Omar. Correct?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_2",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17354045_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "This he.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Alright. So, yeah, I was calling you to help you because we were trying to find a solution and a way to make very quick and easy withdrawal of your money on the platform back to your bank. So I think we finally found an option, and that's why I'm calling you to help you with that. So it will just take another five, ten minutes of your time. If you're available, I would like to guide you through the steps and see if we can work out together.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_3",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17354045_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "So are you available for me to help you with it? Okay. Wonderful. Now I will ask you, please open AnyDesk and give me the AnyDesk on your computer.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_4",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_call_1735547939_ru_account_manager_finance",
+      "conversation": [
+        {
+          "invocation_id": "inv_17355479_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello, hello. I speak with Olga.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_1",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17355479_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes? Yes.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello, Olga. My name is Alexander. I call you at the request of Nikita. He asked to look after your position. Look, I will observe during today. I would like to immediately clarify my position. If anything, can you close yourself or will you need to help?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_2",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17355479_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I need. He said to wait for her to go to zero. Well, so as not to close.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes yes. He notified about the difficult situation that you had. As I understand it, you got to the hospital.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_3",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17355479_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes? He usually opened my transactions himself, and this is before the vacation, as he explained to me. And I just put 29 one instead of two nine -one and opened 29.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Oh oh! I understand, I understand.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_4",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_call_1735556115_pl_customer_service",
+      "conversation": [
+        {
+          "invocation_id": "inv_17355561_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello, good morning!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_1",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17355561_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Good morning! I tried to reach you",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "There was no work initiation, I just sent to work.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_2",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17355561_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I see. I see. Mrs. Jadwico, because we did not seem to be on Friday and did not seem to talk on Friday. What's with this payment?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Well, you just have to pay off those thousand nine hundred dollars. Only they just told me that this can be done by an accountant, by an accountant. So I will send you data to the transfer and as soon as the Lord covers these thousand nine hundred and is just confirmed. It is already generated with them, i.e. you only need to fund them in a thousand nine hundred and you will continue to transfer to the bank account. These ten thousand.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_3",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17355561_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "And this is due to this? What does it show that this payment must be made? Because it is not in total",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_4",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_call_1735560973_pl_account_billing",
+      "conversation": [
+        {
+          "invocation_id": "inv_17355609_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Halo, Hello, Hello! Yes, I am beautiful. Hello, good morning. How is it at home? Nothing interesting, no.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Holidays after Christmas and now you know, I have a break at work, because we chased us up for Europe and we are waiting for the figure and somehow there is nothing interesting joy, among others, because of your cooperation I have a lot of money and I am poor as pleasant mouse. There is no money, you can see how you. A new end of the year, a lot to pay and you can see how you. Someone does not know who, I don't know what's going on. I have money.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_1",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17355609_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "There, and you have rebuilt one thing, but there I closed on a minimum plus. Yes, and tell me yes, yes, because there we invested in a pound to Frank, and on the other hand in sale. So here he did the pound when buying, and there he was on the sale of pounds of euro. It should also make up, no? Is the euro held high at this time so that it does not do, right?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "No euro, it is not on the ground. We have to chop there in this euro. Sure, look what the situation looks like. I have a short day today and from tomorrow I will be unavailable until six January. I reported there to the manager to the supervisor to the local manager so that Piotrek on Friday he would call a job to call you, right?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_2",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17355609_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "And that this case with payment, no? To do all this, because he can see but for now, for now Jesus, if I have to pay something back, I don't pay for now, because I'm really reset, I totally have long, I don't have some things paid. I have money, and I don't understand, once they wanted to write some that I should pay off for something, now I was to pay for something else. Jerzy, I don't know what the fuck is going on. I'm sorry I'm a bit nervous.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Even I have money, give me money, I have from us how much you started and you need. I can not know even ten thousand as we meet. But Jurek, from which I have a lack of money when I got out there. I will only have a summary of the year now. I don't have money yet.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_3",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17355609_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "We just have to wait, if it has to be, I don't know, I will pack money and bring you and pay you in the office. And I will have confirmation because I don't know. And it changed there, this guy got pissed off because he said that you are up to something, that you need something to get something, I don't know. Finally, we started to others again, the money went, it was already fishing, you withdrew it. You force me to pay something that I don't know Jurek all the time.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Take me this damn explain it or describe it to me well that I know. Yes, I will call the head of the manager after the third January. But why do I need this pilot? Well, let him call it, I will probably explain to me what to pay for me? From who I don't talk, everyone says that I should not pay because I have a time to deer, you see I want yours, I don't get anything, some paper from you that you have a license.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_4",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_call_1738598108_fr_customer_support_call",
+      "conversation": [
+        {
+          "invocation_id": "inv_17385981_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello. It's Madame on the phone",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_1",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17385981_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I'm from. You are registered on your surrounding platform. All investments are ok.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "You apply me where sir",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_2",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17385981_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "From France Madame.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Okay, we did too late, because I already opened an account with someone afterwards, I learned, it was abroad.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_3",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17385981_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Abroad it was who I would like to be able to stand.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yeah, unfortunately, I had no experience. Me, I was, there, I was convinced by, here, the government, the journalists who speak. Here, I registered, I was called, I did not pay attention to asking where he took me the company of useful. And the, and the worst is that I have made twice two hundred and fifty euros.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_support_resolution_4",
+              "rubric_content": {
+                "text_property": "The agent patiently troubleshoots the customer problem, provides clear step-by-step guidance, and maintains a supportive and reassuring tone."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_call_1738598261_fr_sale",
+      "conversation": [
+        {
+          "invocation_id": "inv_17385982_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, hey. Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_1",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17385982_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello. Yes, hello madam etc, I hope you are well. Yes. You give me madam, it is from the company —--. I remind you about a form that you have returned for the, the V-sixty-two madam, you remember",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "It was, if you can speak less quickly, because I don't understand everything you say,",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_2",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17385982_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I'm sorry. Okay, there is no problem. I told you Madam, I am Sophie Martin, from the Arctican University. I call you, this is a form that you have completed on the date of January twenty January two thousand twenty five concerning the help of this given moment, madam. We try to call you since that day, but here we have not been successful and therefore you won today.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Return. Very very good, because you, you remember, of, of the form and everything. No. Okay, there is no problem, there is no problem. Anyway, Madam, in fact, it's Lix months.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_3",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17385982_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "All right. I, I have you, explained to you. In fact, it is an opportunity to earn a little more money, okay through what through an automatic application that works using artificial intelligence, okay the brands yes yes yes, but I have a ❌",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Lady who takes care of me for that.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_4",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_call_1755884171_en_support_billing",
+      "conversation": [
+        {
+          "invocation_id": "inv_17558841_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "The bank was not even released the money necessarily for Atomic because that's a different organization. Hello? Benjamin, can you hear me?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello? Benjamin. Yes. Hi, Jorgen. Hello.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_1",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17558841_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I called not so long ago.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yeah. Sorry. We we take the phone and then it disconnects. Sorry about that.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_2",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17558841_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Oh, really?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yeah. It has right now.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_3",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17558841_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "We got I got there",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "too late just now. Okay.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_4",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_call_1756465406_ru_pharma_sale",
+      "conversation": [
+        {
+          "invocation_id": "inv_17564654_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello, hello. Hello. I call you from the company's escort department of Industrial Farm. I call you about the drug for the fungus.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Filozov I already. For a minute, I was already talking today. I will not take. I don't need to.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_1",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17564654_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I am in the know. We will call you back. Olga, because for you there is an additional discount that you can use under this article. A course of four packages. It will be for you. 276 €. And only 165. It will be a full course for a month of application. That is, here you save almost 110 € thanks to this. Therefore, use while there is a discount.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Thanks a lot. No, I will not use.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_2",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17564654_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I will not. It's just expensive.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_3",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17564654_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I understand you perfectly that the price of the price is relevant for you? There is a need to understand why and what you pay for. It's just that the components are expensive, high -quality, hence the price. Therefore, he works. Hence the effect. Therefore, you get a quick high -quality recovery, getting rid of the fungus fully, completely. At the same time, in the shortest possible time, plus the drug, even immunity is produced for at least three years. Therefore, apparently, you still use it while there is such a discount for you?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "No, no, I said already. No, I mean.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_4",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_call_1756469254_de_sale",
+      "conversation": [
+        {
+          "invocation_id": "inv_17564692_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello. Good day. What is my name? I am a customer advisor from the Nutriopharm company. You have entered us. For the product Eosin. Mr. Schnicke?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, I just spoke to a colleague. From them.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_1",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17564692_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "So recently.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, recently. Yes.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_2",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17564692_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes. So you rejected the offer. Probably because of the high prices.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_3",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17564692_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Exactly. So, the reason for our phone call is now. We have a new offer for you. A great offer. So, we can see the 40 capsules for a complete recovery. Instead of offering 236 for 165. And then you only pay € 41 for each package. These 40 capsules would be sufficient to restore their health. So, the man's entire urogenital system is brought in balance with the necessary vitamins, hormones, minerals, antioxidants and everything the body needs, which ensures good erection and a high duration of sexual intercourse. So the snail is a great matter for you.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, men, I already have preparations. Had already explained.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_4",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_call_1757078926_es_billing_or_account_issue_call",
+      "conversation": [
+        {
+          "invocation_id": "inv_17570789_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello. Aló, good day. With Mr. Jorge Mardones, please?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Ajá, with him.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_1",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17570789_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "How is, Mr. _______? ________r speaks ______.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, now, tell me.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_2",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17570789_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I am calling you directly. Yesterday could not make the transaction?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yesterday I did.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_3",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17570789_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "You did it, but it has not been reflected here. Ah? Do you have the voucher?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, I have it and I sent it in the photo.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_financial_accuracy_4",
+              "rubric_content": {
+                "text_property": "The agent provides transparent financial or billing explanations, clarifies payment or withdrawal procedures, and adheres to payment safety standards."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "eval_call_1757338962_portuguese_sale",
+      "conversation": [
+        {
+          "invocation_id": "inv_17573389_turn_1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello? Hello? Talk to? Yes. How are you?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Here who is talking is D__________, from the ___________ platform, I'm a relationship manager, how are you, all right? All very well. And after the platform no longer interests me, I gave up on that. Um, because that's it. There is only a blow there, all this is a blow.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_1",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_1",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17573389_turn_2",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Our platform, ours, the work store, sir sometimes? I saw about three, all of them I discovered everything blow. You apply and receive me back on, when my money, they already come a thousand bags, you have to invest my money to pass it on to me, just a blow. Aham, I don't know. I don't know if that.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "And I don't know if you talk, no, do you have to believe people's word for the phone? It is very safe business. Yeah, no, yes, but as you have seen yourself, we have big people from the national market who are with us, right? Fábio Marçal, municipal this is what advertising says. I have nothing.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_2",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_2",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17573389_turn_3",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "A person who invests on our platform and knows she is safe. Do you know what happens, Eugladson? Do you know what the problem is? I will talk to you, I have been drinking in the market since nine hundred and ninety and has thirty thousand times, history a thousand times. Every manager who called me, I am fifty years old, I know the market, I can apply, even little story.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I can't , I lost a child, I don't know, yes. Hey, it was very fucking. That, this sir, no, unfortunately I am very upset that you had these experiences, right? I can tell you that it is no wonder our platform we have been in the market for over ten years, right? Of course, certainly how everywhere, how satisfied people are in the bank and how they are not satisfied. ⚠️",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_3",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_3",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        },
+        {
+          "invocation_id": "inv_17573389_turn_4",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "But taking into account the number of active people we have and the number of people who complain about us is a totally huge number, because today active on our platform, we have one hundred and seventy thousand people online just right now. Per day, more than million and five hundred thousand people pass through our brokerage. So, with this audience all you need to be advertising, having to invest with you? Look, I honestly. Look, let me explain to you.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "We are in the situation of the Brazilian, right? I, okay, I'm a company relationship manager, what do I do? I come in with other people in touch to understand their investor profile, because once a month I choose three people to make a leverage of heritage, helps you make a profit from the market. No complication, no problems and without asking you money, you know? I'm not here to ask you money, I'm here to offer you an opportunity to leverage your assets.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 0.0,
+          "rubrics": [
+            {
+              "rubric_id": "rubric_sales_handling_4",
+              "rubric_content": {
+                "text_property": "The agent presents products/services clearly, addresses customer hesitations or objections courteously, and seeks to advance the commercial conversation."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            },
+            {
+              "rubric_id": "rubric_professional_tone_4",
+              "rubric_content": {
+                "text_property": "The agent communicates professionally, politely, and without offensive or misleading statements."
+              },
+              "description": null,
+              "type": "FINAL_RESPONSE_QUALITY"
+            }
+          ],
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": null,
+      "creation_timestamp": 0.0,
+      "rubrics": null,
+      "final_session_state": {}
+    }
+  ],
+  "creation_timestamp": 0.0
+}
